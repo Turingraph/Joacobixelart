@@ -33,7 +33,7 @@
 *	`B_LAYERS_ARRAY`
 3.	`B_OPTIONS`
 *	`IMAGE_EXPORT_MODE`
-4.	`B_TEXT`
+4.	`B_STR`
 
 Reference
 *	https://www.piskelapp.com/p/create/sprite/
