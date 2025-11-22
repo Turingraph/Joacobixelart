@@ -13,5 +13,5 @@ export const CSS_FLEX_COLUMN_LAST = {
 	minWidth:"100%", 
 	maxWidth:"100%", 
 	backgroundColor:"purple", 
-	flexGrow:1
+	flex: "1 0 auto",
 }
