@@ -1,6 +1,6 @@
 import React from "react";
 
-export function STR_HEADER(
+export default function STR_HEADER(
 {
 	title,
 }:{
