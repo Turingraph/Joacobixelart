@@ -1,23 +1,24 @@
-import { JSX } from "react";
-import B_LOGO from "../ui/atom/b_logo";
+/*
+// import B_LOGO from "../ui/atom/b_logo";
 import DIV from "../ui/atom/div";
-import CANVAS from "../ui/canvas/canvas";
-import MAP from "../ui/canvas/map";
-import * as a from "../ui/type/alias";
+// import * as a from "../ui/type/alias";
 
-import b_eraser from "../ui/logo/b_paint_no_rgb/b_eraser.png";
-import b_move from "../ui/logo/b_paint_no_rgb/b_move.png";
-import b_rectangle_select from "../ui/logo/b_paint_no_rgb/b_rectangle_select.png";
-import b_rgb_picker from "../ui/logo/b_paint_no_rgb/b_rgb_picker.png";
+// import b_eraser from "../logo/b_paint_no_rgb/b_eraser.png";
+import b_move from "../logo/b_paint_no_rgb/b_move.png";
+import b_rectangle_select from "../logo/b_paint_no_rgb/b_rectangle_select.png";
+import b_rgb_picker from "../logo/b_paint_no_rgb/b_rgb_picker.png";
 
-import b_bucker from "../ui/logo/b_paint_rgb/b_bucket.png";
-import b_mirror_pen from "../ui/logo/b_paint_rgb/b_mirror_pen.png";
-import b_pen from "../ui/logo/b_paint_rgb/b_pen.png";
-import b_rectangle from "../ui/logo/b_paint_rgb/b_rectangle.png";
+import b_bucker from "../logo/b_paint_rgb/b_bucket.png";
+import b_mirror_pen from "../logo/b_paint_rgb/b_mirror_pen.png";
+import b_pen from "../logo/b_paint_rgb/b_pen.png";
+import b_rectangle from "../logo/b_paint_rgb/b_rectangle.png";
 
 
+import STR_HEADER from "../ui/str/str_header";
 import "./main.css";
+*/
 
+/*
 export default function MAIN()
 {
 	const f_func = () => {
@@ -130,13 +131,14 @@ export default function MAIN()
 		background_color={"black" as a.t_css}
 		flex={"1" as a.t_css}
 	/>
+	<STR_HEADER title="title" />
 	</div>
 	</div>
 	<div className="grid_area_item" style={{gridArea:"area_canvas", backgroundColor:"purple"}}>
 	<CANVAS/>
 	</div>
 	
-	<div className="grid_area_item" style={{gridArea:"area_right", backgroundColor:"gray"}}>
+	<div className="grid_area_item" style={{gridArea:"area_transform", backgroundColor:"gray"}}>
 	<MAP 
 		canvas={"cartesian plane"} 
 		position_2d={[0, 1]} 
@@ -154,3 +156,65 @@ export default function MAIN()
 </div>
 </div>
 }
+*/
+
+import b_eraser from "../logo/b_paint_no_rgb/b_eraser.png";
+import B_LOGO from "../ui/atom/b_logo";
+import * as a from "../ui/type/alias";
+import { JSX } from "react";
+import FLEX_COLUMN from "../ui/html/flex_column";
+import AREA_PAINT from "./grid_area_body/area_paint";
+import GRID_TEMPLATE_COLUMNS from "../ui/html/grid_template_columns";
+import { CSS_DIV } from "../ui/html/div_css";
+
+export default function MAIN()
+{
+	const f_func = () => {
+		alert("Fermat Kitchen")
+	}
+	const B_FILE_ARRAY:JSX.Element[] = [
+		<B_LOGO
+			str_hover={"This is math Button." as a.t_str_hover}
+			logo={b_eraser as a.t_logo}
+			f_onclick={f_func as a.t_func}/>,
+		<GRID_TEMPLATE_COLUMNS
+			grid_template_areas={"area_paint area_canvas area_transform" as a.t_css}
+			grid_template_columns={"340px 3fr 250px" as a.t_css}
+			jsx_array={[
+				<div style={{...CSS_DIV,...{gridArea:"area_paint", backgroundColor:"red", display:"inline-block"}}}>
+					<AREA_PAINT/>
+				</div>,
+				<div style={{...CSS_DIV,...{gridArea:"area_canvas", backgroundColor:"green", display:"inline-block"}}}>
+
+				</div>,
+				<div style={{...CSS_DIV,...{gridArea:"area_transform", backgroundColor:"blue", display:"inline-block"}}}>
+					
+				</div>
+			]}
+		/>
+	]
+	return <FLEX_COLUMN
+	is_fill_app={true}
+	jsx_array={B_FILE_ARRAY}/>
+}
+
+/*
+### Question
+
+Why height:100% does not works ?
+
+h1 {
+	height: 100%;
+}
+
+div {
+	min-height: 100%;
+}
+
+<div><h1>gyugu</h1></div>
+
+In this case, it not works because 
+h1 do not know the current height of div.
+
+https://youtu.be/6aHKdahOfCc?si=DNwU2tnOf4NtrBW7
+*/
