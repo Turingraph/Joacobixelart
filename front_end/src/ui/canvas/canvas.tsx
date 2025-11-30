@@ -3,9 +3,9 @@ export default function CANVAS()
 {
 	return <div
 	style={{
-		width:"600px",
-		height:"600px",
-		backgroundColor:"green",
+		width:"800px",
+		height:"800px",
+		backgroundColor:"yellowgreen",
 	}}
 	></div>
 }
