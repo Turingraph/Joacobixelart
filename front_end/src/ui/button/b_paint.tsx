@@ -1,6 +1,6 @@
-import B_LOGO, { t_B_LOGO } from "../atom/b_logo";
+import B_LOGO, { t_B_LOGO } from "../../atom/button/b_logo";
+import * as a from "../../atom/type/alias";
 import { num_to_rgb } from "../rgb/rgb_func";
-import * as a from "../type/alias";
 
 export function B_PAINT(
 {

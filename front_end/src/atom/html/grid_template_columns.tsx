@@ -1,6 +1,5 @@
-import React, {JSX} from "react";
+import { JSX } from "react";
 import * as a from "../type/alias";
-// import { CSS_DIV } from "./div_css";
 
 export default function GRID_TEMPLATE_COLUMNS({
 	grid_template_columns,

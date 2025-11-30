@@ -1,6 +1,6 @@
-import React, {JSX} from "react";
-import * as a from "../type/alias";
-import STR_HEADER from "../str/str_header";
+import { JSX } from "react";
+import STR_HEADER from "../../atom/str/str_header";
+import * as a from "../../atom/type/alias";
 
 export function GRID_COLUMN({
 	column,

@@ -1,7 +1,6 @@
-import React from "react";
-import * as a from "../../ui/type/alias"
+import B_LOGO from "../../atom/button/b_logo";
+import * as a from "../../atom/type/alias";
 import { GRID_COLUMN } from "../../ui/html/grid_column";
-import B_LOGO from "../../ui/atom/b_logo";
 import { ARRAY_B_PAINTS } from "./array_b_paints";
 
 export default function AREA_PAINT()

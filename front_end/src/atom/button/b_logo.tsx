@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { STR_HOVER } from "../str/str_hover";
 import * as a from "../type/alias";
-import "./b_logo.css"
+import "./b_logo.css";
 
 export type t_B_LOGO = {
 	str_hover:a.t_str_hover,

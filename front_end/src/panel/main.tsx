@@ -3,15 +3,15 @@
 import DIV from "../ui/atom/div";
 // import * as a from "../ui/type/alias";
 
-// import b_eraser from "../logo/b_paint_no_rgb/b_eraser.png";
-import b_move from "../logo/b_paint_no_rgb/b_move.png";
-import b_rectangle_select from "../logo/b_paint_no_rgb/b_rectangle_select.png";
-import b_rgb_picker from "../logo/b_paint_no_rgb/b_rgb_picker.png";
+// import b_eraser from "../asset/b_paint_no_rgb/b_eraser.png";
+import b_move from "../asset/b_paint_no_rgb/b_move.png";
+import b_rectangle_select from "../asset/b_paint_no_rgb/b_rectangle_select.png";
+import b_rgb_picker from "../asset/b_paint_no_rgb/b_rgb_picker.png";
 
-import b_bucker from "../logo/b_paint_rgb/b_bucket.png";
-import b_mirror_pen from "../logo/b_paint_rgb/b_mirror_pen.png";
-import b_pen from "../logo/b_paint_rgb/b_pen.png";
-import b_rectangle from "../logo/b_paint_rgb/b_rectangle.png";
+import b_bucker from "../asset/b_paint_rgb/b_bucket.png";
+import b_mirror_pen from "../asset/b_paint_rgb/b_mirror_pen.png";
+import b_pen from "../asset/b_paint_rgb/b_pen.png";
+import b_rectangle from "../asset/b_paint_rgb/b_rectangle.png";
 
 
 import STR_HEADER from "../ui/str/str_header";
@@ -158,15 +158,15 @@ export default function MAIN()
 }
 */
 
-import b_eraser from "../logo/b_paint_no_rgb/b_eraser.png";
-import B_LOGO from "../ui/atom/b_logo";
-import * as a from "../ui/type/alias";
 import { JSX } from "react";
-import FLEX_COLUMN from "../ui/html/flex_column";
-import AREA_PAINT from "./grid_area_body/area_paint";
-import GRID_TEMPLATE_COLUMNS from "../ui/html/grid_template_columns";
-import { CSS_DIV } from "../ui/html/div_css";
+import B_LOGO from "../atom/button/b_logo";
+import { CSS_DIV } from "../atom/html/div_css";
+import FLEX_COLUMN from "../atom/html/flex_column";
+import GRID_TEMPLATE_COLUMNS from "../atom/html/grid_template_columns";
+import * as a from "../atom/type/alias";
+import b_eraser from "../asset/b_paint_no_rgb/b_eraser.png";
 import CANVAS from "../ui/canvas/canvas";
+import AREA_PAINT from "./grid_area_body/area_paint";
 
 export default function MAIN()
 {

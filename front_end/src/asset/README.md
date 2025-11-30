@@ -1,4 +1,4 @@
-# Logo Credit
+# Button Logo Credit
 
 1.	`b_paint_no_rgb.tsx`
 	1.	`B_ERASER`

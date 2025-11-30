@@ -1,5 +1,4 @@
-import React from "react";
-import * as a from "../type/alias"
+import * as a from "../type/alias";
 
 export function STR_HOVER(
 {

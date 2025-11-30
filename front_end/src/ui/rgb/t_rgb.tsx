@@ -1,4 +1,4 @@
-import * as a from "../type/alias";
+import * as a from "../../atom/type/alias";
 
 export type t_B_RGB = {
 	key:number,

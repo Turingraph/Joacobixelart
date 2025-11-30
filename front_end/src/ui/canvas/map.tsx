@@ -1,5 +1,5 @@
-import DIV from "../atom/div";
-import STR from "../str/str";
+
+import STR from "../../atom/str/str";
 
 export default function MAP(
 {
@@ -24,13 +24,14 @@ export default function MAP(
 	const TEXT_00 = <STR text={"Zoom Level: " + zoom_level.toString()}/>;
 	const TEXT_01 = <STR text={"Position: " + position_2d[0].toString() + ", " + position_2d[1].toString()}/>;
 
-	return <DIV
-		jsx_array={[
-			SMALL_MAP,
-			TEXT_FAKE,
-			TEXT_00,
-			TEXT_01
-		]}/>
+	return <></>
+	// return <DIV
+	// 	jsx_array={[
+	// 		SMALL_MAP,
+	// 		TEXT_FAKE,
+	// 		TEXT_00,
+	// 		TEXT_01
+	// 	]}/>
 }
 
 /*
