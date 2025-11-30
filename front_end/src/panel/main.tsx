@@ -166,6 +166,7 @@ import FLEX_COLUMN from "../ui/html/flex_column";
 import AREA_PAINT from "./grid_area_body/area_paint";
 import GRID_TEMPLATE_COLUMNS from "../ui/html/grid_template_columns";
 import { CSS_DIV } from "../ui/html/div_css";
+import CANVAS from "../ui/canvas/canvas";
 
 export default function MAIN()
 {
@@ -178,14 +179,25 @@ export default function MAIN()
 			logo={b_eraser as a.t_logo}
 			f_onclick={f_func as a.t_func}/>,
 		<GRID_TEMPLATE_COLUMNS
-			grid_template_areas={"area_paint area_canvas area_transform" as a.t_css}
-			grid_template_columns={"340px 3fr 250px" as a.t_css}
+			grid_template_areas={"area_paint area_canvas area_transform area_empty" as a.t_css}
+			grid_template_columns={"340px 1000px 340px 1fr" as a.t_css}
 			jsx_array={[
 				<div style={{...CSS_DIV,...{gridArea:"area_paint", backgroundColor:"red", display:"inline-block"}}}>
 					<AREA_PAINT/>
 				</div>,
-				<div style={{...CSS_DIV,...{gridArea:"area_canvas", backgroundColor:"green", display:"inline-block"}}}>
-
+				<div 
+					style={{
+						...CSS_DIV,
+						...{
+							gridArea:"area_canvas", 
+							backgroundColor:"green", 
+							// display:"inline-block",
+							// alignContent:"center",
+							display:"flex",
+							justifyContent:"center",
+							alignItems:"center"
+						}}}>
+					<CANVAS/>
 				</div>,
 				<div style={{...CSS_DIV,...{gridArea:"area_transform", backgroundColor:"blue", display:"inline-block"}}}>
 					
