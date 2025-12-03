@@ -10,6 +10,7 @@ import b_bucket from "../../asset/b_paint_rgb/b_bucket.png";
 import b_mirror_pen from "../../asset/b_paint_rgb/b_mirror_pen.png";
 import b_pen from "../../asset/b_paint_rgb/b_pen.png";
 import b_rectangle from "../../asset/b_paint_rgb/b_rectangle.png";
+import { t_B_STR } from "../../atom/button/b_str";
 
 const f_func = () => {
     alert("Nujabes");
@@ -30,7 +31,7 @@ export const ARRAY_B_PAINTS:t_B_LOGO[] = [
 		func:(()=>{f_func()}) as a.t_func
 	},
 	{
-		str_hover:"Mittot Pen" as a.t_str_hover,
+		str_hover:"Mittor Pen" as a.t_str_hover,
 		logo:b_mirror_pen as a.t_logo,
 		func:(()=>{f_func()}) as a.t_func
 	},
@@ -59,4 +60,23 @@ export const ARRAY_B_PAINTS:t_B_LOGO[] = [
 		logo:b_rgb_picker as a.t_logo,
 		func:(()=>{f_func()}) as a.t_func
 	}
+]
+
+export const ARRAY_B_SAVE:t_B_STR[] = [
+	{
+		title:"save as",
+		func:(()=>{f_func()}) as a.t_func
+	},
+	{
+		title:"import image",
+		func:(()=>{f_func()}) as a.t_func
+	},	
+	{
+		title:"export project",
+		func:(()=>{f_func()}) as a.t_func
+	},	
+	{
+		title:"create new project",
+		func:(()=>{f_func()}) as a.t_func
+	},
 ]

@@ -1,7 +1,7 @@
 import B_LOGO from "../../atom/button/b_logo";
 import * as a from "../../atom/type/alias";
 import { GRID_COLUMN } from "../../ui/html/grid_column";
-import { ARRAY_B_PAINTS } from "./array_b_paints";
+import { ARRAY_B_PAINTS } from "../utils/array";
 
 export default function AREA_PAINT()
 {

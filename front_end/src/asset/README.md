@@ -1,52 +1,52 @@
-# Button Logo Credit
+# button logo credit
 
 1.	`b_paint_no_rgb.tsx`
-	1.	`B_ERASER`
+	1.	`b_eraser.png`
 	*	https://www.flaticon.com/free-icon/eraser_483907?term=eraser&page=1&position=5&origin=search&related_id=483907
-	2.	`B_MOVE`
+	2.	`b_move.png`
 	*	https://www.flaticon.com/free-icon/palm-of-hand_1427?term=hand&page=1&position=2&origin=search&related_id=1427
-	3.	`B_RECTANGLE_SELECT`
+	3.	`b_rectangle_select.png`
 	*	https://www.flaticon.com/free-icon/rectangle_16171467?term=rectangle&page=1&position=21&origin=search&related_id=16171467
-	4.	`B_RGB_PICKER`
+	4.	`b_rgb_picker.png`
 	*	https://www.flaticon.com/free-icon/color-picker_10075352?term=color+picker&page=1&position=3&origin=search&related_id=10075352
 2.	`b_paint_rgb.tsx`
-	1.	`B_PEN`
+	1.	`b_pen.png`
 	*	https://www.flaticon.com/free-icon/pen_1659764?term=pen&page=1&position=24&origin=search&related_id=1659764
-	2.	`B_MIRROR_PEN`
+	2.	`b_mirror_pen.png`
 	*	https://www.flaticon.com/free-icon/mirror-image_5951821?term=mirror&related_id=5951821
-	3.	`B_BUCKET`
+	3.	`b_bucket.png`
 	*	https://www.flaticon.com/free-icon/paint-bucket_1379778?term=bucket&page=1&position=17&origin=search&related_id=1379778
-	4.	`B_RECTANGLE`
+	4.	`b_rectangle.png`
 	*	https://www.flaticon.com/free-icon/rectangle_274397?term=rectangle&page=1&position=25&origin=search&related_id=274397 
 3.	`file/`
-	1.	`B_EXPORT`
+	1.	`b_export.png`
 	*	https://www.flaticon.com/free-icon/import_4013427?k=1762928594717&sign-up=google
-	2.	`B_IMPORT`
+	2.	`b_import.png`
 	*	https://www.flaticon.com/free-icon/folder_1383970?term=folder&page=1&position=8&origin=search&related_id=1383970
-	3.	`B_SAVE`
+	3.	`b_save.png`
 	*	https://www.flaticon.com/free-icon/save_4743125?term=save&page=1&position=33&origin=search&related_id=4743125
-	4.	`B_QUESTION`
+	4.	`b_question.png`
 	*	https://www.flaticon.com/free-icon/question-sign_25333?term=question&page=1&position=2&origin=search&related_id=25333
 4.	`canvas/`
-	1.	`B_ZOOM_IN`
+	1.	`b_zoom_in.png`
 	*	https://www.flaticon.com/free-icon/plus-symbol-button_32563?term=plus&page=1&position=1&origin=search&related_id=32563
-	2.	`B_ZOOM_OUT`
+	2.	`b_zoom_out.png`
 	*	https://www.flaticon.com/free-icon/minus_153604?term=minus&page=1&position=24&origin=search&related_id=153604
-	3.	`B_CARTESIAN`
+	3.	`b_cartesian.png`
 	*	https://www.flaticon.com/free-icon/cartesian-coordinate-system_70699?term=coordinate&page=1&position=40&origin=search&related_id=70699
 5.	`layers/`
-	1.	`B_CREATE_LAYER`
+	1.	`b_create_layer.png`
 	*	https://www.flaticon.com/free-icon/plus-symbol-button_32563?term=plus&page=1&position=1&origin=search&related_id=32563
-	2.	`B_DELETE_LAYER`
+	2.	`b_delete_layer.png`
 	*	https://www.flaticon.com/free-icon/close_2976286?term=cross&page=1&position=9&origin=search&related_id=2976286
-	3.	`B_MOVE_LAYER_UP`
+	3.	`b_move_layer_up.png`
 	*	https://www.flaticon.com/free-icon/up-arrow_626075?term=up&page=1&position=11&origin=search&related_id=626075
-	4.	`B_MOVE_LAYER_DOWN`
+	4.	`b_move_layer_down.png`
 	*	https://onlinepngtools.com/flip-png-vertically
-	5.	`B_NAME_LAYER`
+	5.	`b_name_layer.png`
 	*	https://www.flaticon.com/free-icon/pen_1659764?term=pen&page=1&position=24&origin=search&related_id=1659764
 6.	`transform/`
-	1.	`B_ROTATE`
+	1.	`b_rotate.png`
 	*	https://www.flaticon.com/free-icon/rotate-right_5264495?term=rotate&page=1&position=36&origin=search&related_id=5264495
-	2.	`B_FLIP`
+	2.	`b_flip.png`
 	*	https://www.flaticon.com/free-icon/right_3597135?term=flip&page=1&position=77&origin=search&related_id=3597135
