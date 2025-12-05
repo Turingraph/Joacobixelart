@@ -3,7 +3,7 @@
 1.	`asset/`
 *	Purpose: Store image files for button logo (a.k.a. button icon).
 2.	`atom`
-*	Purpose: Store reusable `.tsx` files that do not import any external file except files that in its current directory, `atom/type/` and/or `atom/str/`
+*	Purpose: Store reusable `.tsx` files that do not import any external file except files that in `atom/` directory.
 3.	`panel/`
 *	Purpose: Store non-reuseable frontend UI files.
 4.	`test/`

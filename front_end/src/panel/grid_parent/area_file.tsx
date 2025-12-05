@@ -14,7 +14,7 @@ export function AREA_FILE()
 		backgroundColor:"lightgreen"
 	}}>
 	<B_LOGO
-		str_hover={"This is math Button." as a.t_str_hover}
+		title={"This is math Button." as a.t_str_hover}
 		logo={b_eraser as a.t_logo}
 		func={f_func as a.t_func}
 	/>

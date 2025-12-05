@@ -4,7 +4,7 @@ import { num_to_rgb } from "../rgb/rgb_func";
 
 export function B_PAINT(
 {
-	str_hover,
+	title: str_hover,
 	logo,
 	func,
 	rgb,
@@ -27,7 +27,7 @@ export function B_PAINT(
 		this_rgb = rgb;
 	return <div style={{backgroundColor:num_to_rgb(this_rgb)}}>
 	<B_LOGO
-		str_hover={str_hover}
+		title={str_hover}
 		logo={logo}
 		func={f_select_onclick as a.t_func}
 	/>

@@ -1,6 +1,7 @@
 import { JSX } from "react";
 import STR_HEADER from "../../atom/str/str_header";
 import * as a from "../../atom/type/alias";
+import { CSS_CONTEXT } from "../../atom/hook/useContext";
 
 export function GRID_COLUMN({
 	column,
@@ -21,12 +22,14 @@ export function GRID_COLUMN({
 		JSX_TITLE = <STR_HEADER title={title}/>
 	return <div style={{margin:margin}}>
 		{JSX_TITLE}
-		<div style={{
+		<CSS_CONTEXT value={[{
 			display:"grid",
 			gridTemplateColumns:column,
 			gap:gap,
 			height:"100%",
 			minHeight:"100%",
-		}}>{jsx_array}</div>
+		}]}>
+			{jsx_array}
+		</CSS_CONTEXT>
 	</div>
 }
