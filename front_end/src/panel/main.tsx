@@ -8,7 +8,6 @@ import CANVAS from "../ui/canvas/canvas";
 import MULTI_SELECT_BS from "../ui/html/multi_select_bs";
 import AREA_PAINT from "./grid_area_body/area_paint";
 import { ARRAY_B_SAVE } from "./utils/array";
-import STR from "../atom/str/str";
 
 export default function MAIN()
 {
