@@ -1,4 +1,4 @@
-import { JSX } from "react";
+import { JSX, useState } from "react";
 import B_STR from "../atom/button/b_str";
 import { CSS_FULL_DIV } from "../atom/html/div_css";
 import FLEX_COLUMN from "../atom/html/flex_column";
@@ -8,18 +8,20 @@ import CANVAS from "../ui/canvas/canvas";
 import MULTI_SELECT_BS from "../ui/html/multi_select_bs";
 import AREA_PAINT from "./grid_area_body/area_paint";
 import { ARRAY_B_SAVE } from "./utils/array";
+import STR from "../atom/str/str";
 
 export default function MAIN()
 {
+	const [SS_PixelSize, setSS_PixelSize] = useState<number>(1);
 	const B_FILE_ARRAY:JSX.Element[] = [
-		// <div style={{backgroundColor:"orange"}}>
+		<>
 		<MULTI_SELECT_BS jsx_array={ARRAY_B_SAVE.map((item, index:number)=>{
 			return <B_STR
 				title={item.title}
 				func={item.func}
 			/>
 		})}/>
-		// </div>
+		</>
 		,
 		// <INLINE_BUTTONS jsx_array={ARRAY_B_SAVE}/>,
 		<GRID_TEMPLATE_COLUMNS
@@ -28,7 +30,12 @@ export default function MAIN()
 			jsx_array={[
 				<div style={{...CSS_FULL_DIV,...{gridArea:"area_paint", backgroundColor:"red", display:"inline-block"}}}>
 					{/* <MULTI_MODES_DIV jsx_array={ARRAY_EDITOR_MODE}/> */}
-					<AREA_PAINT/>
+					<AREA_PAINT 
+					pixel_size={{
+						ss:SS_PixelSize,
+						setss:setSS_PixelSize
+					}}
+					/>
 				</div>,
 				<div 
 					style={{
@@ -81,6 +88,5 @@ editor mode
 4.	transform
 
 to do now
-1.	solve display:??? of area_paint.tsx 
-2.	add ???px pen size
+2.	add ???px pen size (pleace show title and unit of STR_INPUT)
 */

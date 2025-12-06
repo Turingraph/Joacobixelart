@@ -15,9 +15,10 @@ export type t_class_name  = nominal<string>
 export type t_css = nominal<string>
 
 // utils
-export type t_use_state<t>= {
-    ss:t,
-    setss:React.Dispatch<
+export type t_setss<t>= React.Dispatch<
         React.SetStateAction<t>
     >|((e:t)=>void)
+export type t_use_state<t>= {
+    ss:t,
+    setss:t_setss<t>
 }
