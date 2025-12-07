@@ -29,9 +29,9 @@ export function MULTI_MODES_PAGE({
 		})}
 		state_input={ui_state}
 		/>,
-		<>{ui_body[ui_state.ss].ui}</>
+		<div style={{margin:"5px"}}>{ui_body[ui_state.ss].ui}</div>
 	]
 	return <GRID_TEMPLATE_ROWS
-	grid_template_rows={"55px 1fr" as a.t_css}
+	grid_template_rows={"50px 1fr" as a.t_css}
 	jsx_array={JSX_BODY}/>
 }
