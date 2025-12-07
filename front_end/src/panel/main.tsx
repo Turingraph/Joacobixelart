@@ -8,11 +8,12 @@ import * as a from "../atom/type/alias";
 import CANVAS from "../ui/canvas/canvas";
 import { MULTI_MODES_PAGE } from "../ui/html/multi_modes_page";
 import { ARR_B_SAVE, ARR_EDITOR_MODES } from "./utils/arr";
+import AREA_PAINT from "./grid_area_body/area_paint";
 
 export default function MAIN()
 {
-	// const [SS_PixelSize, setSS_PixelSize] = useState<number>(1);
-	const [SS_LeftPanelMode, setSS_LeftPanelMode] = useState<number>(1);
+	const [SS_PixelSize, setSS_PixelSize] = useState<number>(1);
+	const [SS_LeftPanelMode, setSS_LeftPanelMode] = useState<number>(0);
 	const JSX_BODY:JSX.Element[] = [
 		<div style={{gridArea:"area_head", backgroundColor:"gray"}}>
 		{ARR_B_SAVE.map((item, index:number)=>{
@@ -30,13 +31,17 @@ export default function MAIN()
 			grid_template_columns={"600px 1fr" as a.t_css}
 			jsx_array={[
 				<div style={{...CSS_FULL_DIV,...{gridArea:"area_paint", backgroundColor:"orange", display:"inline-block"}}}>
-					{/* <AREA_PAINT 
-					pixel_size={{
-						ss:SS_PixelSize,
-						setss:setSS_PixelSize
-					}}/> */}
 					<MULTI_MODES_PAGE
-						ui_body={ARR_EDITOR_MODES}
+						ui_body={[
+							...[{
+								ui:<AREA_PAINT 
+								pixel_size={{
+									ss:SS_PixelSize,
+									setss:setSS_PixelSize
+								}}/>,
+								title:"Main"
+							}],
+							...ARR_EDITOR_MODES]}
 						ui_state={{
 							ss:SS_LeftPanelMode,
 							setss:setSS_LeftPanelMode,

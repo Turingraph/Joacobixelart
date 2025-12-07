@@ -15,9 +15,7 @@ export default function AREA_PAINT({
 {
 	const [SS_PixelStr, setSS_PixelStr] = useState<string>("1");
 	const [SS_ToolMode, setSS_ToolMode] = useState<number>(0);
-	return <div 
-	style={{margin:"10px"}}
-	>
+	return <div>
 			<GRID_COLUMN
 				title={"Paint Tool"}
 				gap={"0px" as a.t_css}
