@@ -23,7 +23,7 @@ export default function MULTI_SELECT_BS({
 	const CX_CSS = useContext(CSS_CONTEXT);
 	const CX_JSX = useContext(JSX_CONTEXT);
 	return <div style={{
-		...CX_CSS[0],
+		...CX_CSS,
 		...{
 			display:"flex", 
 			justifyContent:"space-evenly",

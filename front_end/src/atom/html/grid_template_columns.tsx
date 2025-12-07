@@ -26,7 +26,7 @@ export default function GRID_TEMPLATE_COLUMNS({
 		width:is_fill_app?"100vh":"100%",
 		height:"100%",
 		},
-		...CX_CSS[0]
+		...CX_CSS
 		}}>
 		{jsx_array.map((item, index:number)=>{
 			return <span style={{display:"inline-block"}}>{item}</span>

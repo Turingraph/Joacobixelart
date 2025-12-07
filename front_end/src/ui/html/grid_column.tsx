@@ -22,13 +22,13 @@ export function GRID_COLUMN({
 		JSX_TITLE = <STR_HEADER title={title}/>
 	return <div style={{margin:margin}}>
 		{JSX_TITLE}
-		<CSS_CONTEXT value={[{
+		<CSS_CONTEXT value={{
 			display:"grid",
 			gridTemplateColumns:column,
 			gap:gap,
 			height:"100%",
 			minHeight:"100%",
-		}]}>
+		}}>
 			{jsx_array}
 		</CSS_CONTEXT>
 	</div>

@@ -24,7 +24,7 @@ export default function MAIN()
 		</div>
 		,
 		<div style={{gridArea:"area_body", height:"100%"}}>
-		<CSS_CONTEXT value={[{backgroundColor:"red"}]}>
+		<CSS_CONTEXT value={{backgroundColor:"red"}}>
 		<GRID_TEMPLATE_COLUMNS
 			grid_template_areas={"area_paint area_canvas" as a.t_css}
 			grid_template_columns={"600px 1fr" as a.t_css}
