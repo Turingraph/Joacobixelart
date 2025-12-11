@@ -2,6 +2,7 @@ import { JSX, useContext } from "react";
 import { CSS_CONTEXT, JSX_CONTEXT } from "../../atom/hook/useContext";
 import "./multi_color_b.css";
 import * as a from "../../atom/type/alias";
+import { CSS_MARGIN_Y } from "../../atom/html/div_css";
 
 // https://stackoverflow.com/questions/54706748/
 // change-color-of-a-element-inside-a-div-using-inline-css
@@ -23,12 +24,11 @@ export default function MULTI_SELECT_BS({
 	const CX_CSS = useContext(CSS_CONTEXT);
 	const CX_JSX = useContext(JSX_CONTEXT);
 	return <div style={{
+		...CSS_MARGIN_Y,
 		...CX_CSS,
 		...{
 			display:"flex", 
 			justifyContent:"space-evenly",
-			marginTop:"5px",
-			marginBottom:"5px",
 			}
 		}}>
 		{jsx_array.map((item, index:number)=>{

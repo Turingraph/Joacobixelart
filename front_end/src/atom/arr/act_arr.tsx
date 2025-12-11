@@ -1,15 +1,5 @@
 import * as f from "./function"
 
-/*
-Operation   Application
-SORT        NONE
-REVERSE     NONE
-PUSH        *
-DELETE      *
-EDIT        LAYER
-SET         *
-*/
-
 //  type set state array
 export type t_ss_arr<t> = {
 	ss:t[],

@@ -13,3 +13,8 @@ export const CSS_TEST_DIV = {
 	borderColor:"black",
 	borderStyle:"solid",
 }
+
+export const CSS_MARGIN_Y = {
+	marginTop:"2px",
+	marginBottom:"2px",
+}
