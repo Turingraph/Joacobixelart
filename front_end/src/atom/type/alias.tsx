@@ -11,7 +11,7 @@ export type t_str_hover  = nominal<string>
 export type t_str_input  = nominal<string>
 
 // css
-export type t_class_name  = nominal<string>
+// export type t_class_name  = nominal<string>
 export type t_css = nominal<string>
 
 // utils

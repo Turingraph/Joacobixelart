@@ -26,7 +26,7 @@ export function STR_INPUT({
 		height:"100%",
 		display:"inline",
 		margin:"2px",
-		fontSize:"22px"
+		fontSize:"30px"
 	}}
 	type="number" 
 	onChange={e=>{

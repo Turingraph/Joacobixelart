@@ -94,7 +94,6 @@ https://youtu.be/6aHKdahOfCc?si=DNwU2tnOf4NtrBW7
 
 /*
 To Do Now
-1.	MULTI_MODES_PAGE buttons in horiszontal scroll bar
-2.	useState<JSX.Element> for MULTI_MODES_PAGE
-3.	add <AREA_PAINT/> in main of MULTI_MODES_PAGE
+1.	Color input
+2.	Color palettes
 */
