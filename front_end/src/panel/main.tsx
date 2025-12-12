@@ -12,7 +12,6 @@ import { ARR_EDITOR_MODES } from "./utils/arr";
 
 export default function MAIN()
 {
-	const [SS_PixelSize, setSS_PixelSize] = useState<number>(1);
 	const [SS_LeftPanelMode, setSS_LeftPanelMode] = useState<number>(0);
 	const JSX_BODY:JSX.Element[] = [
 		<TOP_HEADER/>
