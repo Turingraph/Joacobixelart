@@ -1,28 +1,21 @@
 import { JSX, useState } from "react";
-import B_STR from "../atom/button/b_str";
-import { CSS_FULL_DIV } from "../atom/html/div_css";
 import { CSS_CONTEXT } from "../atom/hook/useContext";
+import { CSS_FULL_DIV } from "../atom/html/div_css";
 import GRID_TEMPLATE_COLUMNS from "../atom/html/grid_template_columns";
 import GRID_TEMPLATE_ROWS from "../atom/html/grid_template_rows";
 import * as a from "../atom/type/alias";
 import CANVAS from "../ui/canvas/canvas";
 import { MULTI_MODES_PAGE } from "../ui/html/multi_modes_page";
-import { ARR_B_SAVE, ARR_EDITOR_MODES } from "./utils/arr";
-import AREA_PAINT from "./grid_area_body/area_paint";
+import MAIN_ART_TOOLS from "./main_art_tools/main";
+import { TOP_HEADER } from "./top_header/main";
+import { ARR_EDITOR_MODES } from "./utils/arr";
 
 export default function MAIN()
 {
 	const [SS_PixelSize, setSS_PixelSize] = useState<number>(1);
 	const [SS_LeftPanelMode, setSS_LeftPanelMode] = useState<number>(0);
 	const JSX_BODY:JSX.Element[] = [
-		<div style={{gridArea:"area_head", backgroundColor:"gray"}}>
-		{ARR_B_SAVE.map((item, index:number)=>{
-			return <B_STR
-				title={item.title}
-				func={item.func}
-			/>
-		})}
-		</div>
+		<TOP_HEADER/>
 		,
 		<div style={{gridArea:"area_body", height:"100%"}}>
 		<CSS_CONTEXT value={{backgroundColor:"red"}}>
@@ -34,11 +27,7 @@ export default function MAIN()
 					<MULTI_MODES_PAGE
 						ui_body={[
 							...[{
-								ui:<AREA_PAINT 
-								pixel_size={{
-									ss:SS_PixelSize,
-									setss:setSS_PixelSize
-								}}/>,
+								ui:<MAIN_ART_TOOLS/>,
 								title:"Main"
 							}],
 							...ARR_EDITOR_MODES]}
