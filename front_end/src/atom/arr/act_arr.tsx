@@ -63,10 +63,13 @@ export default function act_arr<t>
     if (action.type === "SET"){
         UPDATE_ARR = action.input
     }
-    UPDATE_ARR = f.unique_arr(
-        UPDATE_ARR,
-        prev_arr.unique
-    )
+    if (["EDIT", "PUSH", "SET"].includes(action.type) === true)
+    {
+        UPDATE_ARR = f.unique_arr(
+            UPDATE_ARR,
+            prev_arr.unique
+        )
+    }
     return {
         ...prev_arr,
         ss:UPDATE_ARR

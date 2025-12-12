@@ -56,11 +56,6 @@ k extends keyof t[number]>
             UPDATE_ARR,
             prev_arr.unique
         )
-        UPDATE_ARR = f.sort_arr(
-            UPDATE_ARR,
-            prev_arr.sort_mode,
-            prev_arr.sort_key
-        )
     } 
     UPDATE_ARR = f.sort_arr(
         UPDATE_ARR,
