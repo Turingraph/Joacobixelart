@@ -5,8 +5,15 @@ import { CONTEXT_CSS_MULTI_SELECT_BS } from "../../atom/hook/useContext"
 
 /*
 Please avoid using nested <GRID_COLUMN_CX jsx_array={<GRID_COLUMN_CX .../>}/>
+or any nested JSX.Element that have name end with _CX. e.g. 
+<ABC01_CX jsx_array={<ABC02_CX .../>}/>
+
 because CSS_GRID_COLUMN_CONTEXT context apply to all GRID_COLUMN_CX
 which make the child GRID_COLUMN_CX behave unexpectedly.
+
+The main reason that I use useContext in this case is because I want to 
+inherit grid property and functionality (show only one selected button at a time)
+of multi_select_bs.tsx.
 */
 
 export function GRID_COLUMN_CX({

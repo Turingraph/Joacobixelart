@@ -1,7 +1,7 @@
 import { CSSProperties, JSX, useContext } from "react";
 import { CSS_MARGIN_Y } from "../../atom/html/div_css";
 import * as a from "../../atom/type/alias";
-import "./multi_color_b.css";
+import "./multi_color_bs.css";
 import { CONTEXT_CSS_MULTI_SELECT_BS } from "../../atom/hook/useContext";
 
 // https://stackoverflow.com/questions/54706748/
@@ -41,9 +41,9 @@ export default function MULTI_SELECT_BS({
 		}}>
 		{jsx_select_array.map((item, index:number)=>{
 			return <span
-			className={index ===  state_input.ss ? "select_button" : ""}
+			className={index ===  state_input.ss ? "select_button" : "non_select_button"}
 			style={{
-				backgroundColor:state_input.ss === index ? "BlueViolet" : "gray",
+				border:state_input.ss === index ? "2px solid blueviolet" : "2px solid gray",
 			}}
 			onClick={()=>{state_input.setss(index)}}>
 				{item}

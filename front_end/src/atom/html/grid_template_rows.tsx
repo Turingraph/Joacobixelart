@@ -1,5 +1,4 @@
-import { JSX, useContext } from "react";
-import { CONTEXT_CSS_COLOR } from "../hook/useContext";
+import { JSX } from "react";
 import * as a from "../type/alias";
 
 export default function GRID_TEMPLATE_ROWS({
@@ -16,7 +15,6 @@ export default function GRID_TEMPLATE_ROWS({
 	is_fill_app?:boolean,
 })
 {
-	const CX_CSS = useContext(CONTEXT_CSS_COLOR);
 	return <div style={{
 		...{
 		display:"grid",
@@ -26,7 +24,6 @@ export default function GRID_TEMPLATE_ROWS({
 		width:"100%",
 		height:is_fill_app?"100vh":"100%"
 		},
-		...CX_CSS
 		}}>
 		{jsx_array.map((item, index:number)=>{
 			return <span style={{display:"inline-block"}}>{item}</span>

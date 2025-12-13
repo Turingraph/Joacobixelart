@@ -1,5 +1,5 @@
 import { JSX, useState } from "react";
-import { CONTEXT_CSS_COLOR } from "../atom/hook/useContext";
+// import { CONTEXT_CSS_COLOR } from "../atom/hook/useContext";
 import { CSS_FULL_DIV } from "../atom/html/div_css";
 import GRID_TEMPLATE_COLUMNS from "../atom/html/grid_template_columns";
 import GRID_TEMPLATE_ROWS from "../atom/html/grid_template_rows";
@@ -17,7 +17,6 @@ export default function MAIN()
 		<TOP_HEADER/>
 		,
 		<div style={{gridArea:"area_body", height:"100%"}}>
-		<CONTEXT_CSS_COLOR value={{backgroundColor:"red"}}>
 		<GRID_TEMPLATE_COLUMNS
 			grid_template_areas={"area_paint area_canvas" as a.t_css}
 			grid_template_columns={"600px 1fr" as a.t_css}
@@ -49,7 +48,6 @@ export default function MAIN()
 				</div>
 			]}
 		/>
-		</CONTEXT_CSS_COLOR>
 		</div>
 	]
 	return <GRID_TEMPLATE_ROWS
@@ -60,7 +58,9 @@ export default function MAIN()
 }
 
 /*
+#############################################################################
 ### Question
+#############################################################################
 
 Why height:100% does not works ?
 
@@ -78,13 +78,30 @@ In this case, it not works because
 h1 do not know the current height of div.
 
 https://youtu.be/6aHKdahOfCc?si=DNwU2tnOf4NtrBW7
+
+#############################################################################
+
+Why background color of selected <EDITOR_TOOLS/> and selected <COLOR_PALETTES/> are differ ?
+```
+// ui/html/multi_color_bs.tsx
+// this means set the color of the button as blueviolet, but not set the color of parent div.
+// <EDITOR_TOOLS/> contains div with child buttons, but <COLOR_PALETTES/> contains only div.
+.select_button button {
+	background-color: blueviolet;
+}
+```
+
+#############################################################################
 */
 
 /*
-To Do Now
-1.	scroll bar
-2.	useReducer with atom/arr/ for array of div in area_file.tsx 
+#############################################################################
 
-Color input
-2.	Color palettes
+To Do Now 
+1.	Add new useContext for transferring useState/useReducer of panel/main_art_tools/ 
+2.	Add delete button in each color palettes
+3.	scroll bar for multiple color palettes
+4.	delete add color button and then make B_RGB_INPUT generate new color palettes
+
+#############################################################################
 */

@@ -12,7 +12,7 @@ export function COLOR_PALETTES()
 	const [SS_SelectColor, setSS_SelectColor] = useState<number>(0);
 	const [SS_ColorArray, setSS_ColorArray] = useReducer(
 		act_arr,
-		{ss:[<></>], unique:false} as t_ss_arr<JSX.Element>);
+		{ss:[], unique:false} as t_ss_arr<JSX.Element>);
 	return <>
 			<STR_HEADER title={"Color Palettes"}/>
 			<hr style={{visibility:"hidden", height:"3px", margin:"0px"}}/>

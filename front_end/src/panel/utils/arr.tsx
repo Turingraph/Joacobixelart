@@ -88,10 +88,10 @@ export const ARR_B_SAVE:t_B_STR[] = [
 export const ARR_EDITOR_MODES:ui_with_title[] = [
 	{
 		ui:<div style={{...CSS_TEST_DIV, ...{backgroundColor:"BlueViolet"}}}>Plane Color</div>,
-		title:"Plane Color"
+		title:"3D Color"
 	},	{
 		ui:<div style={{...CSS_TEST_DIV, ...{backgroundColor:"lightgreen"}}}>Curve Color</div>,
-		title:"Curve Color"
+		title:"Lie Group"
 	},	{
 		ui:<div style={{...CSS_TEST_DIV, ...{backgroundColor:"Gray"}}}>J_f Canvas</div>,
 		title:"J_f Canvas"
