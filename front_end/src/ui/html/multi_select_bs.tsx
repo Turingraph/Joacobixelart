@@ -1,4 +1,4 @@
-import { JSX, useContext } from "react";
+import { CSSProperties, JSX, useContext } from "react";
 import { CSS_CONTEXT, JSX_CONTEXT } from "../../atom/hook/useContext";
 import "./multi_color_b.css";
 import * as a from "../../atom/type/alias";
@@ -15,21 +15,28 @@ inherited from it's parent
 
 export default function MULTI_SELECT_BS({
 	jsx_array,
-	state_input
+	state_input,
+	is_horizontal = true
 }:{
 	jsx_array:JSX.Element[],
 	state_input:a.t_use_state<number>
+	is_horizontal?:boolean
 })
 {
 	const CX_CSS = useContext(CSS_CONTEXT);
 	const CX_JSX = useContext(JSX_CONTEXT);
+	let display_flex:CSSProperties = {
+			display:"flex", 
+			justifyContent:"space-evenly",
+	}
+	if (is_horizontal === false)
+	{
+		display_flex = {}
+	}
 	return <div style={{
 		...CSS_MARGIN_Y,
 		...CX_CSS,
-		...{
-			display:"flex", 
-			justifyContent:"space-evenly",
-			}
+		...display_flex
 		}}>
 		{jsx_array.map((item, index:number)=>{
 			return <span

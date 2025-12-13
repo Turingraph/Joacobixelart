@@ -7,7 +7,7 @@ export function B_RGB_GRID()
 		padding:"0px",
 		width:"45px", 
 		height:"45px", 
-		backgroundColor:"green",
+		// backgroundColor:"green",
 		// borderStyle: "solid",
 		// borderWidth:"2px",
 		// borderColor:"white"

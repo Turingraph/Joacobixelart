@@ -84,8 +84,6 @@ https://youtu.be/6aHKdahOfCc?si=DNwU2tnOf4NtrBW7
 To Do Now
 1.	scroll bar
 2.	useReducer with atom/arr/ for array of div in area_file.tsx 
-3.	separate area_file.tsx into 3 files including editor tool, color palettes, and main
-4.	
 
 Color input
 2.	Color palettes
