@@ -1,5 +1,5 @@
 import { CSSProperties, JSX, useContext } from "react";
-import { CSS_CONTEXT, JSX_CONTEXT } from "../../atom/hook/useContext";
+import { CSS_CONTEXT } from "../../atom/hook/useContext";
 import "./multi_color_b.css";
 import * as a from "../../atom/type/alias";
 import { CSS_MARGIN_Y } from "../../atom/html/div_css";
@@ -14,17 +14,18 @@ inherited from it's parent
 */
 
 export default function MULTI_SELECT_BS({
-	jsx_array,
+	jsx_select_array,
+	jsx_other_array = [],
 	state_input,
 	is_horizontal = true
 }:{
-	jsx_array:JSX.Element[],
+	jsx_select_array:JSX.Element[],
+	jsx_other_array?:JSX.Element[],
 	state_input:a.t_use_state<number>
 	is_horizontal?:boolean
 })
 {
 	const CX_CSS = useContext(CSS_CONTEXT);
-	const CX_JSX = useContext(JSX_CONTEXT);
 	let display_flex:CSSProperties = {
 			display:"flex", 
 			justifyContent:"space-evenly",
@@ -38,7 +39,7 @@ export default function MULTI_SELECT_BS({
 		...CX_CSS,
 		...display_flex
 		}}>
-		{jsx_array.map((item, index:number)=>{
+		{jsx_select_array.map((item, index:number)=>{
 			return <span
 			className={index ===  state_input.ss ? "select_button" : ""}
 			style={{
@@ -48,13 +49,13 @@ export default function MULTI_SELECT_BS({
 				{item}
 			</span>
 		})}
-		{CX_JSX.map((item, index:number)=>{return <span>{item}</span>})}
+		{jsx_other_array.map((item, index:number)=>{return <span>{item}</span>})}
 	</div>
 }
 
 /*
 feature
-1.	jsx_array:t_B_STR[]|t_B_LOGO[]
+1.	jsx_select_array:t_B_STR[]|t_B_LOGO[]
 2.	const [SS_Selected_B, setSS_Selected_B] = useState<number>(0)
 
 Parameter

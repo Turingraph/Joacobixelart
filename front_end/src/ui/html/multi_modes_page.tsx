@@ -19,7 +19,7 @@ export function MULTI_MODES_PAGE({
 {
 	const JSX_BODY:JSX.Element[] = [
 		<MULTI_SELECT_BS
-		jsx_array={ui_body.map((item, index:number)=>{
+		jsx_select_array={ui_body.map((item, index:number)=>{
 			return <B_STR
 				title={item.title}
 				func={(()=>{

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { GRID_COLUMN_CX } from "../../ui/html/grid_column_cx";
-import { JSX_CONTEXT } from "../../atom/hook/useContext";
 import { STR_INPUT } from "../../atom/str/str_input";
 import { B_RGB_INPUT } from "../../ui/button/b_rgb_input";
 import MULTI_SELECT_BS from "../../ui/html/multi_select_bs";
@@ -16,25 +15,24 @@ export function EDITOR_TOOLS()
 					title={"Paint Tool"}
 					column={"40px 40px 40px 40px 40px 40px 40px 40px 1fr 1fr" as a.t_css}
 					jsx_array={
-						<JSX_CONTEXT value={[
-						<STR_INPUT text_input={{
-								ss:SS_PixelStr,
-								setss:setSS_PixelStr
-								}}
-						unit="px"/>,
-						<B_RGB_INPUT/>
-						]}>
 						<MULTI_SELECT_BS 
-							jsx_array={
+							jsx_select_array={
 							ARR_B_PAINTS.map((item, index:number)=>{
 								return <B_LOGO
 								title={item.title}
 								logo={item.logo}
 								func={item.func}
 								/>})}
+							jsx_other_array={[
+								<STR_INPUT text_input={{
+									ss:SS_PixelStr,
+									setss:setSS_PixelStr
+									}}
+								unit="px"/>,
+								<B_RGB_INPUT/>
+							]}
 							state_input={{ss:SS_ToolMode, setss:setSS_ToolMode}}
 						/>
-						</JSX_CONTEXT>
 					}
 				/>
 			<hr style={{visibility:"hidden"}}/>

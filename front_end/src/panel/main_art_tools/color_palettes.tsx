@@ -1,7 +1,6 @@
 import React, { JSX, useReducer, useState } from "react";
 import STR_HEADER from "../../atom/str/str_header";
 import B_STR from "../../atom/button/b_str";
-import { GRID_COLUMN_DIV } from "../../ui/html/grid_column_div";
 import * as a from "../../atom/type/alias";
 import { B_RGB_GRID } from "../../ui/button/b_rgb_grid";
 import act_arr, { t_ss_arr } from "../../atom/arr/act_arr";
@@ -39,7 +38,7 @@ export function COLOR_PALETTES()
 							ss:SS_SelectColor,
 							setss:setSS_SelectColor
 						}}
-						jsx_array={SS_ColorArray.ss.map((item, index:number)=>{
+						jsx_select_array={SS_ColorArray.ss.map((item, index:number)=>{
 							return <>{item}</>
 						})}
 				is_horizontal={false}
