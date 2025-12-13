@@ -1,4 +1,4 @@
 import { createContext, CSSProperties, } from 'react';
 
-// const CSS_CONTEXT = createContext<(CSSProperties|undefined)[]>([{}]);
-export const CSS_CONTEXT = createContext<CSSProperties>({});
+export const CONTEXT_CSS_COLOR = createContext<{backgroundColor:string}|{}>({});
+export const CONTEXT_CSS_MULTI_SELECT_BS = createContext<CSSProperties>({});

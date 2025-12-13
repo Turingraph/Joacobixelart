@@ -1,5 +1,5 @@
 import { JSX, useState } from "react";
-import { CSS_CONTEXT } from "../atom/hook/useContext";
+import { CONTEXT_CSS_COLOR } from "../atom/hook/useContext";
 import { CSS_FULL_DIV } from "../atom/html/div_css";
 import GRID_TEMPLATE_COLUMNS from "../atom/html/grid_template_columns";
 import GRID_TEMPLATE_ROWS from "../atom/html/grid_template_rows";
@@ -17,7 +17,7 @@ export default function MAIN()
 		<TOP_HEADER/>
 		,
 		<div style={{gridArea:"area_body", height:"100%"}}>
-		<CSS_CONTEXT value={{backgroundColor:"red"}}>
+		<CONTEXT_CSS_COLOR value={{backgroundColor:"red"}}>
 		<GRID_TEMPLATE_COLUMNS
 			grid_template_areas={"area_paint area_canvas" as a.t_css}
 			grid_template_columns={"600px 1fr" as a.t_css}
@@ -49,7 +49,7 @@ export default function MAIN()
 				</div>
 			]}
 		/>
-		</CSS_CONTEXT>
+		</CONTEXT_CSS_COLOR>
 		</div>
 	]
 	return <GRID_TEMPLATE_ROWS

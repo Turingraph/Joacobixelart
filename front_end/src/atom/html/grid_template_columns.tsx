@@ -1,6 +1,6 @@
 import { JSX, useContext } from "react";
+import { CONTEXT_CSS_COLOR } from "../hook/useContext";
 import * as a from "../type/alias";
-import { CSS_CONTEXT } from "../hook/useContext";
 
 export default function GRID_TEMPLATE_COLUMNS({
 	grid_template_columns,
@@ -16,7 +16,7 @@ export default function GRID_TEMPLATE_COLUMNS({
 	is_fill_app?:boolean
 })
 {
-	const CX_CSS = useContext(CSS_CONTEXT);
+	const CX_CSS = useContext(CONTEXT_CSS_COLOR);
 	return <div style={{
 		...{
 		display:"grid",

@@ -1,7 +1,13 @@
 import { JSX } from "react";
-import { CSS_CONTEXT } from "../../atom/hook/useContext";
 import STR_HEADER from "../../atom/str/str_header";
 import * as a from "../../atom/type/alias";
+import { CONTEXT_CSS_MULTI_SELECT_BS } from "../../atom/hook/useContext"
+
+/*
+Please avoid using nested <GRID_COLUMN_CX jsx_array={<GRID_COLUMN_CX .../>}/>
+because CSS_GRID_COLUMN_CONTEXT context apply to all GRID_COLUMN_CX
+which make the child GRID_COLUMN_CX behave unexpectedly.
+*/
 
 export function GRID_COLUMN_CX({
 	column,
@@ -22,7 +28,7 @@ export function GRID_COLUMN_CX({
 		JSX_TITLE = <STR_HEADER title={title}/>
 	return <div style={{margin:margin}}>
 		{JSX_TITLE}
-		<CSS_CONTEXT value={{
+		<CONTEXT_CSS_MULTI_SELECT_BS value={{
 			display:"grid",
 			gridTemplateColumns:column,
 			gap:gap,
@@ -30,6 +36,6 @@ export function GRID_COLUMN_CX({
 			minHeight:"100%",
 		}}>
 			{jsx_array}
-		</CSS_CONTEXT>
+		</CONTEXT_CSS_MULTI_SELECT_BS>
 	</div>
 }

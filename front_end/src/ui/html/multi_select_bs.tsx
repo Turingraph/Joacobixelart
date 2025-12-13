@@ -1,8 +1,8 @@
 import { CSSProperties, JSX, useContext } from "react";
-import { CSS_CONTEXT } from "../../atom/hook/useContext";
-import "./multi_color_b.css";
-import * as a from "../../atom/type/alias";
 import { CSS_MARGIN_Y } from "../../atom/html/div_css";
+import * as a from "../../atom/type/alias";
+import "./multi_color_b.css";
+import { CONTEXT_CSS_MULTI_SELECT_BS } from "../../atom/hook/useContext";
 
 // https://stackoverflow.com/questions/54706748/
 // change-color-of-a-element-inside-a-div-using-inline-css
@@ -25,7 +25,7 @@ export default function MULTI_SELECT_BS({
 	is_horizontal?:boolean
 })
 {
-	const CX_CSS = useContext(CSS_CONTEXT);
+	const CX_CSS = useContext(CONTEXT_CSS_MULTI_SELECT_BS);
 	let display_flex:CSSProperties = {
 			display:"flex", 
 			justifyContent:"space-evenly",
@@ -37,7 +37,7 @@ export default function MULTI_SELECT_BS({
 	return <div style={{
 		...CSS_MARGIN_Y,
 		...CX_CSS,
-		...display_flex
+		...display_flex,
 		}}>
 		{jsx_select_array.map((item, index:number)=>{
 			return <span
