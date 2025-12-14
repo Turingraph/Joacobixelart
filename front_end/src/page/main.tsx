@@ -1,53 +1,16 @@
-import { JSX, useState } from "react";
-// import { CONTEXT_CSS_COLOR } from "../atom/hook/useContext";
+import { JSX } from "react";
 import * as a from "../atom/type/alias";
-import GRID_TEMPLATE_COLUMNS from "../molecule/html/grid_template_columns";
 import GRID_TEMPLATE_ROWS from "../molecule/html/grid_template_rows";
-import { CSS_FULL_DIV } from "../molecule/html/main_css";
-import CANVAS from "../organism/canvas/canvas";
-import MAIN_ART_TOOLS from "./main_art_tools/main";
 import { TOP_HEADER } from "./top_header/main";
-import { ARR_EDITOR_MODES } from "./utils/arr";
-import { MULTI_MODES_PAGE } from "../organism/html/multi_modes_page";
+import { STUDIO } from "./studio/main";
 
 export default function MAIN()
 {
-	const [SS_LeftPanelMode, setSS_LeftPanelMode] = useState<number>(0);
 	const JSX_BODY:JSX.Element[] = [
 		<TOP_HEADER/>
 		,
 		<div style={{gridArea:"area_body", height:"100%"}}>
-		<GRID_TEMPLATE_COLUMNS
-			grid_template_areas={"area_paint area_canvas" as a.t_css}
-			grid_template_columns={"600px 1fr" as a.t_css}
-			jsx_array={[
-				<div style={{...CSS_FULL_DIV,...{gridArea:"area_paint", backgroundColor:"orange", display:"inline-block"}}}>
-					<MULTI_MODES_PAGE
-						ui_body={[
-							...[{
-								ui:<MAIN_ART_TOOLS/>,
-								title:"Main"
-							}],
-							...ARR_EDITOR_MODES]}
-						ui_state={{
-							ss:SS_LeftPanelMode,
-							setss:setSS_LeftPanelMode,
-						}}/>
-				</div>,
-				<div 
-					style={{
-						...CSS_FULL_DIV,
-						...{
-							gridArea:"area_canvas", 
-							backgroundColor:"blue", 
-							display:"flex",
-							justifyContent:"center",
-							alignItems:"center"
-						}}}>
-					<CANVAS/>
-				</div>
-			]}
-		/>
+		<STUDIO/>
 		</div>
 	]
 	return <GRID_TEMPLATE_ROWS
@@ -99,6 +62,8 @@ Why background color of selected <EDITOR_TOOLS/> and selected <COLOR_PALETTES/> 
 
 To Do Now 
 1.	Add new useContext for transferring useState/useReducer of panel/main_art_tools/ 
+*	https://dev.to/nazmifeeroz/using-usecontext-and-usestate-hooks-as-a-store-mnm
+*	Google: usecontext store usestate
 2.	Add delete button in each color palettes
 3.	scroll bar for multiple color palettes
 4.	delete add color button and then make B_RGB_INPUT generate new color palettes
