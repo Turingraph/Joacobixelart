@@ -1,8 +1,8 @@
-import React, { JSX } from "react";
-import MULTI_SELECT_BS from "./multi_select_bs";
+import { JSX } from "react";
 import * as a from "../../atom/type/alias";
-import B_STR from "../../atom/button/b_str";
-import GRID_TEMPLATE_ROWS from "../../atom/html/grid_template_rows";
+import B_STR from "../../molecule/button/b_str";
+import GRID_TEMPLATE_ROWS from "../../molecule/html/grid_template_rows";
+import MULTI_SELECT_BS from "../../molecule/html/multi_select_bs";
 
 export type ui_with_title = {
 	ui:JSX.Element,

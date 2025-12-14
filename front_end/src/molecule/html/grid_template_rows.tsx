@@ -1,5 +1,5 @@
 import { JSX } from "react";
-import * as a from "../type/alias";
+import * as a from "../../atom/type/alias";
 
 export default function GRID_TEMPLATE_ROWS({
 	grid_template_rows,

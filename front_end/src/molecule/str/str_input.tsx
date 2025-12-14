@@ -1,6 +1,5 @@
-import React from "react";
-import * as a from "../type/alias"
-import STR from "./str";
+import STR from "../../atom/str/str";
+import * as a from "../../atom/type/alias";
 
 export function STR_INPUT({
 	text_input,

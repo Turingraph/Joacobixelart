@@ -9,10 +9,10 @@ import b_bucket from "../../asset/b_paint_rgb/b_bucket.png";
 import b_mirror_pen from "../../asset/b_paint_rgb/b_mirror_pen.png";
 import b_pen from "../../asset/b_paint_rgb/b_pen.png";
 import b_rectangle from "../../asset/b_paint_rgb/b_rectangle.png";
-import { t_B_LOGO } from "../../atom/button/b_logo";
-import { t_B_STR } from "../../atom/button/b_str";
-import { CSS_TEST_DIV } from "../../atom/html/div_css";
-import { ui_with_title } from "../../ui/html/multi_modes_page";
+import { t_B_LOGO } from "../../molecule/button/b_logo";
+import { t_B_STR } from "../../molecule/button/b_str";
+import { CSS_TEST_DIV } from "../../molecule/html/main_css";
+import { ui_with_title } from "../../organism/html/multi_modes_page";
 // import { t_div_with_title } from "../../ui/html/multi_modes_div";
 
 const f_func = () => {

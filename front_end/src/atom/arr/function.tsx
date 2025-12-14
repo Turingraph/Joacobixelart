@@ -1,5 +1,3 @@
-// import * as a from "../type/alias"
-
 export function unique_arr<t>(arr:t[], unique:undefined|boolean = undefined){
     // https://www.geeksforgeeks.org/
     // how-to-convert-array-of-objects-into-unique-array-of-objects-in-javascript/

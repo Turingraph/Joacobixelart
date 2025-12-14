@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { STR_HOVER } from "../str/str_hover";
-import * as a from "../type/alias";
+import * as a from "../../atom/type/alias";
+import { STR_HOVER } from "../../atom/str/str_hover";
 import "./b_logo.css";
 
 export type t_B_LOGO = {
@@ -29,7 +29,7 @@ export default function B_LOGO(
 		>
 			<img src={logo} alt="" className="b_logo"/>
 		</button>
-		<STR_HOVER str_hover={title} is_hover={SS_OnMouseEnter}/>
+		<STR_HOVER str_hover={title as string} is_hover={SS_OnMouseEnter}/>
 	</>
 }
 

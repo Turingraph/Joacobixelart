@@ -1,6 +1,5 @@
-import React from "react";
-import STR from "../str/str";
-import * as a from "../type/alias";
+import STR from "../../atom/str/str";
+import * as a from "../../atom/type/alias";
 
 export type t_B_STR = {
 	title:string,

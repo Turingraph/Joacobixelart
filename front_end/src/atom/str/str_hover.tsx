@@ -1,11 +1,11 @@
-import * as a from "../type/alias";
+import React from "react";
 
 export function STR_HOVER(
 {
 	str_hover,
 	is_hover
 }:{
-	str_hover:a.t_str_hover,
+	str_hover:string,
 	is_hover:boolean
 }
 )

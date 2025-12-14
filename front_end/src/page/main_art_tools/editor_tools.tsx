@@ -1,18 +1,20 @@
-import React, { useState } from "react";
-import { GRID_COLUMN_CX } from "../../ui/html/grid_column_cx";
-import { STR_INPUT } from "../../atom/str/str_input";
-import { B_RGB_INPUT } from "../../ui/button/b_rgb_input";
-import MULTI_SELECT_BS from "../../ui/html/multi_select_bs";
-import { ARR_B_PAINTS } from "../utils/arr";
-import B_LOGO from "../../atom/button/b_logo";
+import { useState } from "react";
 import * as a from "../../atom/type/alias";
+import B_LOGO from "../../molecule/button/b_logo";
+import { GRID_COLUMN_CX } from "../../molecule/html/grid_column_cx";
+import MULTI_SELECT_BS from "../../molecule/html/multi_select_bs";
+import { STR_INPUT } from "../../molecule/str/str_input";
+import { B_RGB_INPUT } from "../../organism/button/b_rgb_input";
+import { ARR_B_PAINTS } from "../utils/arr";
+import STR_HEADER from "../../atom/str/str_header";
 
 export function EDITOR_TOOLS()
 {
 	const [SS_PixelStr, setSS_PixelStr] = useState<string>("1");
 	const [SS_ToolMode, setSS_ToolMode] = useState<number>(0);
-	return <><GRID_COLUMN_CX
-					title={"Paint Tool"}
+	return <>
+	<STR_HEADER title={"Paint Tool"}/>
+	<GRID_COLUMN_CX
 					column={"40px 40px 40px 40px 40px 40px 40px 40px 1fr 1fr" as a.t_css}
 					jsx_array={
 						<MULTI_SELECT_BS 

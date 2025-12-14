@@ -1,14 +1,14 @@
 import { JSX, useState } from "react";
 // import { CONTEXT_CSS_COLOR } from "../atom/hook/useContext";
-import { CSS_FULL_DIV } from "../atom/html/div_css";
-import GRID_TEMPLATE_COLUMNS from "../atom/html/grid_template_columns";
-import GRID_TEMPLATE_ROWS from "../atom/html/grid_template_rows";
 import * as a from "../atom/type/alias";
-import CANVAS from "../ui/canvas/canvas";
-import { MULTI_MODES_PAGE } from "../ui/html/multi_modes_page";
+import GRID_TEMPLATE_COLUMNS from "../molecule/html/grid_template_columns";
+import GRID_TEMPLATE_ROWS from "../molecule/html/grid_template_rows";
+import { CSS_FULL_DIV } from "../molecule/html/main_css";
+import CANVAS from "../organism/canvas/canvas";
 import MAIN_ART_TOOLS from "./main_art_tools/main";
 import { TOP_HEADER } from "./top_header/main";
 import { ARR_EDITOR_MODES } from "./utils/arr";
+import { MULTI_MODES_PAGE } from "../organism/html/multi_modes_page";
 
 export default function MAIN()
 {

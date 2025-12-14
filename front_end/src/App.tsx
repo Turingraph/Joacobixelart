@@ -1,5 +1,5 @@
 import React from 'react';
-import MAIN from './panel/main';
+import MAIN from './page/main';
 
 /*
 import logo from './logo.svg';

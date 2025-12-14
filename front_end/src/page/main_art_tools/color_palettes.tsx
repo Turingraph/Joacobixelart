@@ -1,11 +1,11 @@
-import React, { JSX, useReducer, useState } from "react";
-import STR_HEADER from "../../atom/str/str_header";
-import B_STR from "../../atom/button/b_str";
-import * as a from "../../atom/type/alias";
-import { B_RGB_GRID } from "../../ui/button/b_rgb_grid";
+import { JSX, useReducer, useState } from "react";
 import act_arr, { t_ss_arr } from "../../atom/arr/act_arr";
-import { GRID_COLUMN_CX } from "../../ui/html/grid_column_cx";
-import MULTI_SELECT_BS from "../../ui/html/multi_select_bs";
+import STR_HEADER from "../../atom/str/str_header";
+import * as a from "../../atom/type/alias";
+import B_STR from "../../molecule/button/b_str";
+import { GRID_COLUMN_CX } from "../../molecule/html/grid_column_cx";
+import MULTI_SELECT_BS from "../../molecule/html/multi_select_bs";
+import { B_RGB_GRID } from "../../organism/button/b_rgb_grid";
 
 export function COLOR_PALETTES()
 {
@@ -34,15 +34,15 @@ export function COLOR_PALETTES()
 				gap={"5px" as a.t_css}
 				column={"45px 45px 45px 45px" as a.t_css}
 				jsx_array={<MULTI_SELECT_BS
-						state_input={{
-							ss:SS_SelectColor,
-							setss:setSS_SelectColor
-						}}
-						jsx_select_array={SS_ColorArray.ss.map((item, index:number)=>{
-							return <>{item}</>
-						})}
-				is_horizontal={false}
-						/>}
+					state_input={{
+						ss:SS_SelectColor,
+						setss:setSS_SelectColor
+					}}
+					jsx_select_array={SS_ColorArray.ss.map((item, index:number)=>{
+						return <>{item}</>
+					})}
+					is_horizontal={false}
+					/>}
 			/>
 	</>
 }

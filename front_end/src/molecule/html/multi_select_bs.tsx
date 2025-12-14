@@ -1,8 +1,8 @@
 import { CSSProperties, JSX, useContext } from "react";
-import { CSS_MARGIN_Y } from "../../atom/html/div_css";
-import * as a from "../../atom/type/alias";
-import "./multi_color_bs.css";
 import { CONTEXT_CSS_MULTI_SELECT_BS } from "../../atom/hook/useContext";
+import * as a from "../../atom/type/alias";
+import { CSS_MARGIN_Y } from "./main_css";
+import "./multi_color_bs.css";
 
 // https://stackoverflow.com/questions/54706748/
 // change-color-of-a-element-inside-a-div-using-inline-css
