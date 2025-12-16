@@ -84,7 +84,10 @@ A "reducer" is a function that takes the previous state and an "action" and retu
 The action meant to be an instruction rather a state.
 */
 
-export type t_setss_arr<t> = React.ActionDispatch<[action: t_act_arr<t>]>
+export type t_setss_arr<t> = React.ActionDispatch<[action: t_act_arr<t> | {
+    type:"COPY",
+    index:number
+}]>
 
 export type t_use_arr<t> = {
     ss:t_ss_arr<t>,

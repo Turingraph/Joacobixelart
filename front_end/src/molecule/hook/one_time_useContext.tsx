@@ -1,6 +1,6 @@
 import { createContext, JSX } from 'react';
-import * as a from "../../atom/type/alias";
 import { t_setss_arr, t_ss_arr } from '../../atom/arr/act_arr';
+import * as a from "../../atom/type/alias";
 
 export const CONTEXT_SS_MAIN_ART_TOOL = createContext<{
 	select_color:{

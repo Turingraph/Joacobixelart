@@ -11,7 +11,9 @@ export default function B_STR({
 	func
 }:t_B_STR)
 {
-	return <button onClick={func}><STR text={title}/></button>
+	return <button onClick={func} >
+		<STR text={title}/>
+	</button>
 }
 
 /*
