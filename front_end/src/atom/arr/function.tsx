@@ -112,6 +112,23 @@ export function delete_item<t>(arr:t[], index:number){
     return arr
 }
 
+// https://stackoverflow.com/questions/1068834/
+// object-comparison-in-javascript
+
+export function item_to_index<t>(arr:t[], target:t)
+{
+    let i = 0;
+    while (i < arr.length)
+    {
+        if (JSON.stringify(arr[i]) === JSON.stringify(target))
+        {
+            return (i);
+        }
+        i += 1;
+    }
+    return -1
+}
+
 //-------------------------------------------------------------------------
 
 // TYPE : COPY

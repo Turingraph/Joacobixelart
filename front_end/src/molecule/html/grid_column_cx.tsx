@@ -1,5 +1,5 @@
 import { JSX } from "react";
-import { CONTEXT_CSS_MULTI_SELECT_BS } from "../../atom/hook/useContext";
+import { CONTEXT_CSS_SELECT_ONE_ITEM } from "../../atom/hook/useContext";
 import * as a from "../../atom/type/alias";
 
 /*
@@ -28,7 +28,7 @@ export function GRID_COLUMN_CX({
 })
 {
 	return <div style={{margin:margin}}>
-		<CONTEXT_CSS_MULTI_SELECT_BS value={{
+		<CONTEXT_CSS_SELECT_ONE_ITEM value={{
 			display:"grid",
 			gridTemplateColumns:column,
 			gap:gap,
@@ -36,6 +36,6 @@ export function GRID_COLUMN_CX({
 			minHeight:"100%",
 		}}>
 			{jsx_array}
-		</CONTEXT_CSS_MULTI_SELECT_BS>
+		</CONTEXT_CSS_SELECT_ONE_ITEM>
 	</div>
 }

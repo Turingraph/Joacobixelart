@@ -1,8 +1,9 @@
 import { CSSProperties, JSX, useContext } from "react";
-import { CONTEXT_CSS_MULTI_SELECT_BS } from "../../atom/hook/useContext";
-import * as a from "../../atom/type/alias";
+import { CONTEXT_CSS_SELECT_ONE_ITEM } from "../../atom/hook/useContext";
 import { CSS_MARGIN_Y } from "./main_css";
 import "./multi_color_bs.css";
+import { t_use_arr } from "../../atom/arr/act_arr";
+import { item_to_index } from "../../atom/arr/function";
 
 // https://stackoverflow.com/questions/54706748/
 // change-color-of-a-element-inside-a-div-using-inline-css
@@ -13,7 +14,7 @@ which means that color property value will be
 inherited from it's parent
 */
 
-export default function MULTI_SELECT_BS({
+export default function SELECT_MULTI_ITEMS({
 	jsx_select_array,
 	jsx_other_array = [],
 	state_input,
@@ -21,11 +22,11 @@ export default function MULTI_SELECT_BS({
 }:{
 	jsx_select_array:JSX.Element[],
 	jsx_other_array?:JSX.Element[],
-	state_input:a.t_use_state<number>
+	state_input:t_use_arr<number>
 	is_horizontal?:boolean
 })
 {
-	const CX_CSS = useContext(CONTEXT_CSS_MULTI_SELECT_BS);
+	const CX_CSS = useContext(CONTEXT_CSS_SELECT_ONE_ITEM);
 	let display_flex:CSSProperties = {
 			display:"flex", 
 			justifyContent:"space-evenly",
@@ -41,35 +42,23 @@ export default function MULTI_SELECT_BS({
 		}}>
 		{jsx_select_array.map((item, index:number)=>{
 			return <span
-			className={index ===  state_input.ss ? "select_button" : "non_select_button"}
+			className={state_input.ss.ss.includes(index) === true ? "select_button" : "non_select_button"}
 			style={{
-				border:state_input.ss === index ? "2px solid blueviolet" : "2px solid gray",
+				border:state_input.ss.ss.includes(index) === true ? "2px solid blueviolet" : "2px solid gray",
 			}}
-			onClick={()=>{state_input.setss(index)}}>
+			onClick={()=>{
+				if (state_input.ss.ss.includes(index) === true)
+				{
+					state_input.setss({type:"DELETE", index:item_to_index(state_input.ss.ss, index)})
+				}
+				else
+				{
+					state_input.setss({type:"PUSH", input:index})
+				}
+			}}>
 				{item}
 			</span>
 		})}
 		{jsx_other_array.map((item, index:number)=>{return <span>{item}</span>})}
 	</div>
 }
-
-/*
-feature
-1.	jsx_select_array:t_B_STR[]|t_B_LOGO[]
-2.	const [SS_Selected_B, setSS_Selected_B] = useState<number>(0)
-
-Parameter
-1.	title:string
-2.	select_color:string|[number,number,number]
-3.	func:a.t_func
-
-Other Parameter
-1.	logo:string
-2.	/
-
-Application
-1.	color
-2.	editor mode
-3.	editor
-4.	layer
-*/

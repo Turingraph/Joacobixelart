@@ -2,7 +2,7 @@ import { JSX } from "react";
 import * as a from "../../atom/type/alias";
 import B_STR from "../../molecule/button/b_str";
 import GRID_TEMPLATE_ROWS from "../../molecule/html/grid_template_rows";
-import MULTI_SELECT_BS from "../../molecule/html/multi_select_bs";
+import SELECT_ONE_ITEM from "../../molecule/html/select_one_item";
 
 export type ui_with_title = {
 	ui:JSX.Element,
@@ -18,7 +18,7 @@ export function MULTI_MODES_PAGE({
 })
 {
 	const JSX_BODY:JSX.Element[] = [
-		<MULTI_SELECT_BS
+		<SELECT_ONE_ITEM
 		jsx_select_array={ui_body.map((item, index:number)=>{
 			return <B_STR
 				title={item.title}

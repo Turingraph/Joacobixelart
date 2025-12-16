@@ -1,13 +1,13 @@
 import { useContext, useEffect, useState } from "react";
+import STR_HEADER from "../../atom/str/str_header";
 import * as a from "../../atom/type/alias";
 import B_LOGO from "../../molecule/button/b_logo";
+import { CONTEXT_SS_MAIN_ART_TOOL } from "../../molecule/hook/one_time_useContext";
 import { GRID_COLUMN_CX } from "../../molecule/html/grid_column_cx";
-import MULTI_SELECT_BS from "../../molecule/html/multi_select_bs";
+import SELECT_ONE_ITEM from "../../molecule/html/select_one_item";
 import STR_INPUT from "../../molecule/str/str_input";
 import { B_RGB_INPUT } from "../../organism/button/b_rgb_input";
 import { ARR_B_PAINTS } from "../utils/arr";
-import STR_HEADER from "../../atom/str/str_header";
-import { CONTEXT_SS_MAIN_ART_TOOL } from "../../molecule/hook/one_time_useContext";
 
 export function EDITOR_TOOLS()
 {
@@ -22,7 +22,7 @@ export function EDITOR_TOOLS()
 	<GRID_COLUMN_CX
 					column={"40px 40px 40px 40px 40px 40px 40px 40px 1fr 1fr" as a.t_css}
 					jsx_array={
-						<MULTI_SELECT_BS 
+						<SELECT_ONE_ITEM 
 							jsx_select_array={
 							ARR_B_PAINTS.map((item, index:number)=>{
 								return <B_LOGO
