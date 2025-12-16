@@ -55,18 +55,25 @@ Why background color of selected <EDITOR_TOOLS/> and selected <COLOR_PALETTES/> 
 ```
 
 #############################################################################
+
+How to add useState in useContext?
+
+*	https://dev.to/nazmifeeroz/using-usecontext-and-usestate-hooks-as-a-store-mnm
+*	https://stackoverflow.com/questions/77217290/best-way-to-use-react-context-with-usestate-in-typescript
+*	Google: usecontext store usestate
+*	molecule/ hook/ one_time_useContext.tsx
+
+#############################################################################
+
 */
 
 /*
 #############################################################################
 
 To Do Now 
-1.	Add new useContext for transferring useState/useReducer of panel/main_art_tools/ 
-*	https://dev.to/nazmifeeroz/using-usecontext-and-usestate-hooks-as-a-store-mnm
-*	Google: usecontext store usestate
-2.	Add delete button in each color palettes
-3.	scroll bar for multiple color palettes
-4.	delete add color button and then make B_RGB_INPUT generate new color palettes
+1.	Add delete button in each color palettes
+2.	scroll bar for multiple color palettes
+3.	delete add color button and then make B_RGB_INPUT generate new color palettes
 
 #############################################################################
 */

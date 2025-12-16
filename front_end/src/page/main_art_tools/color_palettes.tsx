@@ -1,18 +1,16 @@
-import { JSX, useReducer, useState } from "react";
-import act_arr, { t_ss_arr } from "../../atom/arr/act_arr";
+import { useContext } from "react";
 import STR_HEADER from "../../atom/str/str_header";
 import * as a from "../../atom/type/alias";
 import B_STR from "../../molecule/button/b_str";
 import { GRID_COLUMN_CX } from "../../molecule/html/grid_column_cx";
 import MULTI_SELECT_BS from "../../molecule/html/multi_select_bs";
 import { B_RGB_GRID } from "../../organism/button/b_rgb_grid";
+import { CONTEXT_SS_MAIN_ART_TOOL } from "../../molecule/hook/one_time_useContext"
 
 export function COLOR_PALETTES()
 {
-	const [SS_SelectColor, setSS_SelectColor] = useState<number>(0);
-	const [SS_ColorArray, setSS_ColorArray] = useReducer(
-		act_arr,
-		{ss:[], unique:false} as t_ss_arr<JSX.Element>);
+	const {SS_SelectColor, setSS_SelectColor} = useContext(CONTEXT_SS_MAIN_ART_TOOL).select_color;
+	const {SS_ColorArray, setSS_ColorArray} = useContext(CONTEXT_SS_MAIN_ART_TOOL).color_array;
 	return <>
 			<STR_HEADER title={"Color Palettes"}/>
 			<hr style={{visibility:"hidden", height:"3px", margin:"0px"}}/>

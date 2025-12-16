@@ -1,7 +1,7 @@
 import STR from "../../atom/str/str";
 import * as a from "../../atom/type/alias";
 
-export function STR_INPUT({
+export default function STR_INPUT({
 	text_input,
 	title = undefined,
 	unit = undefined
