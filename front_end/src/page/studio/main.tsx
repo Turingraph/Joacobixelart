@@ -76,3 +76,10 @@ export function STUDIO()
 				]}
 	/>
 }
+
+/*
+1.	Select All
+2.	Unselect All
+3.	Transform color
+4.	Rotate Color
+*/

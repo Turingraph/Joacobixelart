@@ -77,3 +77,24 @@ To Do Now
 
 #############################################################################
 */
+
+/*
+UI Color
+1.	(Main) Edit Color Palettes
+*	Delete
+*	Transform Color
+	*	Replace Color
+	*	Add Color
+	* 	Cancel
+2.	Line Color
+3.	Plane Color
+
+// How Piskel import/export color palettes ?
+// Both Line Color and Plane Color have only 1 set of color palettes.
+// FEM Color overwrite all previous color according to its rule.
+
+What create new color
+1.	Main
+2.	Line and Plane Color
+3.	FEM Color (Might includes Wave Function and J_f ?)
+*/

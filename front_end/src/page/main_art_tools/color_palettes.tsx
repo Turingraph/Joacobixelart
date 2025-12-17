@@ -37,7 +37,7 @@ export function COLOR_PALETTES()
 						setss:setSS_SelectMultiColors
 					}}
 					jsx_select_array={SS_ColorArray.ss.map((item, index:number)=>{
-						return <>{item}</>
+						return <><B_RGB_GRID is_x={SS_Open}/></>
 					})}
 					is_horizontal={false}
 					/>
@@ -60,11 +60,8 @@ export function COLOR_PALETTES()
 					ss:SS_Open,
 					setss:setSS_Open
 				}}
+				title_ok="Save"
 			/>
-			{/* <B_STR
-				title="Edit Color Palettes"
-				func={(()=>{alert("Nujabes")}) as a.t_func}
-			/> */}
 			<hr style={{visibility:"hidden", height:"0px", marginTop:"0px", marginBottom:"5px"}}/>
 			<GRID_COLUMN_CX
 				gap={"5px" as a.t_css}
