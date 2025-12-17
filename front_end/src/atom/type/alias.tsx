@@ -14,11 +14,18 @@ export type t_str_input  = nominal<string>
 // export type t_class_name  = nominal<string>
 export type t_css = nominal<string>
 
-// utils
+// function
 export type t_setss<t>= React.Dispatch<
         React.SetStateAction<t>
     >|((e:t)=>void)
 export type t_use_state<t>= {
     ss:t,
     setss:t_setss<t>
+}
+
+// rgb
+export type t_rgb={
+    r:number,
+    g:number,
+    b:number
 }

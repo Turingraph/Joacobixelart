@@ -12,6 +12,7 @@ import SELECT_MULTI_ITEMS from "../../molecule/html/select_multi_items";
 
 export function COLOR_PALETTES()
 {
+	const [SS_Test, setSS_Test] = useState<number>(0)
 	const {SS_SelectColor, setSS_SelectColor} = useContext(CONTEXT_SS_MAIN_ART_TOOL).select_color;
 	const [SS_SelectMultiColors, setSS_SelectMultiColors] = useReducer(act_arr, {
 		unique:true,
@@ -25,7 +26,7 @@ export function COLOR_PALETTES()
 						setss:setSS_SelectColor
 					}}
 					jsx_select_array={SS_ColorArray.ss.map((item, index:number)=>{
-						return <>{item}</>
+						return <><B_RGB_GRID is_x={SS_Open} title={item[0].toString()}/></>
 					})}
 					is_horizontal={false}
 					/>
@@ -37,7 +38,7 @@ export function COLOR_PALETTES()
 						setss:setSS_SelectMultiColors
 					}}
 					jsx_select_array={SS_ColorArray.ss.map((item, index:number)=>{
-						return <><B_RGB_GRID is_x={SS_Open}/></>
+						return <><B_RGB_GRID is_x={SS_Open} title={item[0].toString()}/></>
 					})}
 					is_horizontal={false}
 					/>
@@ -48,10 +49,12 @@ export function COLOR_PALETTES()
 			<B_STR
 				title="Add Color"
 				func={(()=>{
+					// alert(SS_Test)
 					setSS_ColorArray({
 						type:"PUSH",
-						input:<B_RGB_GRID/>
+						input:[SS_Test,1,2]
 					})
+					setSS_Test(SS_Test + 1)
 				}) as a.t_func}
 			/>
 			<B_OPEN_OK_CANCEL
