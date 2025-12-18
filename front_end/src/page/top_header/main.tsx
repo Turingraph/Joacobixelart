@@ -5,10 +5,11 @@ export function TOP_HEADER()
 {
 	return 	<div style={{gridArea:"area_head", backgroundColor:"gray"}}>
 	{ARR_B_SAVE.map((item, index:number)=>{
-		return <B_STR
+		return <span key={index}>
+			<B_STR
 			title={item.title}
 			func={item.func}
-		/>
+		/></span>
 	})}
 	</div>
 }

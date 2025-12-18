@@ -11,6 +11,7 @@ export function COLOR_PALETTES_EDIT()
 		ss:[] as number[]
 	})
 	const SS_ColorArray = useContext(CONTEXT_SS_MAIN_ART_TOOL).color_array.SS_ColorArray;
+	// const [SS_DragGrid, setSS_DragGrid] = useState<number|undefined>(undefined)
 	return <>
 		<SELECT_MULTI_ITEMS
 			state_input={{
@@ -18,7 +19,7 @@ export function COLOR_PALETTES_EDIT()
 				setss:setSS_SelectMultiColors
 			}}
 			jsx_select_array={SS_ColorArray.ss.map((item, index:number)=>{
-				return <><B_RGB_GRID mode={true} title={item[0].toString()}/></>
+				return <><B_RGB_GRID mode={true} title={item[0].toString()} key={index}/></>
 			})}
 			is_horizontal={false}
 			/>

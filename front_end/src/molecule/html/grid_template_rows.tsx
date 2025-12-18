@@ -26,7 +26,7 @@ export default function GRID_TEMPLATE_ROWS({
 		},
 		}}>
 		{jsx_array.map((item, index:number)=>{
-			return <span style={{display:"inline-block"}}>{item}</span>
+			return <span style={{display:"inline-block"}} key={index}>{item}</span>
 		})}
 	</div>
 }

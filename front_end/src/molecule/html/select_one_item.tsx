@@ -41,6 +41,7 @@ export default function SELECT_ONE_ITEM({
 		}}>
 		{jsx_select_array.map((item, index:number)=>{
 			return <span
+			key={index}
 			className={index ===  state_input.ss ? "select_button" : "non_select_button"}
 			style={{
 				border:state_input.ss === index ? "2px solid blueviolet" : "2px solid gray",
@@ -49,7 +50,7 @@ export default function SELECT_ONE_ITEM({
 				{item}
 			</span>
 		})}
-		{jsx_other_array.map((item, index:number)=>{return <span>{item}</span>})}
+		{jsx_other_array.map((item, index:number)=>{return <span key={index}>{item}</span>})}
 	</div>
 }
 
