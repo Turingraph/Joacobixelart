@@ -7,11 +7,9 @@ import "./b_rgb_grid.css"
 export function B_RGB_GRID({
 	mode = false,
 	title,
-	key = 0
 }:{
 	mode?:boolean
 	title:string
-	key?:number
 })
 {
 	const f_func = () => {
@@ -45,15 +43,25 @@ export function B_RGB_GRID({
 	</div>
 }
 
-// const draggables = document.querySelectorAll('.B_RGB_GRID')
-// const containers = document.querySelectorAll('.CONTAINER_B_RGB_GRID')
+const draggables = document.querySelectorAll('.B_RGB_GRID')
+const containers = document.querySelectorAll('.CONTAINER_B_RGB_GRID')
 
-// draggables.forEach(draggable => {
-//   draggable.addEventListener('dragstart', () => {
-//     draggable.classList.add('dragging')
-//   })
+draggables.forEach(draggable => {
+	draggable.addEventListener('dragstart', () => {
+		draggable.classList.add('DRAGGED_B_RGB_GRID')
+	})
+	draggable.addEventListener('dragend', () => {
+		draggable.classList.remove('DRAGGED_B_RGB_GRID')
+	})
+})
 
-//   draggable.addEventListener('dragend', () => {
-//     draggable.classList.remove('dragging')
-//   })
-// })
+containers.forEach(container => {
+	container.addEventListener('dragover', e => {
+		e.preventDefault()
+		const draggable = document.querySelector('.DRAGGED_B_RGB_GRID')
+		if (draggable !== null)
+		{
+			container.appendChild(draggable)
+		}
+	})
+})

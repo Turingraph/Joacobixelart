@@ -42,6 +42,7 @@ export default function SELECT_MULTI_ITEMS({
 		}}>
 		{jsx_select_array.map((item, index:number)=>{
 			return <span
+			key={index}
 			className={state_input.ss.ss.includes(index) === true ? "select_button" : "non_select_button"}
 			style={{
 				border:state_input.ss.ss.includes(index) === true ? "2px solid blueviolet" : "2px solid gray",
