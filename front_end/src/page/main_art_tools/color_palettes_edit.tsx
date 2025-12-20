@@ -1,4 +1,4 @@
-import { useContext, useReducer, useState } from "react";
+import { useContext, useReducer } from "react";
 import { CONTEXT_SS_MAIN_ART_TOOL } from "../../molecule/hook/one_time_useContext";
 import { B_RGB_GRID } from "../../organism/button/b_rgb_grid";
 import act_arr from "../../atom/arr/act_arr";
@@ -10,13 +10,16 @@ export function COLOR_PALETTES_EDIT()
 		unique:true,
 		ss:[] as number[]
 	})
-	const SS_ColorArray = useContext(CONTEXT_SS_MAIN_ART_TOOL).color_array.SS_ColorArray;
-	const [SS_DragGrid, setSS_DragGrid] = useState<number|undefined>(undefined)
+	const {SS_ColorArray, setSS_ColorArray} = useContext(CONTEXT_SS_MAIN_ART_TOOL).color_array;
 	return <>
 		<SELECT_MULTI_ITEMS
-			state_input={{
+			selected_items={{
 				ss:SS_SelectMultiColors,
 				setss:setSS_SelectMultiColors
+			}}
+			drag_items_arr={{
+				ss:SS_ColorArray,
+				setss:setSS_ColorArray
 			}}
 			jsx_select_array={SS_ColorArray.ss.map((item, index:number)=>{
 				return <div key={index}><B_RGB_GRID mode={true} title={item[0].toString()}/></div>

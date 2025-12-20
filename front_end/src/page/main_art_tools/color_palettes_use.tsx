@@ -14,7 +14,7 @@ export function COLOR_PALETTES_USE()
 				setss:setSS_SelectColor
 			}}
 			jsx_select_array={SS_ColorArray.ss.map((item, index:number)=>{
-				return <div key={index}><B_RGB_GRID mode={false} title={item[0].toString()} key={index}/></div>
+				return <div key={index}><B_RGB_GRID mode={false} title={item[0].toString()}/></div>
 			})}
 			is_horizontal={false}
 			/>
