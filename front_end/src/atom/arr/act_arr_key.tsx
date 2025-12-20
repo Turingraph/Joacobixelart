@@ -1,4 +1,4 @@
-import act_arr, { t_act_arr, t_ss_arr } from "./act_arr"
+import act_arr, { BASIC_ARR_OPERATIONS, t_act_arr, t_ss_arr } from "./act_arr"
 import * as f from "./function"
 
 //  type action array with key
@@ -32,11 +32,11 @@ t extends object[],
 k extends keyof t[number]>
     (prev_arr:t_ss_arr_key<t, k>, action:t_act_arr_key<t, k>){
     let UPDATE_ARR = [...prev_arr.ss]
-    if (["EDIT", "PUSH", "DELETE", "SET", "EDIT_KEY", "SORT"].includes(action.type) === false)
+    if ([...BASIC_ARR_OPERATIONS,...["COPY", "SORT", "EDIT_KEY"]].includes(action.type) === false)
     {
         f.warning("act_arr_key.tsx")
     }
-    if (["EDIT", "PUSH", "DELETE", "SET"].includes(action.type) === true)
+    if (BASIC_ARR_OPERATIONS.includes(action.type) === true)
     {
         UPDATE_ARR = act_arr(prev_arr, action as t_act_arr<t>).ss
     }

@@ -23,7 +23,13 @@ export type t_act_arr<t> = {
 | {
     type:"SET",
     input: t[],
+} | {
+    type:"DRAG",
+    new_index:number,
+    old_index:number
 }
+
+export const BASIC_ARR_OPERATIONS = ["EDIT", "PUSH", "DELETE", "SET", "DRAG"]
 
 export default function act_arr<t>
     (prev_arr:t_ss_arr<t>, action:t_act_arr<t> | {
@@ -31,9 +37,16 @@ export default function act_arr<t>
     index:number
 }){
     let UPDATE_ARR = [...prev_arr.ss]
-    if (["EDIT", "PUSH", "DELETE", "SET", "COPY"].includes(action.type) === false)
+    if ([...BASIC_ARR_OPERATIONS,...["COPY"]].includes(action.type) === false)
     {
         f.warning("act_arr.tsx")
+    }
+    if (action.type === "DRAG") {
+        UPDATE_ARR = f.drag(
+            UPDATE_ARR,
+            action.new_index,
+            action.old_index
+        )
     }
     if (action.type === "EDIT") {
         UPDATE_ARR = f.edit(

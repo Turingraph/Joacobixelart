@@ -105,9 +105,9 @@ export function push_arr<t>(
 
 export function delete_item<t>(arr:t[], index:number){
     if(index >= 0 && index <= arr.length){
-        const UPDATE_ARR = [...arr]
-        UPDATE_ARR.splice(index, 1)
-        return UPDATE_ARR
+        let update_arr = [...arr]
+        update_arr.splice(index, 1)
+        return update_arr
     }
     return arr
 }
@@ -164,6 +164,55 @@ export function copy_unique_item<
         return arr
     }
     return arr
+}
+
+//-------------------------------------------------------------------------
+
+// TYPE : "DRAG"
+
+/*
+https://stackoverflow.com/questions/25492329/
+is-array-slice-enough-to-handle-a-multidimensional-array-in-javascript
+So the answer is no: slice by itself is not enough to clone a multidimensional array. 
+*/
+
+export function drag<t>(arr:t[], new_index:number, old_index:number)
+{
+    if (arr.length <= 1 || new_index < 0 || new_index >= arr.length || old_index < 0 || old_index >= arr.length || arr.length === 0)
+    {
+        return arr
+    }
+    if (new_index === 0)
+    {
+        let update_arr = delete_item(structuredClone(arr), old_index)
+        return [
+            ...[arr[old_index]],
+            ...update_arr
+        ]
+    }
+    if (new_index === arr.length - 1)
+    {
+        let update_arr = delete_item(structuredClone(arr), old_index)
+        return [
+            ...update_arr,
+            ...[arr[old_index]]
+        ]
+    }
+    let update_arr = delete_item(structuredClone(arr), old_index)
+    let left_arr  = structuredClone(update_arr).slice(0, new_index)
+    let right_arr = structuredClone(update_arr).slice(new_index, arr.length)
+    // console.log("------------------------------------------------")
+	// console.log("new_index",new_index)
+	// console.log("old_index",old_index)
+    // console.log("input:", arr)
+    // console.log("left :", left_arr)
+    // console.log("target", arr[old_index])
+    // console.log("right:", right_arr)
+    return [
+        ...left_arr,
+        ...[arr[old_index]],
+        ...right_arr
+    ]
 }
 
 //-------------------------------------------------------------------------
