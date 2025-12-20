@@ -24,9 +24,6 @@ export function STUDIO()
 	const [SS_PixelSize, setSS_PixelSize] = useState<number>(1);
 	const [SS_ToolMode, setSS_ToolMode] = useState<number>(0);
 
-	useEffect(()=>{
-		console.log("SS_RGBArr",SS_RGBArr)
-	})
 	return 	<GRID_TEMPLATE_COLUMNS
 				grid_template_areas={"area_paint area_canvas" as a.t_css}
 				grid_template_columns={"600px 1fr" as a.t_css}
