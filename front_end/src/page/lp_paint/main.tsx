@@ -1,7 +1,7 @@
 import { EDITOR_TOOLS } from "./editor_tools";
 import { RGB_PALETTES } from "./rgb_palettes";
 
-export default function MAIN_ART_TOOLS()
+export default function LP_PAINT()
 {
 	return <div>
 			<EDITOR_TOOLS/>

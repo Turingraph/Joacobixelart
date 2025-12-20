@@ -1,45 +1,50 @@
-import { useReducer, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 import act_arr, { t_ss_arr } from "../../atom/arr/act_arr";
 import * as a from "../../atom/type/alias";
-import { CONTEXT_SS_MAIN_ART_TOOL } from "../../molecule/hook/one_time_useContext";
+import { CONTEXT_SS_LP_PAINT, CONTEXT_SS_RGB_ARR } from "../../molecule/hook/one_time_useContext";
 import GRID_TEMPLATE_COLUMNS from "../../molecule/html/grid_template_columns";
 import { CSS_FULL_DIV } from "../../molecule/html/main_css";
 import CANVAS from "../../organism/canvas/canvas";
 import { MULTI_MODES_PAGE } from "../../organism/html/multi_modes_page";
-import MAIN_ART_TOOLS from "../main_art_tools/main";
+import LP_PAINT from "../lp_paint/main";
 import { ARR_EDITOR_MODES } from "../utils/arr";
+import { LP_RGB_PALETTES_EDITOR } from "../lp_rgb_palettes_editor/main";
 
 export function STUDIO()
 {
 	const [SS_LeftPanelMode, setSS_LeftPanelMode] = useState<number>(0);
 
 	// color_palettes.tsx
-	const [SS_SelectColor, setSS_SelectColor] = useState<number>(0);
+	const [SS_SelectRGB, setSS_SelectRGB] = useState<number>(0);
 	const [SS_RGBArr, setSS_RGBArr] = useReducer(
 		act_arr,
-		{ss:[], unique:false} as t_ss_arr<[number,number,number]>);
+		{ss:[], unique:true} as t_ss_arr<[number,number,number]>);
 	
 	// editor_tools.tsx
 	const [SS_PixelSize, setSS_PixelSize] = useState<number>(1);
 	const [SS_ToolMode, setSS_ToolMode] = useState<number>(0);
 
+	useEffect(()=>{
+		console.log("SS_RGBArr",SS_RGBArr)
+	})
 	return 	<GRID_TEMPLATE_COLUMNS
 				grid_template_areas={"area_paint area_canvas" as a.t_css}
 				grid_template_columns={"600px 1fr" as a.t_css}
 				jsx_array={[
 					<div style={{...CSS_FULL_DIV,...{gridArea:"area_paint", backgroundColor:"orange", display:"inline-block"}}}>
+						<CONTEXT_SS_RGB_ARR
+							value={{
+								SS_RGBArr:SS_RGBArr,
+								setSS_RGBArr:setSS_RGBArr,
+							}}>
 						<MULTI_MODES_PAGE
 							ui_body={[
 								...[{
-									ui:<CONTEXT_SS_MAIN_ART_TOOL
+									ui:<CONTEXT_SS_LP_PAINT
 										value={{
 										select_rgb:{
-											SS_SelectRGB:SS_SelectColor,
-											setSS_SelectRGB:setSS_SelectColor,
-										},
-										rgb_arr:{
-											SS_RGBArr:SS_RGBArr,
-											setSS_RGBArr:setSS_RGBArr,
+											SS_SelectRGB:SS_SelectRGB,
+											setSS_SelectRGB:setSS_SelectRGB,
 										},
 										pixel_size:{
 											SS_PixelSize:SS_PixelSize,
@@ -51,15 +56,19 @@ export function STUDIO()
 										}}
 										}
 										>
-										<MAIN_ART_TOOLS/>
-										</CONTEXT_SS_MAIN_ART_TOOL>,
-									title:"Main"
+										<LP_PAINT/>
+										</CONTEXT_SS_LP_PAINT>,
+									title:"Paint"
+								},{
+									ui:<LP_RGB_PALETTES_EDITOR/>,
+									title:"RGB Palettes Editor"
 								}],
 								...ARR_EDITOR_MODES]}
 							ui_state={{
 								ss:SS_LeftPanelMode,
 								setss:setSS_LeftPanelMode,
 							}}/>
+						</CONTEXT_SS_RGB_ARR>
 					</div>,
 					<div 
 						style={{

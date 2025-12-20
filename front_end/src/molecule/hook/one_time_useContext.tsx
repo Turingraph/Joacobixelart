@@ -6,10 +6,6 @@ export const CONTEXT_SS_LP_PAINT = createContext<{
 	select_rgb:{
 		SS_SelectRGB:number,
 		setSS_SelectRGB:a.t_setss<number>},
-	rgb_arr:{
-		SS_RGBArr:t_ss_arr<[number,number,number]>,
-		setSS_RGBArr:t_setss_arr<[number,number,number]>
-	},
 	tool_mode:{
 		SS_ToolMode:number,
 		setSS_ToolMode:a.t_setss<number>},
@@ -20,9 +16,6 @@ export const CONTEXT_SS_LP_PAINT = createContext<{
 	select_rgb:{
 		SS_SelectRGB:0,
 		setSS_SelectRGB:()=>{}},
-	rgb_arr:{
-		SS_RGBArr:{ss:[], unique:true},
-		setSS_RGBArr:()=>{}},
 	tool_mode:{
 		SS_ToolMode:0,
 		setSS_ToolMode:()=>{}},
@@ -31,22 +24,12 @@ export const CONTEXT_SS_LP_PAINT = createContext<{
 		setSS_PixelSize:()=>{}},
 });
 
-export const CONTEXT_SS_LP_CANVAS_EDITOR = createContext<{
-	rgb_arr:{
+export const CONTEXT_SS_RGB_ARR = createContext<{
 		SS_RGBArr:t_ss_arr<[number,number,number]>,
 		setSS_RGBArr:t_setss_arr<[number,number,number]>
-	},
-	select_multi_rgbs:{
-		SS_SelectMultiRGBs:t_ss_arr<number>,
-		setSS_SelectMultiRGBs:t_setss_arr<number>
-	},
 }>({
-	rgb_arr:{
-		SS_RGBArr:{ss:[], unique:true},
-		setSS_RGBArr:()=>{}},
-	select_multi_rgbs:{
-		SS_SelectMultiRGBs:{ss:[], unique:true},
-		setSS_SelectMultiRGBs:()=>{}},
+	SS_RGBArr:{ss:[], unique:true},
+	setSS_RGBArr:()=>{}
 })
 /*
 Reference

@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import STR_HEADER from "../../atom/str/str_header";
 import * as a from "../../atom/type/alias";
 import B_LOGO from "../../molecule/button/b_logo";
-import { CONTEXT_SS_MAIN_ART_TOOL } from "../../molecule/hook/one_time_useContext";
+import { CONTEXT_SS_LP_PAINT } from "../../molecule/hook/one_time_useContext";
 import { GRID_COLUMN_CX } from "../../molecule/html/grid_column_cx";
 import SELECT_ONE_ITEM from "../../molecule/html/select_one_item";
 import STR_INPUT from "../../molecule/str/str_input";
@@ -11,8 +11,8 @@ import { ARR_B_PAINTS } from "../utils/arr";
 
 export function EDITOR_TOOLS()
 {
-	const {SS_ToolMode, setSS_ToolMode} = useContext(CONTEXT_SS_MAIN_ART_TOOL).tool_mode;
-	const {SS_PixelSize, setSS_PixelSize} = useContext(CONTEXT_SS_MAIN_ART_TOOL).pixel_size;
+	const {SS_ToolMode, setSS_ToolMode} = useContext(CONTEXT_SS_LP_PAINT).tool_mode;
+	const {SS_PixelSize, setSS_PixelSize} = useContext(CONTEXT_SS_LP_PAINT).pixel_size;
 	const [SS_PixelStr, setSS_PixelStr] = useState<string>(SS_PixelSize.toString());
 	useEffect(()=>{
 		setSS_PixelSize(Number(SS_PixelStr))
