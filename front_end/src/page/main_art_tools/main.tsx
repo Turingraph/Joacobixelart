@@ -1,11 +1,11 @@
-import { COLOR_PALETTES } from "./color_palettes";
 import { EDITOR_TOOLS } from "./editor_tools";
+import { RGB_PALETTES } from "./rgb_palettes";
 
 export default function MAIN_ART_TOOLS()
 {
 	return <div>
 			<EDITOR_TOOLS/>
-			<COLOR_PALETTES/>
+			<RGB_PALETTES/>
 	</div>
 }
 

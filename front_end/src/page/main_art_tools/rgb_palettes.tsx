@@ -5,18 +5,18 @@ import B_STR from "../../molecule/button/b_str";
 import { CONTEXT_SS_MAIN_ART_TOOL } from "../../molecule/hook/one_time_useContext";
 import { GRID_COLUMN_CX } from "../../molecule/html/grid_column_cx";
 import { B_OPEN_OK_CANCEL } from "../../organism/button/b_open_ok_cancel";
-import { COLOR_PALETTES_USE } from "./color_palettes_use";
-import { COLOR_PALETTES_EDIT } from "./color_palettes_edit";
+import { RGB_PALETTES_EDIT } from "./rgb_palettes_edit";
+import { RGB_PALETTES_USE } from "./rgb_palettes_use";
 
-export function COLOR_PALETTES()
+export function RGB_PALETTES()
 {
 	const [SS_Test, setSS_Test] = useState<number>(0)
-	const setSS_ColorArray = useContext(CONTEXT_SS_MAIN_ART_TOOL).color_array.setSS_ColorArray;
+	const setSS_RGBArr = useContext(CONTEXT_SS_MAIN_ART_TOOL).rgb_arr.setSS_RGBArr;
 	const [SS_Open, setSS_Open] = useState<boolean>(false)
-	let jsx_color_palettes = <COLOR_PALETTES_USE/>
+	let jsx_color_palettes = <RGB_PALETTES_USE/>
 	if (SS_Open === true)
 	{
-		jsx_color_palettes = <COLOR_PALETTES_EDIT/>
+		jsx_color_palettes = <RGB_PALETTES_EDIT/>
 	}
 	return <>
 			<STR_HEADER title={"RGB Palettes"}/>
@@ -25,7 +25,7 @@ export function COLOR_PALETTES()
 				title="Add Color"
 				func={(()=>{
 					// alert(SS_Test)
-					setSS_ColorArray({
+					setSS_RGBArr({
 						type:"PUSH",
 						input:[SS_Test,1,2]
 					})

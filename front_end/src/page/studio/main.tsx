@@ -1,13 +1,13 @@
+import { useReducer, useState } from "react";
+import act_arr, { t_ss_arr } from "../../atom/arr/act_arr";
+import * as a from "../../atom/type/alias";
+import { CONTEXT_SS_MAIN_ART_TOOL } from "../../molecule/hook/one_time_useContext";
 import GRID_TEMPLATE_COLUMNS from "../../molecule/html/grid_template_columns";
 import { CSS_FULL_DIV } from "../../molecule/html/main_css";
-import { MULTI_MODES_PAGE } from "../../organism/html/multi_modes_page";
-import {  ARR_EDITOR_MODES } from "../utils/arr";
-import * as a from "../../atom/type/alias";
-import MAIN_ART_TOOLS from "../main_art_tools/main";
-import { useReducer, useState } from "react";
 import CANVAS from "../../organism/canvas/canvas";
-import act_arr, { t_ss_arr } from "../../atom/arr/act_arr";
-import { CONTEXT_SS_MAIN_ART_TOOL } from "../../molecule/hook/one_time_useContext";
+import { MULTI_MODES_PAGE } from "../../organism/html/multi_modes_page";
+import MAIN_ART_TOOLS from "../main_art_tools/main";
+import { ARR_EDITOR_MODES } from "../utils/arr";
 
 export function STUDIO()
 {
@@ -15,7 +15,7 @@ export function STUDIO()
 
 	// color_palettes.tsx
 	const [SS_SelectColor, setSS_SelectColor] = useState<number>(0);
-	const [SS_ColorArray, setSS_ColorArray] = useReducer(
+	const [SS_RGBArr, setSS_RGBArr] = useReducer(
 		act_arr,
 		{ss:[], unique:false} as t_ss_arr<[number,number,number]>);
 	
@@ -33,13 +33,13 @@ export function STUDIO()
 								...[{
 									ui:<CONTEXT_SS_MAIN_ART_TOOL
 										value={{
-										select_color:{
-											SS_SelectColor:SS_SelectColor,
-											setSS_SelectColor:setSS_SelectColor,
+										select_rgb:{
+											SS_SelectRGB:SS_SelectColor,
+											setSS_SelectRGB:setSS_SelectColor,
 										},
-										color_array:{
-											SS_ColorArray:SS_ColorArray,
-											setSS_ColorArray:setSS_ColorArray,
+										rgb_arr:{
+											SS_RGBArr:SS_RGBArr,
+											setSS_RGBArr:setSS_RGBArr,
 										},
 										pixel_size:{
 											SS_PixelSize:SS_PixelSize,
