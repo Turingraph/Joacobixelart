@@ -2,7 +2,7 @@ import { createContext } from 'react';
 import { t_setss_arr, t_ss_arr } from '../../atom/arr/act_arr';
 import * as a from "../../atom/type/alias";
 
-export const CONTEXT_SS_MAIN_ART_TOOL = createContext<{
+export const CONTEXT_SS_LP_PAINT = createContext<{
 	select_rgb:{
 		SS_SelectRGB:number,
 		setSS_SelectRGB:a.t_setss<number>},
@@ -31,6 +31,23 @@ export const CONTEXT_SS_MAIN_ART_TOOL = createContext<{
 		setSS_PixelSize:()=>{}},
 });
 
+export const CONTEXT_SS_LP_CANVAS_EDITOR = createContext<{
+	rgb_arr:{
+		SS_RGBArr:t_ss_arr<[number,number,number]>,
+		setSS_RGBArr:t_setss_arr<[number,number,number]>
+	},
+	select_multi_rgbs:{
+		SS_SelectMultiRGBs:t_ss_arr<number>,
+		setSS_SelectMultiRGBs:t_setss_arr<number>
+	},
+}>({
+	rgb_arr:{
+		SS_RGBArr:{ss:[], unique:true},
+		setSS_RGBArr:()=>{}},
+	select_multi_rgbs:{
+		SS_SelectMultiRGBs:{ss:[], unique:true},
+		setSS_SelectMultiRGBs:()=>{}},
+})
 /*
 Reference
 1.	https://stackoverflow.com/questions/77217290/
