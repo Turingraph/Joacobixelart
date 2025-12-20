@@ -71,9 +71,13 @@ How to add useState in useContext?
 #############################################################################
 
 To Do Now 
-1.	Add delete button in each color palettes
-2.	scroll bar for multiple color palettes
-3.	delete add color button and then make B_RGB_INPUT generate new color palettes
+1.	Compartible selected_items and drag_items_arr in select_multi_items.tsx
+2.	edit "RGB Palettes Editor"
+3.	scroll bar for multiple color palettes
+4.	Save color palettes edition ? Yes/No
+5.	delete "add color" button and then make B_RGB_INPUT generate new color palettes
+6.	transform color palettes (matrix multiplication, k means merge, merge, hsv, quaternion rotation, delete)
+7.	auto merge
 
 #############################################################################
 */

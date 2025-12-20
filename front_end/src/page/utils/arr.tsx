@@ -87,19 +87,17 @@ export const ARR_B_SAVE:t_B_STR[] = [
 
 export const ARR_EDITOR_MODES:ui_with_title[] = [
 	{
-		ui:<div style={{...CSS_TEST_DIV, ...{backgroundColor:"BlueViolet"}}}>Plane Color</div>,
-		title:"3D Color"
+		ui:<div style={{...CSS_TEST_DIV, ...{backgroundColor:"BlueViolet"}}}>Color Matrix Multiplication and Edit Color Palettes</div>,
+		title:"RGB Palettes Editor"
+	},	
+	{
+		ui:<div style={{...CSS_TEST_DIV, ...{backgroundColor:"BlueViolet"}}}>Get Color from f(x, y) = z multiplied by Quaternion Field</div>,
+		title:"Procedural RGB"
 	},	{
-		ui:<div style={{...CSS_TEST_DIV, ...{backgroundColor:"lightgreen"}}}>Curve Color</div>,
-		title:"Lie Group"
+		ui:<div style={{...CSS_TEST_DIV, ...{backgroundColor:"Gray"}}}>Edit Canvas</div>,
+		title:"Canvas Editor"
 	},	{
-		ui:<div style={{...CSS_TEST_DIV, ...{backgroundColor:"Gray"}}}>J_f Canvas</div>,
-		title:"J_f Canvas"
-	},	{
-		ui:<div style={{...CSS_TEST_DIV, ...{backgroundColor:"Orange"}}}>FEM Color</div>,
-		title:"FEM Color"
-	},	{
-		ui:<div style={{...CSS_TEST_DIV, ...{backgroundColor:"skyblue"}}}>Wave Function</div>,
-		title:"Wave Function"
+		ui:<div style={{...CSS_TEST_DIV, ...{backgroundColor:"Orange"}}}>Finite Element Method</div>,
+		title:"Simulation"
 	}
 ]

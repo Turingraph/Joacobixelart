@@ -19,7 +19,7 @@ export function COLOR_PALETTES()
 		jsx_color_palettes = <COLOR_PALETTES_EDIT/>
 	}
 	return <>
-			<STR_HEADER title={"Color Palettes"}/>
+			<STR_HEADER title={"RGB Palettes"}/>
 			<hr style={{visibility:"hidden", height:"3px", margin:"0px"}}/>
 			<B_STR
 				title="Add Color"
@@ -33,7 +33,7 @@ export function COLOR_PALETTES()
 				}) as a.t_func}
 			/>
 			<B_OPEN_OK_CANCEL
-				title_open="Edit Color Palettes"
+				title_open="RGB Color Palettes"
 				ss_open={{
 					ss:SS_Open,
 					setss:setSS_Open
