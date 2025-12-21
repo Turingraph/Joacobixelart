@@ -156,15 +156,17 @@ is-array-slice-enough-to-handle-a-multidimensional-array-in-javascript
 So the answer is no: slice by itself is not enough to clone a multidimensional array. 
 */
 
+// delete_item delete the selected item of array based on the selected id.
 export function drag<t extends {id:number}>(arr:t[], new_index:number, old_index:number)
 {
     if (arr.length <= 1 || new_index < 0 || new_index >= arr.length || old_index < 0 || old_index >= arr.length || arr.length === 0)
     {
         return arr
     }
+    let target_id = arr[old_index].id
     if (new_index === 0)
     {
-        let update_arr = delete_item(structuredClone(arr), old_index)
+        let update_arr = delete_item(structuredClone(arr), target_id)
         return [
             ...[arr[old_index]],
             ...update_arr
@@ -172,13 +174,13 @@ export function drag<t extends {id:number}>(arr:t[], new_index:number, old_index
     }
     if (new_index === arr.length - 1)
     {
-        let update_arr = delete_item(structuredClone(arr), old_index)
+        let update_arr = delete_item(structuredClone(arr), target_id)
         return [
             ...update_arr,
             ...[arr[old_index]]
         ]
     }
-    let update_arr = delete_item(structuredClone(arr), old_index)
+    let update_arr = delete_item(structuredClone(arr), target_id)
     let left_arr  = structuredClone(update_arr).slice(0, new_index)
     let right_arr = structuredClone(update_arr).slice(new_index, arr.length)
     // console.log("------------------------------------------------")

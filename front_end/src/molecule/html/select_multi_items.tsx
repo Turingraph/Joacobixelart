@@ -75,7 +75,9 @@ export default function SELECT_MULTI_ITEMS<t extends {id:number, select:boolean}
 					Ref_DragOldIndex.current = index
 					setSS_DragOldIndex(index)
 				}}
-				onMouseDown={()=>{Ref_DragOldIndex.current = index}}
+				onMouseDown={()=>{
+					Ref_DragOldIndex.current = index
+				}}
 				onDragEnd={()=>{}}
 				draggable={true}
 				>
