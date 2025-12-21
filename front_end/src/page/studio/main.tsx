@@ -1,5 +1,5 @@
 import { useReducer, useState } from "react";
-import act_arr, { t_ss_arr } from "../../atom/arr/act_arr";
+import { t_ss_arr } from "../../atom/arr/act_arr";
 import * as a from "../../atom/type/alias";
 import { CONTEXT_SS_GLOBAL_STUDIO, CONTEXT_SS_LP_PAINT } from "../../molecule/hook/one_time_useContext";
 import GRID_TEMPLATE_COLUMNS from "../../molecule/html/grid_template_columns";
@@ -9,6 +9,8 @@ import { MULTI_MODES_PAGE } from "../../organism/html/multi_modes_page";
 import LP_PAINT from "../lp_paint/main";
 import { LP_RGB_PALETTES_EDITOR } from "../lp_rgb_palettes_editor/main";
 import { ARR_EDITOR_MODES } from "../utils/arr";
+import { t_rgb_grid } from "../../atom/arr/type";
+import act_arr_key from "../../atom/arr/act_arr_key";
 
 export function STUDIO()
 {
@@ -17,8 +19,8 @@ export function STUDIO()
 	// color_palettes.tsx
 	const [SS_SelectRGB, setSS_SelectRGB] = useState<number>(0);
 	const [SS_RGBArr, setSS_RGBArr] = useReducer(
-		act_arr,
-		{ss:[], unique:true} as t_ss_arr<[number,number,number]>);
+		act_arr_key,
+		{ss:[], unique:true} as t_ss_arr<t_rgb_grid>);
 	
 	// editor_tools.tsx
 	const [SS_PixelSize, setSS_PixelSize] = useState<number>(1);

@@ -2,13 +2,16 @@ import React from "react";
 import * as a from "../../atom/type/alias";
 import B_LOGO from "../../molecule/button/b_logo";
 import b_x from "../../asset/b_items/b_x.png"
+// import { t_use_arr } from "../../atom/arr/act_arr";
 
 export function B_RGB_GRID({
 	mode = false,
 	title,
+	// ss_arr
 }:{
 	mode?:boolean
 	title:string
+	// ss_arr:t_use_arr<t>
 })
 {
 	const f_func = () => {

@@ -5,11 +5,6 @@ import * as f from "./function"
 export type t_act_arr_key<
 	t extends object,
     k extends keyof t> = Exclude<t_act_arr<t>, {type:"COPY"}|{type:"SORT"}> | {
-    type:"EDIT_KEY",
-    index:number,
-    key:k,
-    input:t[k],
-} | {
     type:"SORT",
 	is_ascending:boolean,
 	key:k
@@ -37,19 +32,6 @@ export default function act_arr_key<
 	if (action.type === "COPY")
 	{
 		UPDATE_ARR = f.copy_unique_item(prev_arr.ss, action.index, action.key)
-	}
-	if (action.type === "EDIT_KEY")
-	{ 
-		UPDATE_ARR = f.edit_key(
-			UPDATE_ARR,
-			action.index,
-			action.input as t[k],
-			action.key,
-		)
-		UPDATE_ARR = f.unique_arr(
-			UPDATE_ARR,
-			prev_arr.unique
-		)
 	}
 	if (action.type === "SORT")
 	{

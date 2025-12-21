@@ -20,7 +20,10 @@ export function RGB_PALETTES()
 				func={(()=>{
 					setSS_RGBArr({
 						type:"PUSH",
-						input:[SS_Test,1,2]
+						input:{
+							rgb:[SS_Test,1,2],
+							select:false
+						}
 					})
 					setSS_Test(SS_Test + 1)
 				}) as a.t_func}
@@ -35,7 +38,7 @@ export function RGB_PALETTES()
 						setss:setSS_SelectColor
 					}}
 					jsx_select_array={SS_RGBArr.ss.map((item, index:number)=>{
-						return <div key={index}><B_RGB_GRID mode={false} title={item[0].toString()}/></div>
+						return <div key={index}><B_RGB_GRID mode={false} title={item.rgb[0].toString()}/></div>
 					})}
 					is_horizontal={false}
 					/>}

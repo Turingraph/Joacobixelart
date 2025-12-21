@@ -67,27 +67,6 @@ export function edit<t>(
 
 //-------------------------------------------------------------------------
 
-// TYPE : "EDIT_KEY"
-
-export function edit_key<
-    t extends object, 
-    k extends keyof t>(
-        arr:t[],
-        index:number,
-        input:t[k],
-        key:k,
-    ){
-    const UPDATE_ARR = [...arr]
-    // console.log("index",index)
-    // console.log("UPDATE_ARR.length",UPDATE_ARR.length)
-    if(index >= 0 && index < UPDATE_ARR.length){
-        (UPDATE_ARR[index] as t)[key] = input
-    }
-    return UPDATE_ARR
-}
-
-//-------------------------------------------------------------------------
-
 // TYPE : "PUSH"
 
 export function push_arr<t>(
