@@ -24,6 +24,13 @@ export function LP_RGB_PALETTES_EDITOR()
 					<B_RGB_GRID 
 						mode={true} 
 						title={item.rgb[0].toString()}
+						f_delete={
+							(()=>{
+							setSS_RGBArr({
+								type:"DELETE",
+								index:index
+							})}) as a.t_func
+						}
 					/>
 				</div>
 			})}

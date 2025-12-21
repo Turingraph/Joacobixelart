@@ -7,20 +7,17 @@ import b_x from "../../asset/b_items/b_x.png"
 export function B_RGB_GRID({
 	mode = false,
 	title,
-	// ss_arr
+	f_delete = undefined
 }:{
 	mode?:boolean
 	title:string
-	// ss_arr:t_use_arr<t>
+	f_delete?:undefined|a.t_func
 })
 {
-	const f_func = () => {
-	    alert("Tally Hall");
-	}
 	let jsx_x = <></>
 	if (mode === true)
 	{
-		jsx_x = <B_LOGO logo={b_x as a.t_logo} func={f_func as a.t_func} size={20}/>
+		jsx_x = <B_LOGO logo={b_x as a.t_logo} func={f_delete === undefined ? (()=>{}) as a.t_func : f_delete} size={20}/>
 	}
 	return <div style={{
 		margin:"0px",
