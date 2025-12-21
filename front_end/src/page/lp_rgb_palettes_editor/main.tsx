@@ -1,10 +1,10 @@
 import { useContext, useReducer } from "react";
 import act_arr from "../../atom/arr/act_arr";
-import { CONTEXT_SS_RGB_ARR } from "../../molecule/hook/one_time_useContext";
+import * as a from "../../atom/type/alias";
+import { CONTEXT_SS_GLOBAL_STUDIO } from "../../molecule/hook/one_time_useContext";
+import { GRID_COLUMN_CX } from "../../molecule/html/grid_column_cx";
 import SELECT_MULTI_ITEMS from "../../molecule/html/select_multi_items";
 import { B_RGB_GRID } from "../../organism/button/b_rgb_grid";
-import { GRID_COLUMN_CX } from "../../molecule/html/grid_column_cx";
-import * as a from "../../atom/type/alias"
 
 export function LP_RGB_PALETTES_EDITOR()
 {
@@ -12,7 +12,7 @@ export function LP_RGB_PALETTES_EDITOR()
 		unique:true,
 		ss:[] as number[]
 	})
-	const {SS_RGBArr, setSS_RGBArr} = useContext(CONTEXT_SS_RGB_ARR)
+	const {SS_RGBArr, setSS_RGBArr} = useContext(CONTEXT_SS_GLOBAL_STUDIO).rgb_arr
 	return <GRID_COLUMN_CX
 			gap={"5px" as a.t_css}
 			column={"45px 45px 45px 45px" as a.t_css}

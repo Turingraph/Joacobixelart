@@ -24,13 +24,14 @@ export const CONTEXT_SS_LP_PAINT = createContext<{
 		setSS_PixelSize:()=>{}},
 });
 
-export const CONTEXT_SS_RGB_ARR = createContext<{
+export const CONTEXT_SS_GLOBAL_STUDIO = createContext<{
+	rgb_arr:{
 		SS_RGBArr:t_ss_arr<[number,number,number]>,
 		setSS_RGBArr:t_setss_arr<[number,number,number]>
-}>({
+}}>({rgb_arr:{
 	SS_RGBArr:{ss:[], unique:true},
 	setSS_RGBArr:()=>{}
-})
+}})
 /*
 Reference
 1.	https://stackoverflow.com/questions/77217290/
