@@ -14,40 +14,40 @@ export function unique_arr<t>(arr:t[], unique:undefined|boolean = undefined){
 
 // TYPE : "SORT"
 
-export function sort_arr<t extends object[], k extends keyof t[number]>(
-    arr:t,
-    sort_mode:undefined|"NO_SORT"|"SORT"|"REVERSE",
-    sort_key:undefined|k
+export function sort_arr<t>(
+    arr:t[],
+    is_ascending:boolean
 ){
     // https://stackoverflow.com/questions/21687907/
     // typescript-sorting-an-array
 
     // https://stackoverflow.com/questions/26871106/
     // check-if-all-elements-in-array-are-strings
+    if (is_ascending === true)
+    {
+        return arr.sort((n0, n1) => (n0 as t) < (n1 as t) ? -1 : 1)
+    }
+    return arr.sort((n0, n1) => (n0 as t) > (n1 as t) ? -1 : 1)
+}
 
-    if(sort_key === undefined || sort_mode === undefined){
-        return arr
+export function sort_arr_key<
+    t extends object, 
+    k extends keyof t>(
+    arr:t[],
+    is_ascending:boolean,
+    key:k
+){
+    // https://stackoverflow.com/questions/21687907/
+    // typescript-sorting-an-array
+
+    // https://stackoverflow.com/questions/26871106/
+    // check-if-all-elements-in-array-are-strings
+    if (is_ascending === true)
+    {
+        return arr.sort((n0, n1) => (n0 as t)[key] < (n1 as t)[key] ? -1 : 1)
     }
-    switch(sort_mode){
-        case "SORT":{
-            return arr.sort((n0, n1) => (n0 as t[number])[sort_key] < (n1 as t[number])[sort_key] ? -1 : 1)
-        }
-        case "REVERSE":{
-            return arr.sort((n0, n1) => (n0 as t[number])[sort_key] > (n1 as t[number])[sort_key] ? -1 : 1)
-        }
-        case "NO_SORT":{
-            return arr
-        }
-        default:{
-            console.log("--------------------------------------------------------------------")
-            console.log("The sort_mode is invalid.")
-            console.log("The sort_mode should be \"SORT\"|\"REVERSE\"|\"NO_SORT\"")
-            console.log("Warning from frontend/ src/ src/ hook/ func_arrobj.tsx/ function sort_arrobj")
-            console.log("--------------------------------------------------------------------")
-            return arr
-        }
-        }
-    }
+    return arr.sort((n0, n1) => (n0 as t)[key] < (n1 as t)[key] ? -1 : 1)
+}
 
 //-------------------------------------------------------------------------
 
@@ -58,11 +58,11 @@ export function edit<t>(
     index:number,
     input:t
 ){
-const UPDATE_ARR = [...arr]
-if(index >= 0 && index < UPDATE_ARR.length){
-    UPDATE_ARR[index] = input
-}
-return UPDATE_ARR
+    const UPDATE_ARR = [...arr]
+    if(index >= 0 && index < UPDATE_ARR.length){
+        UPDATE_ARR[index] = input
+    }
+    return UPDATE_ARR
 }
 
 //-------------------------------------------------------------------------

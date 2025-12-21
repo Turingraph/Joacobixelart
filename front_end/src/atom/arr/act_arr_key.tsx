@@ -2,35 +2,27 @@ import act_arr, { BASIC_ARR_OPERATIONS, t_act_arr, t_ss_arr } from "./act_arr"
 import * as f from "./function"
 
 //  type action array with key
-export type t_ss_arr_key<
-	t extends object, 
-	k extends keyof t> = t_ss_arr<t> & {
-	sort_mode?:undefined|"NO_SORT"|"SORT"|"REVERSE",
-	sort_key?:undefined|k,
-}
-
 export type t_act_arr_key<
 	t extends object,
-    k extends keyof t> = (t_act_arr<t> | {
+    k extends keyof t> = Exclude<t_act_arr<t>, {type:"COPY"}|{type:"SORT"}> | {
     type:"EDIT_KEY",
     index:number,
     key:k,
     input:t[k],
 } | {
-    type:"SORT"
+    type:"SORT",
+	is_ascending:boolean,
+	key:k
 }| {
     type:"COPY",
     index:number,
     key:k
-}) & {
-    sort_mode?:undefined|"NO_SORT"|"SORT"|"REVERSE",
-    sort_key?:undefined|k,
 }
 
 export default function act_arr_key<
 	t extends object,
 	k extends keyof t>(
-		prev_arr:t_ss_arr_key<t, k>, 
+		prev_arr:t_ss_arr<t>, 
 		action:t_act_arr_key<t, k>
 	){
     let UPDATE_ARR = [...prev_arr.ss]
@@ -58,16 +50,19 @@ export default function act_arr_key<
 			UPDATE_ARR,
 			prev_arr.unique
 		)
-	} 
-	UPDATE_ARR = f.sort_arr(
-		UPDATE_ARR,
-		prev_arr.sort_mode,
-		prev_arr.sort_key
-	)
+	}
+	if (action.type === "SORT")
+	{
+		UPDATE_ARR = f.sort_arr_key(
+			UPDATE_ARR,
+			action.is_ascending,
+			action.key
+		)
+	}
 	return {
 		...prev_arr,
 		ss:UPDATE_ARR
-	} as t_ss_arr_key<t, k>
+	} as t_ss_arr<t>
 }
 
 export type t_setss_arr_key<

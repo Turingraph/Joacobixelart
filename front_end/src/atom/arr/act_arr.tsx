@@ -27,15 +27,18 @@ export type t_act_arr<t> = {
     type:"DRAG",
     new_index:number,
     old_index:number
+} | {
+    type:"COPY",
+    index:number
+} | {
+    type:"SORT",
+    is_ascending:boolean
 }
 
 export const BASIC_ARR_OPERATIONS = ["EDIT", "PUSH", "DELETE", "SET", "DRAG"]
 
 export default function act_arr<t>
-    (prev_arr:t_ss_arr<t>, action:t_act_arr<t> | {
-    type:"COPY",
-    index:number
-}){
+    (prev_arr:t_ss_arr<t>, action:t_act_arr<t>){
     let UPDATE_ARR = [...prev_arr.ss]
     if ([...BASIC_ARR_OPERATIONS,...["COPY"]].includes(action.type) === false)
     {
@@ -73,6 +76,12 @@ export default function act_arr<t>
             action.index
         )
     } 
+    if (action.type === "SORT") {
+        UPDATE_ARR = f.sort_arr(
+            UPDATE_ARR,
+            action.is_ascending
+        )
+    }
     if (action.type === "SET"){
         UPDATE_ARR = action.input
     }
