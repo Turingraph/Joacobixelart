@@ -1,10 +1,10 @@
 import { CSSProperties, JSX, useContext, useRef, useState } from "react";
+import { t_use_arr } from "../../atom/arr/act_arr";
 import { CONTEXT_CSS_SELECT_ONE_ITEM } from "../../atom/hook/useContext";
 import { CSS_MARGIN_Y } from "./main_css";
 import "./multi_color_bs.css";
-import { t_use_arr_key } from "../../atom/arr/act_arr_key";
 
-export default function SELECT_MULTI_ITEMS<t extends {select:boolean}, k extends keyof t>({
+export default function SELECT_MULTI_ITEMS<t extends {id:number, select:boolean}, k extends keyof t>({
 	jsx_select_array,
 	jsx_other_array = [],
 	arr,
@@ -12,7 +12,7 @@ export default function SELECT_MULTI_ITEMS<t extends {select:boolean}, k extends
 }:{
 	jsx_select_array:JSX.Element[],
 	jsx_other_array?:JSX.Element[],
-	arr:t_use_arr_key<t, k>
+	arr:t_use_arr<t, k>
 	is_horizontal?:boolean
 })
 {
@@ -37,9 +37,9 @@ export default function SELECT_MULTI_ITEMS<t extends {select:boolean}, k extends
 		{jsx_select_array.map((item, index:number)=>{
 			return <span
 			key={index}
-			className={arr.ss.ss[index].select === true ? "select_button" : "non_select_button"}
+			className={arr.ss[index].select === true ? "select_button" : "non_select_button"}
 			style={{
-				border:arr.ss.ss[index].select === true ? "2px solid blueviolet" : "2px solid gray",
+				border:arr.ss[index].select === true ? "2px solid blueviolet" : "2px solid gray",
 				opacity:index === SS_DragOldIndex ? "0.5" : "1"
 			}}
 			onClick={()=>{
@@ -47,8 +47,8 @@ export default function SELECT_MULTI_ITEMS<t extends {select:boolean}, k extends
 					type:"EDIT", 
 					index:index,
 					input:{
-						...arr.ss.ss[index],
-						select:arr.ss.ss[index].select === true ? false : true
+						...arr.ss[index],
+						select:arr.ss[index].select === true ? false : true
 					}
 				})
 			}}

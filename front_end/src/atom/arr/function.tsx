@@ -14,23 +14,23 @@ export function unique_arr<t>(arr:t[], unique:undefined|boolean = undefined){
 
 // TYPE : "SORT"
 
-export function sort_arr<t>(
-    arr:t[],
-    is_ascending:boolean
-){
-    // https://stackoverflow.com/questions/21687907/
-    // typescript-sorting-an-array
+// export function sort_arr<t>(
+//     arr:t[],
+//     is_ascending:boolean
+// ){
+//     // https://stackoverflow.com/questions/21687907/
+//     // typescript-sorting-an-array
 
-    // https://stackoverflow.com/questions/26871106/
-    // check-if-all-elements-in-array-are-strings
-    if (is_ascending === true)
-    {
-        return arr.sort((n0, n1) => (n0 as t) < (n1 as t) ? -1 : 1)
-    }
-    return arr.sort((n0, n1) => (n0 as t) > (n1 as t) ? -1 : 1)
-}
+//     // https://stackoverflow.com/questions/26871106/
+//     // check-if-all-elements-in-array-are-strings
+//     if (is_ascending === true)
+//     {
+//         return arr.sort((n0, n1) => (n0 as t) < (n1 as t) ? -1 : 1)
+//     }
+//     return arr.sort((n0, n1) => (n0 as t) > (n1 as t) ? -1 : 1)
+// }
 
-export function sort_arr_key<
+export function sort_arr<
     t extends object, 
     k extends keyof t>(
     arr:t[],
@@ -69,12 +69,18 @@ export function edit<t>(
 
 // TYPE : "PUSH"
 
-export function push_arr<t>(
+export function push_arr<t extends {id:number}>(
     arr:t[],
     input:t,
 ){
     const UPDATE_ARR = [...arr]
-    UPDATE_ARR.push(input)
+    let new_id = Math.random();
+    const ids = new Set(arr.map(item => item.id));
+    while (ids.has(new_id)) {
+        new_id = Math.random();
+    }
+    const newItem = { ...input, id: new_id }; // clone to avoid mutating input
+    UPDATE_ARR.push(newItem);
     return UPDATE_ARR
 }
 
@@ -82,13 +88,8 @@ export function push_arr<t>(
 
 // TYPE : "DELETE"
 
-export function delete_item<t>(arr:t[], index:number){
-    if(index >= 0 && index <= arr.length){
-        let update_arr = [...arr]
-        update_arr.splice(index, 1)
-        return update_arr
-    }
-    return arr
+export function delete_item<t extends {id:number}>(arr:t[], id:number){
+    return arr.filter((item)=> item.id !== id)
 }
 
 // https://stackoverflow.com/questions/1068834/
@@ -112,15 +113,15 @@ export function item_to_index<t>(arr:t[], target:t)
 
 // TYPE : COPY
 
-export function copy_item<t>(arr:t[], index:number){
-    if(index >= 0 && index <= arr.length){
-        const UPDATE_ARR = push_arr(arr, arr[index])
-        return UPDATE_ARR
-    }
-    return arr
-}
+// export function copy_item<t>(arr:t[], index:number){
+//     if(index >= 0 && index <= arr.length){
+//         const UPDATE_ARR = push_arr(arr, arr[index])
+//         return UPDATE_ARR
+//     }
+//     return arr
+// }
 
-export function copy_unique_item<
+export function copy_item<
     t extends object[], 
     k extends keyof t[number],
     >(
@@ -155,7 +156,7 @@ is-array-slice-enough-to-handle-a-multidimensional-array-in-javascript
 So the answer is no: slice by itself is not enough to clone a multidimensional array. 
 */
 
-export function drag<t>(arr:t[], new_index:number, old_index:number)
+export function drag<t extends {id:number}>(arr:t[], new_index:number, old_index:number)
 {
     if (arr.length <= 1 || new_index < 0 || new_index >= arr.length || old_index < 0 || old_index >= arr.length || arr.length === 0)
     {
@@ -198,11 +199,11 @@ export function drag<t>(arr:t[], new_index:number, old_index:number)
 
 // TYPE : "WARNING"
 
-export function warning(file_title:string)
-{
-    console.log("--------------------------------------------------------------------")
-    console.log("The action.type of useArr is invalid.")
-    console.log("The action.type should be \"COPY\"|\"PUSH\"|\"DELETE\"|\"EDIT\"|\"SET\"")
-    console.log("Warning from frontend/ src/ atom/ arr/ " + file_title + "/ function reducer")
-    console.log("--------------------------------------------------------------------")
-}
+// export function warning(file_title:string)
+// {
+//     console.log("--------------------------------------------------------------------")
+//     console.log("The action.type of useArr is invalid.")
+//     console.log("The action.type should be \"COPY\"|\"PUSH\"|\"DELETE\"|\"EDIT\"|\"SET\"")
+//     console.log("Warning from frontend/ src/ atom/ arr/ " + file_title + "/ function reducer")
+//     console.log("--------------------------------------------------------------------")
+// }

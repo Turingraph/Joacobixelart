@@ -71,7 +71,7 @@ How to add useState in useContext?
 #############################################################################
 
 To Do Now 
-1.	Compartible selected_items and drag_items_arr in select_multi_items.tsx
+1.	make delete item of lp_rgb_palettes_editor/main.tsx becomes reusable.
 2.	edit "RGB Palettes Editor"
 3.	scroll bar for multiple color palettes
 4.	Save color palettes edition ? Yes/No
