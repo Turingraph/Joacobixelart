@@ -7,7 +7,8 @@ which make it delete the wrong item.
 export type t_rgb_grid = {
 	id:number,
 	select:boolean,
-	rgb:[number, number, number]
+	// rgb:[number, number, number]
+	rgb:string
 }
 
 export type t_layer = {

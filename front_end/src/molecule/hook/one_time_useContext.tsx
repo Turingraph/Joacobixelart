@@ -29,17 +29,16 @@ export const CONTEXT_SS_GLOBAL_STUDIO = createContext<{
 	rgb_arr:{
 		SS_RGBArr:t_rgb_grid[],
 		setSS_RGBArr:t_setss_arr<t_rgb_grid, "select" | "rgb" | "id">},
-	new_hex_rgb:{
-		SS_NewHexRGB:string,
-		setSS_NewHexRGB:a.t_setss<string>
+	new_rgb:{
+		SS_NewRGB:string,
+		setSS_NewRGB:a.t_setss<string>
 	}
 }>({rgb_arr:{
-	SS_RGBArr:[],
-	setSS_RGBArr:()=>{}},
-	new_hex_rgb:{
-		SS_NewHexRGB:"#000000",
-		setSS_NewHexRGB:()=>{}
-	}
+		SS_RGBArr:[],
+		setSS_RGBArr:()=>{}},
+	new_rgb:{
+		SS_NewRGB:"#000000",
+		setSS_NewRGB:()=>{}}
 })
 /*
 Reference

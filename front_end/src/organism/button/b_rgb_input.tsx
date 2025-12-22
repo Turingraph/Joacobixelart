@@ -3,13 +3,13 @@ import { CONTEXT_SS_GLOBAL_STUDIO } from "../../molecule/hook/one_time_useContex
 
 export function B_RGB_INPUT()
 {
-	const setSS_NewHexRGB = useContext(CONTEXT_SS_GLOBAL_STUDIO).new_hex_rgb.setSS_NewHexRGB
+	const setSS_NewRGB = useContext(CONTEXT_SS_GLOBAL_STUDIO).new_rgb.setSS_NewRGB
 	return <>
 	<input 
 		type="color" 
 		style={{height:"100%"}}
 		onChange={e=>{
-			setSS_NewHexRGB(e.target.value)
+			setSS_NewRGB(e.target.value)
 		}}
 	></input>
 	</>

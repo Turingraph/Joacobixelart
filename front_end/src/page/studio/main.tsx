@@ -20,7 +20,7 @@ export function STUDIO()
 	const [SS_RGBArr, setSS_RGBArr] = useReducer(
 		act_arr_key,
 		[] as t_rgb_grid[]);
-	const [SS_NewHexRGB, setSS_NewHexRGB] = useState<string>("#000000")
+	const [SS_NewRGB, setSS_NewRGB] = useState<string>("#000000")
 
 	// lp_paint/color_palettes.tsx
 	const [SS_SelectRGB, setSS_SelectRGB] = useState<number>(0);
@@ -34,9 +34,9 @@ export function STUDIO()
 		rgb_arr:{
 			SS_RGBArr:SS_RGBArr,
 			setSS_RGBArr:setSS_RGBArr},
-		new_hex_rgb:{
-			SS_NewHexRGB:SS_NewHexRGB,
-			setSS_NewHexRGB:setSS_NewHexRGB
+		new_rgb:{
+			SS_NewRGB:SS_NewRGB,
+			setSS_NewRGB:setSS_NewRGB
 			},
 		}}>
 	<GRID_TEMPLATE_COLUMNS

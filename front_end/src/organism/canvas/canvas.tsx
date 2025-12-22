@@ -1,9 +1,12 @@
-import * as a from "../../atom/type/alias"
-import { useContext, useReducer } from "react";
+import { useContext, useReducer, useRef } from "react";
 import act_arr from "../../atom/arr/act_arr";
 import { push_arr } from "../../atom/arr/function";
-import { GRID_COLUMN_DIV } from "../../molecule/html/grid_column_div";
+import * as a from "../../atom/type/alias";
 import { CONTEXT_SS_GLOBAL_STUDIO } from "../../molecule/hook/one_time_useContext";
+import { GRID_COLUMN_DIV } from "../../molecule/html/grid_column_div";
+import { t_rgb_grid } from "../../atom/arr/type";
+import { useClickPushArr } from "../../molecule/hook/useClickArr";
+import { is_arr_has } from "../../atom/arr/utils";
 
 export type t_grid = {
 	id:number,
@@ -27,8 +30,11 @@ function init_ss_grid()
 
 export default function CANVAS()
 {
-	const SS_NewHexRGB = useContext(CONTEXT_SS_GLOBAL_STUDIO).new_hex_rgb.SS_NewHexRGB
+	const SS_NewRGB = useContext(CONTEXT_SS_GLOBAL_STUDIO).new_rgb.SS_NewRGB
+	const Ref_NewRGB = useRef<undefined|t_rgb_grid>(undefined)
+	const {SS_RGBArr, setSS_RGBArr} = useContext(CONTEXT_SS_GLOBAL_STUDIO).rgb_arr
 	const [SS_Grid, setSS_Grid] = useReducer(act_arr, init_ss_grid())
+	useClickPushArr(Ref_NewRGB, setSS_RGBArr)
 	return <div
 	style={{
 		width:"800px",
@@ -52,9 +58,21 @@ export default function CANVAS()
 							id:item.id,
 							input:{
 								id:item.id,
-								rgb:SS_NewHexRGB
+								rgb:SS_NewRGB
 							}
 						})
+						if (Ref_NewRGB.current === undefined && is_arr_has(SS_RGBArr, SS_NewRGB, "rgb") === false)
+						{
+							Ref_NewRGB.current = {
+								id:0,
+								rgb:SS_NewRGB,
+								select:false
+							}
+						}
+						else
+						{
+							Ref_NewRGB.current = undefined
+						}
 					}}
 					></div>
 			})}</>}/>

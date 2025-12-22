@@ -5,7 +5,7 @@ import { GRID_COLUMN_CX } from "../../molecule/html/grid_column_cx";
 import SELECT_MULTI_ITEMS from "../../molecule/html/select_multi_items";
 import { B_RGB_GRID } from "../../organism/button/b_rgb_grid";
 import STR_HEADER from "../../atom/str/str_header";
-import useClickDeleteArr from "../../molecule/hook/useClickDeleteArr";
+import { useClickDeleteArr } from "../../molecule/hook/useClickArr";
 
 export function LP_RGB_PALETTES_EDITOR()
 {
@@ -25,8 +25,7 @@ export function LP_RGB_PALETTES_EDITOR()
 			jsx_select_array={SS_RGBArr.map((item, index:number)=>{
 				return <div key={index}>
 					<B_RGB_GRID 
-						mode={true} 
-						title={item.rgb[0].toString()}
+						rgb={item.rgb}
 						f_delete={
 							(()=>{
 							if (Ref_DeleteId.current === undefined)

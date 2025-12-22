@@ -12,7 +12,7 @@ If I use only useReducer, then the deleted item will be
 the "second" wrong item.
 */
 
-const useClickDeleteArr = 
+export const useClickDeleteArr = 
 	<t extends {id:number}, k extends keyof t>(
 		Ref_DeleteId:RefObject<number|undefined>, 
 		setSS_Arr:t_setss_arr<t, k>) => {
@@ -28,4 +28,19 @@ const useClickDeleteArr =
 	})
 };
 
-export default useClickDeleteArr;
+export const useClickPushArr = 
+	<t extends {id:number}, k extends keyof t>(
+		Ref_Input:RefObject<t|undefined>, 
+		setSS_Arr:t_setss_arr<t, k>
+	) => {
+	useLayoutEffect(()=>{
+		if (Ref_Input.current !== undefined)
+		{
+			setSS_Arr({
+				type:"PUSH",
+				input:Ref_Input.current
+			})
+			Ref_Input.current = undefined
+		}
+	})
+};
