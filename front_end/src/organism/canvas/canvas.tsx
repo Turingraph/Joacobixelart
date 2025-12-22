@@ -10,18 +10,18 @@ import { is_arr_has } from "../../atom/arr/utils";
 
 export type t_grid = {
 	id:number,
-	rgb:string
+	rgb:string|undefined
 }
 
 function init_ss_grid()
 {
 	let i = 0
 	let output = [] as t_grid[]
-	while (i < 100)
+	while (i < 16*16)
 	{
 		output = push_arr(output, {
 			id:0,
-			rgb:"#AAAAAA"
+			rgb:undefined
 		})
 		i += 1
 	}
@@ -44,14 +44,14 @@ export default function CANVAS()
 	>
 		<GRID_COLUMN_DIV
 			gap={"0px" as a.t_css}
-			column={"15px 15px 15px 15px 15px 15px 15px 15px 15px 15px" as a.t_css}
+			column={"50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px" as a.t_css}
 			jsx_array={<>{SS_Grid.map((item, index:number)=>{
 				return <div 
 					key={index}
 					style={{
-						backgroundColor:item.rgb,
-						width: "15px",
-						height:"15px"}}
+						backgroundColor:item.rgb?item.rgb:"inherit",
+						width: "50px",
+						height:"50px"}}
 					onClick={()=>{
 						setSS_Grid({
 							type:"EDIT",
