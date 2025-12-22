@@ -45,7 +45,7 @@ export default function SELECT_MULTI_ITEMS<t extends {id:number, select:boolean}
 			onClick={()=>{
 				arr.setss({
 					type:"EDIT", 
-					index:index,
+					id:arr.ss[index].id,
 					input:{
 						...arr.ss[index],
 						select:arr.ss[index].select === true ? false : true

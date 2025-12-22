@@ -101,3 +101,9 @@ What create new color
 2.	Line and Plane Color
 3.	FEM Color (Might includes Wave Function and J_f ?)
 */
+
+/*
+Recommended Learning Resource
+1.	How to build a Pixel Art Drawing App in React | React Tutorial
+*	https://youtu.be/IAD68la3An8?si=C1AKir49ijewcbVu
+*/

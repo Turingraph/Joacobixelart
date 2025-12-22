@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useLayoutEffect, useRef } from "react";
 import STR_HEADER from "../../atom/str/str_header";
 import * as a from "../../atom/type/alias";
 import { CONTEXT_SS_GLOBAL_STUDIO, CONTEXT_SS_LP_PAINT } from "../../molecule/hook/one_time_useContext";
@@ -10,6 +10,15 @@ export function RGB_PALETTES()
 {
 	const {SS_SelectRGB, setSS_SelectRGB} = useContext(CONTEXT_SS_LP_PAINT).select_rgb
 	const SS_RGBArr = useContext(CONTEXT_SS_GLOBAL_STUDIO).rgb_arr.SS_RGBArr
+	const setSS_NewRGB = useContext(CONTEXT_SS_GLOBAL_STUDIO).new_rgb.setSS_NewRGB
+	const Ref_UpdateAfterRender = useRef<boolean>(false)
+	useLayoutEffect(()=>{
+		if (Ref_UpdateAfterRender.current === true)
+		{
+			setSS_NewRGB(SS_RGBArr[SS_SelectRGB].rgb)
+			Ref_UpdateAfterRender.current = false
+		}
+	})
 	return <>
 			<STR_HEADER title={"RGB Palettes"}/>
 			<hr style={{visibility:"hidden", height:"0px", marginTop:"0px", marginBottom:"5px"}}/>
@@ -24,6 +33,12 @@ export function RGB_PALETTES()
 					jsx_select_array={SS_RGBArr.map((item, index:number)=>{
 						return <div 
 							key={index}
+							onClick={()=>{
+								if (Ref_UpdateAfterRender.current === false)
+								{
+									Ref_UpdateAfterRender.current = true
+								}
+							}}
 						><B_RGB_GRID rgb={item.rgb}/></div>
 					})}
 					is_horizontal={false}
