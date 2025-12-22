@@ -53,14 +53,23 @@ export function sort_arr<
 
 // TYPE : "EDIT"
 
-export function edit<t>(
+export function edit<t extends {id:number}>(
     arr:t[],
-    index:number,
+    id:number,
     input:t
 ){
     const UPDATE_ARR = [...arr]
-    if(index >= 0 && index < UPDATE_ARR.length){
-        UPDATE_ARR[index] = input
+    let i = 0
+    while (i < UPDATE_ARR.length)
+    {
+        if (UPDATE_ARR[i].id === id)
+        {
+            UPDATE_ARR[i] = {
+                ...input,
+                id:UPDATE_ARR[i].id
+            }
+        }
+        i += 1
     }
     return UPDATE_ARR
 }
@@ -183,29 +192,9 @@ export function drag<t extends {id:number}>(arr:t[], new_index:number, old_index
     let update_arr = delete_item(structuredClone(arr), target_id)
     let left_arr  = structuredClone(update_arr).slice(0, new_index)
     let right_arr = structuredClone(update_arr).slice(new_index, arr.length)
-    // console.log("------------------------------------------------")
-	// console.log("new_index",new_index)
-	// console.log("old_index",old_index)
-    // console.log("input:", arr)
-    // console.log("left :", left_arr)
-    // console.log("target", arr[old_index])
-    // console.log("right:", right_arr)
     return [
         ...left_arr,
         ...[arr[old_index]],
         ...right_arr
     ]
 }
-
-//-------------------------------------------------------------------------
-
-// TYPE : "WARNING"
-
-// export function warning(file_title:string)
-// {
-//     console.log("--------------------------------------------------------------------")
-//     console.log("The action.type of useArr is invalid.")
-//     console.log("The action.type should be \"COPY\"|\"PUSH\"|\"DELETE\"|\"EDIT\"|\"SET\"")
-//     console.log("Warning from frontend/ src/ atom/ arr/ " + file_title + "/ function reducer")
-//     console.log("--------------------------------------------------------------------")
-// }

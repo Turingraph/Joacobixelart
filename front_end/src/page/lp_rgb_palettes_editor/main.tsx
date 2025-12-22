@@ -42,3 +42,23 @@ export function LP_RGB_PALETTES_EDITOR()
 			/>}/>
 	</>
 }
+
+/*
+button list
+1.	select all
+2.	unselect all
+3.	save change
+4.	reset/undo reset
+5.	delete selected color
+6.	view output
+7.	transform color
+8.	merge color
+
+Feature Note
+1.	every time when use color in canvas (with lp_paint/) push the color.
+2.	allow user to add the same color palettes in lp_rgb_palettes_editor/
+
+Future Feature Note
+*	left click on canvas = inspect which color is "responsible" for this pixel
+*	left click + shift on canvas = do left click on canvas on multiple pixels
+*/

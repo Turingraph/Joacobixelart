@@ -12,7 +12,7 @@ export type t_act_arr<
 }
 | {
     type:"EDIT",
-    index:number,
+    id:number,
     input:t,
 }
 | {
@@ -54,7 +54,7 @@ export default function act_arr<
 	if (action.type === "EDIT") {
 		UPDATE_ARR = f.edit(
 			UPDATE_ARR,
-			action.index,
+			action.id,
 			action.input
 		)
 	} 
@@ -69,7 +69,6 @@ export default function act_arr<
 			UPDATE_ARR,
 			action.id
 		)
-		// console.log("in_arr", UPDATE_ARR)
 	} 
 	if (action.type === "SET"){
 		UPDATE_ARR = action.input

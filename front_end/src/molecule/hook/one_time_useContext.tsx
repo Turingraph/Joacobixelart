@@ -28,11 +28,19 @@ export const CONTEXT_SS_LP_PAINT = createContext<{
 export const CONTEXT_SS_GLOBAL_STUDIO = createContext<{
 	rgb_arr:{
 		SS_RGBArr:t_rgb_grid[],
-		setSS_RGBArr:t_setss_arr<t_rgb_grid, "select" | "rgb" | "id">
-}}>({rgb_arr:{
+		setSS_RGBArr:t_setss_arr<t_rgb_grid, "select" | "rgb" | "id">},
+	new_hex_rgb:{
+		SS_NewHexRGB:string,
+		setSS_NewHexRGB:a.t_setss<string>
+	}
+}>({rgb_arr:{
 	SS_RGBArr:[],
-	setSS_RGBArr:()=>{}
-}})
+	setSS_RGBArr:()=>{}},
+	new_hex_rgb:{
+		SS_NewHexRGB:"#000000",
+		setSS_NewHexRGB:()=>{}
+	}
+})
 /*
 Reference
 1.	https://stackoverflow.com/questions/77217290/

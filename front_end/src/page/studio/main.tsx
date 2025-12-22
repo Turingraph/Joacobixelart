@@ -13,26 +13,32 @@ import { ARR_EDITOR_MODES } from "../utils/arr";
 
 export function STUDIO()
 {
+	// studio/main.tsx
 	const [SS_LeftPanelMode, setSS_LeftPanelMode] = useState<number>(0);
 
-	// color_palettes.tsx
-	const [SS_SelectRGB, setSS_SelectRGB] = useState<number>(0);
+	// CONTEXT_SS_GLOBAL_STUDIO
 	const [SS_RGBArr, setSS_RGBArr] = useReducer(
 		act_arr_key,
 		[] as t_rgb_grid[]);
+	const [SS_NewHexRGB, setSS_NewHexRGB] = useState<string>("#000000")
+
+	// lp_paint/color_palettes.tsx
+	const [SS_SelectRGB, setSS_SelectRGB] = useState<number>(0);
 	
-	// editor_tools.tsx
+	// lp_paint/editor_tools.tsx
 	const [SS_PixelSize, setSS_PixelSize] = useState<number>(1);
 	const [SS_ToolMode, setSS_ToolMode] = useState<number>(0);
 
-	// useEffect(()=>{
-	// 	console.log("ex_arr", SS_RGBArr)
-	// })
 	return 	<CONTEXT_SS_GLOBAL_STUDIO
-	value={{rgb_arr:{
-		SS_RGBArr:SS_RGBArr,
-		setSS_RGBArr:setSS_RGBArr,
-	}}}>
+	value={{
+		rgb_arr:{
+			SS_RGBArr:SS_RGBArr,
+			setSS_RGBArr:setSS_RGBArr},
+		new_hex_rgb:{
+			SS_NewHexRGB:SS_NewHexRGB,
+			setSS_NewHexRGB:setSS_NewHexRGB
+			},
+		}}>
 	<GRID_TEMPLATE_COLUMNS
 		grid_template_areas={"area_paint area_canvas" as a.t_css}
 		grid_template_columns={"600px 1fr" as a.t_css}
