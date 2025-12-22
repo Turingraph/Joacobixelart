@@ -17,7 +17,7 @@ function init_ss_grid()
 {
 	let i = 0
 	let output = [] as t_grid[]
-	while (i < 16*16)
+	while (i < 32 * 32)
 	{
 		output = push_arr(output, {
 			id:0,
@@ -44,14 +44,14 @@ export default function CANVAS()
 	>
 		<GRID_COLUMN_DIV
 			gap={"0px" as a.t_css}
-			column={"50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px" as a.t_css}
+			column={"25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px" as a.t_css}
 			jsx_array={<>{SS_Grid.map((item, index:number)=>{
 				return <div 
 					key={index}
 					style={{
 						backgroundColor:item.rgb?item.rgb:"inherit",
-						width: "50px",
-						height:"50px"}}
+						width: "25px",
+						height:"25px"}}
 					onClick={()=>{
 						setSS_Grid({
 							type:"EDIT",
