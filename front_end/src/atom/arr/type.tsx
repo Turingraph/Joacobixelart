@@ -4,6 +4,11 @@ by index because Dev mode run twice to test if code works
 which make it delete the wrong item.
 */
 
+export type t_2d_arr<t extends {id:number}> = {
+	id:number,
+	arr:t[]
+}
+
 export type t_rgb_grid = {
 	id:number,
 	select:boolean,
