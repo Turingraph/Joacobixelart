@@ -1,7 +1,5 @@
 import { useLayoutEffect, RefObject } from "react";
-import { t_setss_arr, t_use_arr } from "../../atom/arr/act_arr";
-import { t_2d_arr } from "../../atom/arr/type";
-import { edit } from "../../atom/arr/function";
+import { t_setss_arr } from "../../atom/arr/act_arr";
 
 // https://www.w3schools.com/react/react_customhooks.asp
 
