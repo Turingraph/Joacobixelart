@@ -1,0 +1,125 @@
+export function limit_size(input:number|undefined, maxval:number, min = 0){
+    if (input === undefined || input <= min){
+        return min
+    }
+    else if (input >= maxval){
+        return maxval
+    }
+    else{
+        return input 
+    }
+}
+
+export function limit_255(input:number){
+    return Math.floor(limit_size(input,255))
+}
+
+export function rgb_to_hex(input:undefined|number|number[]){
+	if (input === undefined){
+		return "#FFFFFF"
+	}
+	else if (typeof input === "number"){
+		return "#"+limit_255(input).toString(16) + limit_255(input).toString(16) + limit_255(input).toString(16);
+	}
+	else if (Array.isArray(input) === true){
+		if (input.length === 0){
+			return "#FFFFFF"
+		}
+		else if (input.length === 1){
+			return "#"+limit_255(input[0]).toString(16) + limit_255(input[0]).toString(16) + limit_255(input[0]).toString(16);
+		}
+		else if (input.length === 2){
+			return "#"+limit_255(input[0]).toString(16)+limit_255(input[1]).toString(16);
+		}
+		else{
+			return "#"+limit_255(input[0]).toString(16)+limit_255(input[1]).toString(16) + limit_255(input[2]).toString(16);
+		}
+	}
+	else{
+		return "#FFFFFF";
+	}
+}
+
+const HEX_CHAR_DICT = [
+	{
+		char:"0",
+		value:0
+	},	{
+		char:"1",
+		value:1
+	},	{
+		char:"2",
+		value:2
+	},	{
+		char:"3",
+		value:3
+	},	{
+		char:"4",
+		value:4
+	},	{
+		char:"5",
+		value:5
+	},	{
+		char:"6",
+		value:6
+	},	{
+		char:"7",
+		value:7
+	},	{
+		char:"8",
+		value:8
+	},	{
+		char:"9",
+		value:9
+	},	{
+		char:"A",
+		value:10
+	},	{
+		char:"B",
+		value:11
+	},	{
+		char:"C",
+		value:12
+	},	{
+		char:"D",
+		value:13
+	},	{
+		char:"E",
+		value:14
+	},	{
+		char:"F",
+		value:15
+	},
+]
+
+function translate_hex_char(char:string|number)
+{
+	if (typeof char === "string")
+	{
+		let output = HEX_CHAR_DICT.filter((item)=> item.char === char)
+		if (output.length === 0)
+		{
+			return 0
+		}
+		return output[0].value
+	}
+	let output = HEX_CHAR_DICT.filter((item)=> item.value === char)
+	if (output.length === 0)
+	{
+		return 0
+	}
+	return output[0].char
+}
+
+export function hex_to_rgb(input:undefined|string)
+{
+	if (input === undefined){
+		return [0, 0, 0] as [number, number, number]
+	}
+	let up_input = input.toUpperCase();
+	return [
+		Number(translate_hex_char(up_input[1])) * 16 + Number(translate_hex_char(up_input[2])),
+		Number(translate_hex_char(up_input[3])) * 16 + Number(translate_hex_char(up_input[4])),
+		Number(translate_hex_char(up_input[5])) * 16 + Number(translate_hex_char(up_input[6])),
+	] as [number, number, number]
+}

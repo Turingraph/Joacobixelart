@@ -1,4 +1,4 @@
-import * as f from "./function"
+import * as f from "./func"
 
 export type t_act_arr<
 	t extends {id:number},
@@ -39,11 +39,6 @@ export default function act_arr<
 		action:t_act_arr<t, k>
 	){
     let UPDATE_ARR = [...prev_arr]
-	// if (["EDIT", "PUSH", "DELETE", "SET", "DRAG", "COPY", 
-	// "SORT", "EDIT_KEY"]].includes(action.type) === false)
-	// {
-	// 	f.warning("act_arr.tsx")
-	// }
 	if (action.type === "DRAG") {
 		UPDATE_ARR = f.drag(
 			UPDATE_ARR,
