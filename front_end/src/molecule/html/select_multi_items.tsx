@@ -1,5 +1,5 @@
 import { CSSProperties, JSX, useContext, useRef, useState } from "react";
-import { t_use_arr } from "../../atom/arr/act_arr";
+import { t_use_arr } from "../../atom/arr/act";
 import { CONTEXT_CSS_SELECT_ONE_ITEM } from "../../atom/hook/useContext";
 import { CSS_MARGIN_Y } from "./main_css";
 import "./multi_color_bs.css";

@@ -1,6 +1,6 @@
 import { createContext } from 'react';
-import { t_setss_arr } from '../../atom/arr/act_arr';
-import { t_rgb_grid } from '../../atom/arr/type';
+import { t_setss_arr } from '../../atom/arr/act';
+import { t_rgb_palettes } from '../../atom/arr/type';
 import * as a from "../../atom/type/alias";
 
 export const CONTEXT_SS_LP_PAINT = createContext<{
@@ -27,8 +27,8 @@ export const CONTEXT_SS_LP_PAINT = createContext<{
 
 export const CONTEXT_SS_GLOBAL_STUDIO = createContext<{
 	rgb_arr:{
-		SS_RGBArr:t_rgb_grid[],
-		setSS_RGBArr:t_setss_arr<t_rgb_grid, "select" | "rgb" | "id">},
+		SS_RGBArr:t_rgb_palettes[],
+		setSS_RGBArr:t_setss_arr<t_rgb_palettes, "select" | "rgb" | "id">},
 	new_rgb:{
 		SS_NewRGB:string,
 		setSS_NewRGB:a.t_setss<string>

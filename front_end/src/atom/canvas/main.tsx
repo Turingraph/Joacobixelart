@@ -32,6 +32,8 @@ export default function act_canvas(
 	return arr
 }
 
+export type t_setss_canvas = React.ActionDispatch<[action: t_act_canvas]>
+
 /*
 UPFINISHED features
 1.	"BUTTON_BLUR" (a.k.a. Gaussian Blur)

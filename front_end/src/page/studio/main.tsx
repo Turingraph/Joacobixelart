@@ -1,6 +1,6 @@
 import { useReducer, useState } from "react";
-import act_arr_key from "../../atom/arr/act_arr";
-import { t_rgb_grid } from "../../atom/arr/type";
+import act_arr_key from "../../atom/arr/act";
+import { t_rgb_palettes } from "../../atom/arr/type";
 import * as a from "../../atom/type/alias";
 import { CONTEXT_SS_GLOBAL_STUDIO, CONTEXT_SS_LP_PAINT } from "../../molecule/hook/one_time_useContext";
 import GRID_TEMPLATE_COLUMNS from "../../molecule/html/grid_template_columns";
@@ -19,7 +19,7 @@ export function STUDIO()
 	// CONTEXT_SS_GLOBAL_STUDIO
 	const [SS_RGBArr, setSS_RGBArr] = useReducer(
 		act_arr_key,
-		[] as t_rgb_grid[]);
+		[] as t_rgb_palettes[]);
 	const [SS_NewRGB, setSS_NewRGB] = useState<string>("#000000")
 
 	// lp_paint/color_palettes.tsx

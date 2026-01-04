@@ -7,7 +7,7 @@ export type t_layer = {
 	opacity:number
 }
 
-export type t_rgb_grid = {
+export type t_rgb_palettes = {
 	id:number,
 	rgb:string,
 	select:boolean,
