@@ -70,13 +70,16 @@ How to add useState in useContext?
 /*
 #############################################################################
 
-To Do Now 
-1.	edit "RGB Palettes Editor"
-2.	scroll bar for multiple color palettes
-3.	Save color palettes edition ? Yes/No
-4.	delete "add color" button and then make B_RGB_INPUT generate new color palettes
-5.	transform color palettes (matrix multiplication, k means merge, merge, hsv, quaternion rotation, delete)
-6.	auto merge
+lp_paint/
+1.	watch this https://youtu.be/tFsETEP01k8?si=VDwj6UJs7gM5yg0z
+2.	allow user to set the size of canvas
+3.	add eraser and other button and allow user to adjust pen size
+4.	scroll bar for multiple color palettes
+
+lp_rgb_palettes/
+1.	transform color palettes (matrix multiplication, k means merge, merge, hsv, quaternion rotation, delete)
+2.	auto merge
+3.	Save color palettes edition ? Yes/No and view original result
 
 #############################################################################
 */
