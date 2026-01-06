@@ -6,7 +6,7 @@ import * as a from "../../atom/type/alias";
 import { useClickPushArr } from "../../molecule/hook/useClickArr";
 import { t_rgb_palettes } from "../../atom/arr/type";
 import { init_canvas } from "../../atom/canvas/utils/utils";
-import { act_canvas } from "../../atom/canvas/main";
+import act_canvas from "../../atom/canvas/main";
 
 export default function CANVAS()
 {
