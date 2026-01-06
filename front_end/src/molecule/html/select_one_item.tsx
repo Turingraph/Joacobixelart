@@ -16,16 +16,24 @@ inherited from it's parent
 export default function SELECT_ONE_ITEM({
 	jsx_select_array,
 	jsx_other_array = [],
-	state_input,
-	is_horizontal = true
+	state_input = undefined,
+	is_horizontal = true,
+	horizontal_gap = undefined
 }:{
 	jsx_select_array:JSX.Element[],
 	jsx_other_array?:JSX.Element[],
-	state_input:a.t_use_state<number>
+	state_input?:a.t_use_state<number>|undefined
 	is_horizontal?:boolean
+	horizontal_gap?:undefined|"2px"|a.t_css
 })
 {
 	const CX_CSS = useContext(CONTEXT_CSS_SELECT_ONE_ITEM);
+	let x_gap = {}
+	if (horizontal_gap)
+		x_gap = {
+		marginLeft:horizontal_gap,
+		marginRight:horizontal_gap,
+	}
 	let display_flex:CSSProperties = {
 			display:"flex", 
 			justifyContent:"space-evenly",
@@ -40,13 +48,19 @@ export default function SELECT_ONE_ITEM({
 		...display_flex,
 		}}>
 		{jsx_select_array.map((item, index:number)=>{
+			let item_border = "2px solid gray"
+			if (state_input && state_input.ss === index)
+				item_border = "2px solid blueviolet"
 			return <span
 			key={index}
-			className={index ===  state_input.ss ? "select_button" : "non_select_button"}
+			className={state_input && index === state_input.ss ? "select_button" : "non_select_button"}
 			style={{
-				border:state_input.ss === index ? "2px solid blueviolet" : "2px solid gray",
+				...x_gap,
+				...{border:item_border}
 			}}
-			onClick={()=>{state_input.setss(index)}}>
+			onClick={()=>{
+				if (state_input)
+					state_input.setss(index)}}>
 				{item}
 			</span>
 		})}

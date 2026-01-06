@@ -17,11 +17,17 @@ export default function STR_INPUT({
 	let jsx_unit = <></>
 	if (unit !== undefined)
 		jsx_unit = <STR text={unit}/>
-	return <div style={{display:"flex", flexDirection:"row", backgroundColor:"gray"}}>
+	return <div style={{
+		display:"flex", 
+		flexDirection:"row", 
+		marginLeft:"2px",
+		marginRight:"2px",
+		backgroundColor:"gray"}}>
 	{jsx_title}
 	<input 
 	style={{
-		width:"100%",
+		width:"90px",
+		// width:"100%",
 		height:"100%",
 		display:"inline",
 		margin:"2px",

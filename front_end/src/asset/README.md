@@ -1,57 +1,67 @@
 # button logo credit
 
-1.	`b_items`
-	1.	`b_add.png`
+1.	`items/`
+	1.	`add.png`
 	*	https://www.flaticon.com/free-icon/plus-symbol-button_32563?term=plus&page=1&position=1&origin=search&related_id=32563
-	2.	`b_eye.png`
+	2.	`eye.png`
 	*	https://www.flaticon.com/free-icon/view_709612?term=eye&page=1&position=3&origin=search&related_id=709612
-	3.	`b_no_eye.png`
+	3.	`no_eye.png`
 	*	https://www.flaticon.com/free-icon/hide_2767146?term=eye&page=1&position=4&origin=search&related_id=2767146
-	4.	`b_x.png`
+	4.	`x.png`
 	*	https://www.flaticon.com/free-icon/close_2976286?term=cross&page=1&position=9&origin=search&related_id=2976286
-2.	`b_paint_no_rgb.tsx`
-	1.	`b_eraser.png`
-	*	https://www.flaticon.com/free-icon/eraser_483907?term=eraser&page=1&position=5&origin=search&related_id=483907
-	2.	`b_move.png`
+2.	`utils/`
+	2.	`move.png`
 	*	https://www.flaticon.com/free-icon/palm-of-hand_1427?term=hand&page=1&position=2&origin=search&related_id=1427
-	3.	`b_rectangle_select.png`
+	3.	`rectangle_select.png`
 	*	https://www.flaticon.com/free-icon/rectangle_16171467?term=rectangle&page=1&position=21&origin=search&related_id=16171467
-	4.	`b_rgb_picker.png`
+	4.	`rgb_picker.png`
 	*	https://www.flaticon.com/free-icon/color-picker_10075352?term=color+picker&page=1&position=3&origin=search&related_id=10075352
-3.	`b_paint_rgb.tsx`
-	1.	`b_pen.png`
+3.	`draw/`
+	1.	`pen.png`
 	*	https://www.flaticon.com/free-icon/pen_1659764?term=pen&page=1&position=24&origin=search&related_id=1659764
-	2.	`b_mirror_pen.png`
+	2.	`mirror_pen.png`
 	*	https://www.flaticon.com/free-icon/mirror-image_5951821?term=mirror&related_id=5951821
-	3.	`b_bucket.png`
+	3.	`bucket.png`
 	*	https://www.flaticon.com/free-icon/paint-bucket_1379778?term=bucket&page=1&position=17&origin=search&related_id=1379778
-	4.	`b_rectangle.png`
+	4.	`rectangle.png`
 	*	https://www.flaticon.com/free-icon/rectangle_274397?term=rectangle&page=1&position=25&origin=search&related_id=274397 
+	5.	`eraser.png`
+	*	https://www.flaticon.com/free-icon/eraser_483907?term=eraser&page=1&position=5&origin=search&related_id=483907
+	6.	`replace_rgb.png`
+	*	https://www.flaticon.com/free-icon/circle_16156092?term=bucket+circle&page=1&position=1&origin=search&related_id=16156092
+	7.	`line.png`
+	*	https://www.flaticon.com/free-icon/edit_18446215?term=draw+line&page=1&position=4&origin=search&related_id=18446215
+	8.	`circle.png`
+	*	https://www.flaticon.com/free-icon/dry-clean_481078?term=circle&page=1&position=1&origin=search&related_id=481078
 4.	`file/`
-	1.	`b_export.png`
+	1.	`export.png`
 	*	https://www.flaticon.com/free-icon/import_4013427?k=1762928594717&sign-up=google
-	2.	`b_import.png`
+	2.	`import.png`
 	*	https://www.flaticon.com/free-icon/folder_1383970?term=folder&page=1&position=8&origin=search&related_id=1383970
-	3.	`b_save.png`
+	3.	`save.png`
 	*	https://www.flaticon.com/free-icon/save_4743125?term=save&page=1&position=33&origin=search&related_id=4743125
-	4.	`b_question.png`
+	4.	`question.png`
 	*	https://www.flaticon.com/free-icon/question-sign_25333?term=question&page=1&position=2&origin=search&related_id=25333
-5.	`canvas/`
-	1.	`b_zoom_in.png`
+5.	`map/`
+	1.	`zoom_in.png`
 	*	https://www.flaticon.com/free-icon/plus-symbol-button_32563?term=plus&page=1&position=1&origin=search&related_id=32563
-	2.	`b_zoom_out.png`
+	2.	`zoom_out.png`
 	*	https://www.flaticon.com/free-icon/minus_153604?term=minus&page=1&position=24&origin=search&related_id=153604
-	3.	`b_cartesian.png`
+	3.	`cartesian.png`
 	*	https://www.flaticon.com/free-icon/cartesian-coordinate-system_70699?term=coordinate&page=1&position=40&origin=search&related_id=70699
 6.	`layers/`
-	1.	`b_move_layer_up.png`
+	1.	`move_layer_up.png`
 	*	https://www.flaticon.com/free-icon/up-arrow_626075?term=up&page=1&position=11&origin=search&related_id=626075
-	2.	`b_move_layer_down.png`
+	2.	`move_layer_down.png`
 	*	https://onlinepngtools.com/flip-png-vertically
-	3.	`b_name_layer.png`
+	3.	`name_layer.png`
 	*	https://www.flaticon.com/free-icon/pen_1659764?term=pen&page=1&position=24&origin=search&related_id=1659764
 7.	`transform/`
-	1.	`b_rotate.png`
+	1.	`rotate.png`
 	*	https://www.flaticon.com/free-icon/rotate-right_5264495?term=rotate&page=1&position=36&origin=search&related_id=5264495
-	2.	`b_flip.png`
+	2.	`flip.png`
 	*	https://www.flaticon.com/free-icon/right_3597135?term=flip&page=1&position=77&origin=search&related_id=3597135
+	3.	`upside_down.png`
+	*	https://www.flaticon.com/free-icon/upside-down_9726146?term=upside+down&page=1&position=13&origin=search&related_id=9726146
+	4.	`crop.png`
+	*	https://www.flaticon.com/free-icon/crop_7522001?term=crop&page=1&position=56&origin=search&related_id=7522001

@@ -5,17 +5,17 @@ export const CANVAS_ACT_SELECT = [
 ]
 
 export type t_act_canvas_select = {
-	type:"SELECT_HOVER",			// OK
+	type:"SELECT_HOVER",			// XX
 	grid:number,
 	size:number,
 	select:boolean
 } | {
-	type:"SELECT_RECTANGLE",		// OK
+	type:"SELECT_RECTANGLE",		// XX, UI
 	grid_1:number,
 	grid_2:number,
 	select:boolean
 } | {
-	type:"SELECT_CROP",				// OK
+	type:"SELECT_CROP",				// XX
 	select:boolean,
 	up:number,
 	down:number,

@@ -113,5 +113,7 @@ Recommended Learning Resource
 
 /*
 To Do List
-1.	Read organism/canvas/canvas.tsx
+1.	design the UXUI for atom/canvas/slice/
+2.	implementing atom/canvas/
+3.	redesign UXUI (I might make paint tool on the right as verticle instead)
 */

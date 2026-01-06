@@ -1,7 +1,7 @@
 import React from "react";
 import * as a from "../../atom/type/alias";
 import B_LOGO from "../../molecule/button/b_logo";
-import b_x from "../../asset/b_items/b_x.png"
+import b_x from "../../asset/items/x.png"
 
 export function B_RGB_GRID({
 	rgb,

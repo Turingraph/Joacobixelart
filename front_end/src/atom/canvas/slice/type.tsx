@@ -7,25 +7,27 @@ export const CANVAS_ACT_SLICE = [
 ]
 
 export type t_act_canvas_slice = {
-	type:"SLICE_CROP",			// OK
+	type:"SLICE_CROP",			// XX, UI
 	up:number,
 	down:number,
 	left:number,
 	right:number,
 } | {
-	type:"SLICE_TIMES_SIZE",	// OK
+	type:"SLICE_TIMES_SIZE",	// XX, ??
 	scale_w:number,
 	scale_h:number
-} | {
-	type:"SLICE_DIVIDE_SIZE",	// OK
-	scale_w:number,
-	scale_h:number
-} | {
-	type:"SLICE_RESIZE",		// OK
+} 
+// | {	???
+// 	type:"SLICE_DIVIDE_SIZE",	// XX, ??
+// 	scale_w:number,
+// 	scale_h:number
+// } 
+| {
+	type:"SLICE_RESIZE",		// XX, ??
 	height:number,
 	width:number
 } | {
-	type:"SLICE_CENTER",		// OK
+	type:"SLICE_CENTER",		// XX, ??
 	x_mode:"LEFT"|"MIDDLE"|"RIGHT"|"NONE",
 	y_mode:"UP"|"MIDDLE"|"DOWN"|"NONE"
 }

@@ -7,7 +7,7 @@ export function B_RGB_INPUT()
 	return <>
 	<input 
 		type="color" 
-		style={{height:"100%"}}
+		style={{height:"100%", width:"8em", marginLeft:"2px"}}
 		onChange={e=>{
 			setSS_NewRGB(e.target.value)
 		}}

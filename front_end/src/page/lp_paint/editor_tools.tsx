@@ -3,11 +3,11 @@ import STR_HEADER from "../../atom/str/str_header";
 import * as a from "../../atom/type/alias";
 import B_LOGO from "../../molecule/button/b_logo";
 import { CONTEXT_SS_LP_PAINT } from "../../molecule/hook/one_time_useContext";
-import { GRID_COLUMN_CX } from "../../molecule/html/grid_column_cx";
 import SELECT_ONE_ITEM from "../../molecule/html/select_one_item";
 import STR_INPUT from "../../molecule/str/str_input";
 import { B_RGB_INPUT } from "../../organism/button/b_rgb_input";
-import { ARR_B_PAINTS } from "../utils/arr";
+import { ARR_DRAW, ARR_TRANSFORM } from "../utils/arr";
+import { GRID_COLUMN_DIV } from "../../molecule/html/grid_column_div";
 
 export function EDITOR_TOOLS()
 {
@@ -19,29 +19,46 @@ export function EDITOR_TOOLS()
 	})
 	return <>
 	<STR_HEADER title={"Paint Tool"}/>
-	<GRID_COLUMN_CX
-					column={"40px 40px 40px 40px 40px 40px 40px 40px 1fr 1fr" as a.t_css}
-					jsx_array={
-						<SELECT_ONE_ITEM 
-							jsx_select_array={
-							ARR_B_PAINTS.map((item, index:number)=>{
-								return <B_LOGO
-								title={item.title}
-								logo={item.logo}
-								func={item.func}
-								/>})}
-							jsx_other_array={[
-								<STR_INPUT text_input={{
-									ss:SS_PixelStr,
-									setss:setSS_PixelStr
-									}}
-								unit="px"/>,
-								<B_RGB_INPUT/>
-							]}
-							state_input={{ss:SS_ToolMode, setss:setSS_ToolMode}}
-						/>
-					}
-				/>
-			<hr style={{visibility:"hidden"}}/>
+		<hr style={{visibility:"hidden", margin:"0px", marginTop:"2px"}}/>
+	<GRID_COLUMN_DIV
+		column={"45px 45px 45px 45px 45px 45px 45px 45px 45px 1fr" as a.t_css}
+		jsx_array={
+			<SELECT_ONE_ITEM 
+				horizontal_gap={"2px"}
+				jsx_select_array={
+				ARR_DRAW.map((item, index:number)=>{
+					return <B_LOGO
+					title={item.title}
+					logo={item.logo}
+					func={item.func}
+					/>})}
+				state_input={{ss:SS_ToolMode, setss:setSS_ToolMode}}
+			/>
+		}/>
+	{/* <STR_HEADER title={"Transform"}/> */}
+	<GRID_COLUMN_DIV
+		column={"45px 45px 45px 45px 45px 45px 45px 45px 45px 1fr" as a.t_css}
+		jsx_array={<>
+			<SELECT_ONE_ITEM 
+				horizontal_gap={"2px"}
+				jsx_select_array={
+					ARR_TRANSFORM.map((item, index:number)=>{
+					return <B_LOGO
+					title={item.title}
+					logo={item.logo}
+					func={item.func}
+				/>})}
+				jsx_other_array={[
+					<STR_INPUT text_input={{
+						ss:SS_PixelStr,
+						setss:setSS_PixelStr
+						}}
+					unit="px"/>,
+					<B_RGB_INPUT/>,
+				]}
+			/>
+		</>}
+	/>
+		<hr style={{visibility:"hidden", margin:"0px", marginTop:"2px"}}/>
 			</>
 }
