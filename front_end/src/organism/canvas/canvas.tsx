@@ -5,8 +5,8 @@ import { GRID_COLUMN_DIV } from "../../molecule/html/grid_column_div";
 import * as a from "../../atom/type/alias";
 import { useClickPushArr } from "../../molecule/hook/useClickArr";
 import { t_rgb_palettes } from "../../atom/arr/type";
-import { init_canvas } from "../../atom/canvas_pen/utils/utils";
-import { act_canvas } from "../../atom/canvas_pen/main";
+import { init_canvas } from "../../atom/canvas/utils/utils";
+import { act_canvas } from "../../atom/canvas/main";
 
 export default function CANVAS()
 {
