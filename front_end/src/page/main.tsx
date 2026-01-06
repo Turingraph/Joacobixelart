@@ -110,3 +110,8 @@ Recommended Learning Resource
 1.	How to build a Pixel Art Drawing App in React | React Tutorial
 *	https://youtu.be/IAD68la3An8?si=C1AKir49ijewcbVu
 */
+
+/*
+To Do List
+1.	Read organism/canvas/canvas.tsx
+*/

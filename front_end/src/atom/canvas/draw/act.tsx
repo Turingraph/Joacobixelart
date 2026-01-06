@@ -7,10 +7,11 @@ export default function act_canvas_draw(
 	arr:t_canvas_grid[][], 
 	action:t_act_canvas_draw)
 {
+    let UPDATE_ARR = [...arr]
 	if (action.type === "DRAW_BACKET") {
-		return arr
+		return UPDATE_ARR
 		// return f.backet(
-		// 	arr,
+		// 	UPDATE_ARR,
 		// 	action.grid,
 		// 	action.rgb
 		// )
@@ -23,14 +24,14 @@ export default function act_canvas_draw(
 		// if (action.type === "DRAW_CIRCLE")
 		// {
 		// 	return f.draw_circle(
-		// 		arr,
+		// 		UPDATE_ARR,
 		// 		action.rgb,
 		// 		action.size,
 		// 		[up, down, left, right]
 		// 	)
 		// }
 		return paint_rectangle_donut(
-			arr,
+			UPDATE_ARR,
 			action.rgb,
 			action.size,
 			[up, down, left, right]
@@ -38,7 +39,7 @@ export default function act_canvas_draw(
 	}
 	if (action.type === "DRAW_ERASER" || action.type === "DRAW_PEN") {
 		return paint_point(
-			arr,
+			UPDATE_ARR,
 			action.type === "DRAW_ERASER" ? undefined : action.rgb,
 			action.grid,
 			action.size,
@@ -46,7 +47,7 @@ export default function act_canvas_draw(
 	}
 	if (action.type === "DRAW_LINE") {
 		return f.bresenham_line(
-			arr,
+			UPDATE_ARR,
 			action.rgb,
 			action.size,
 			action.grid_2,
@@ -54,26 +55,26 @@ export default function act_canvas_draw(
 		)
 	}
 	if (action.type === "DRAW_MIRROR") {
-		let update_arr = paint_point(
-			arr,
+		UPDATE_ARR = paint_point(
+			UPDATE_ARR,
 			action.rgb,
 			action.grid,
 			action.size,
 		)
 		return paint_point(
-			update_arr,
+			UPDATE_ARR,
 			action.rgb,
-			flip_index_x(action.grid, update_arr[0].length),
+			flip_index_x(action.grid, UPDATE_ARR[0].length),
 			action.size,
 		)
 	}
 	if (action.type === "DRAW_REPLACE_RGB") {
-		let prev_rgb = arr[action.grid[0]][action.grid[1]].rgb
+		let prev_rgb = UPDATE_ARR[action.grid[0]][action.grid[1]].rgb
 		return f.replace_rgb(
-			arr,
+			UPDATE_ARR,
 			prev_rgb,
 			action.rgb
 		)
 	}
-	return arr
+	return UPDATE_ARR
 }
