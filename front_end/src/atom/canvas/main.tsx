@@ -2,9 +2,7 @@ import { t_act_canvas_button } from "./button/type"
 import { t_act_canvas_draw } from "./draw/type"
 import { t_act_canvas_select } from "./select/type"
 import { t_act_canvas_slice } from "./slice/type"
-import { paint_1_grid, 
-	// paint_brush, paint_test_00 
-} from "./utils/paint"
+import { paint_brush } from "./utils/paint"
 import { t_canvas } from "./utils/utils"
 
 export type t_act_canvas = t_act_canvas_button 
@@ -22,18 +20,20 @@ export function act_canvas(
 	} as t_canvas
 	if (action.type === "DRAW_PEN")
 	{
-		update_arr = paint_1_grid(
-			update_arr,
-			action.grid,
-			action.rgb,
-			// action.size
-		)
-
-		// update_arr = paint_test_00(
+		// update_arr = paint_1_grid(
 		// 	update_arr,
-		// 	action.rgb,
 		// 	action.grid,
+		// 	action.rgb,
+		// 	// action.size
 		// )
+
+		update_arr = paint_brush(
+			update_arr,
+			action.rgb,
+			action.grid,
+			3,
+			"MIDDLE_Y"
+		)
 
 		// update_arr = paint_brush(
 		// 	update_arr,

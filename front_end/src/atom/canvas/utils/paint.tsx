@@ -1,4 +1,4 @@
-import { access_yx, get_yx, swap_less_than, t_canvas, valid_2d } from "./utils"
+import { t_canvas, valid_height } from "./utils"
 
 export function paint_1_grid(
 	arr:t_canvas,
@@ -14,21 +14,67 @@ export function paint_1_grid(
 	return arr
 }
 
-export function paint_test_00(
+export function paint_brush(
 	arr:t_canvas,
 	rgb:undefined|string|boolean,
 	grid:number,
+	size:number,
+	mode:"UP"|"DOWN"|"LEFT"|"RIGHT"|"MIDDLE_X"|"MIDDLE_Y"
 ){
+	const width = arr.width
+	const height= Math.floor(arr.arr.length/width)
 	let update_arr = {
 	arr:[...arr.arr],
 	width:arr.width
 	} as t_canvas
+	if (size < 1)
+		return update_arr
 	update_arr = paint_1_grid(update_arr, grid, rgb)
-	if (grid < arr.arr.length - 1)
-		update_arr = paint_1_grid(update_arr, grid + 1, rgb)
+	if (["MIDDLE_X", "MIDDLE_Y"].includes(mode))
+	{
+		const right=Math.floor((size+1)/2)
+		const left = size % 2 === 0 ? right + 1 : right
+		update_arr = paint_brush(
+			update_arr,
+			rgb,
+			grid,
+			left,
+			"MIDDLE_X" === mode ? "LEFT" : "UP"
+		)
+		update_arr = paint_brush(
+			update_arr,
+			rgb,
+			grid,
+			right,
+			"MIDDLE_X" === mode ? "RIGHT" : "DOWN"
+		)
+		return update_arr
+	}
+	const dir = ["UP", "LEFT"].includes(mode) ? -1 : 1
+	let i = 1
+	while (i < size)
+	{
+		if (["LEFT", "RIGHT"].includes(mode) && i < width)
+			update_arr = paint_1_grid(
+				update_arr, 
+				grid + i * dir, 
+				rgb)
+		else if (["LEFT", "RIGHT"].includes(mode) && i >= width)
+			i = size
+		if (["UP", "DOWN"].includes(mode) 
+			&& valid_height(grid + i * width * dir, height, width))
+			update_arr = paint_1_grid(
+				update_arr, 
+				grid + i * width * dir,
+				rgb)
+		else if (["UP", "DOWN"].includes(mode) && i >= height)
+			i = size
+		i += 1
+	}
 	return update_arr
 }
 
+/*
 export function paint_brush(
 	arr:t_canvas,
 	rgb:undefined|string|boolean,
@@ -235,3 +281,5 @@ export function paint_scale(
 	}
 	return arr
 }
+*/
+

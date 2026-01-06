@@ -93,3 +93,10 @@ export function is_defined_grid<t extends object, k extends keyof t>(grid:t, key
 	}
 	return true
 }
+
+export function valid_height(grid:number, height:number, width:number)
+{
+	if (Math.floor(grid/width) < height && 0 <= grid)
+		return true
+	return false
+}
