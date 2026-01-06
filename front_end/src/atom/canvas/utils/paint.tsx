@@ -1,96 +1,119 @@
-import { scale_vector, vector_addition } from "../../utils/linear_algebra";
-import { hex_to_rgb, rgb_to_hex } from "../../utils/rgb_func";
-import { t_canvas_grid, valid_2d } from "./utils";
+import { access_yx, get_yx, swap_less_than, t_canvas, valid_2d } from "./utils"
 
 export function paint_1_grid(
-	arr:t_canvas_grid[][],
-	grid:[number,number],
+	arr:t_canvas,
+	grid:number,
 	rgb:undefined|string|boolean
 ){
 	if (typeof rgb === "boolean")
 	{
-		arr[grid[0]][grid[1]].select = rgb
+		arr.arr[grid].select = rgb
 		return arr
 	}
-	arr[grid[0]][grid[1]].rgb = rgb
+	arr.arr[grid].rgb = rgb
 	return arr
 }
 
-export function paint_brush(
-	arr:t_canvas_grid[][],
+export function paint_test_00(
+	arr:t_canvas,
 	rgb:undefined|string|boolean,
-	grid:[number,number],
+	grid:number,
+){
+	let update_arr = {
+	arr:[...arr.arr],
+	width:arr.width
+	} as t_canvas
+	update_arr = paint_1_grid(update_arr, grid, rgb)
+	if (grid < arr.arr.length - 1)
+		update_arr = paint_1_grid(update_arr, grid + 1, rgb)
+	return update_arr
+}
+
+export function paint_brush(
+	arr:t_canvas,
+	rgb:undefined|string|boolean,
+	grid:number,
 	size:number,
 	mode:"UP"|"DOWN"|"LEFT"|"RIGHT"|"MIDDLE_X"|"MIDDLE_Y"
 ){
+	console.log("Nujabes")
+	const width = arr.width
+	let update_arr = {
+	arr:[...arr.arr],
+	width:width
+	} as t_canvas
 	if (size < 1)
-		return arr
+		return update_arr
 	if (["MIDDLE_X", "MIDDLE_Y"].includes(mode))
 	{
-		arr = paint_brush(
-			arr,
+		update_arr = paint_brush(
+			update_arr,
 			rgb,
 			grid,
-			size % 2 === 0 ? size/2 + 1 : size/2,
+			size % 2 === 0 ? Math.floor(size/2) + 1 : Math.floor(size/2),
 			"MIDDLE_X" === mode ? "LEFT" : "UP"
 		)
-		arr = paint_brush(
-			arr,
+		update_arr = paint_brush(
+			update_arr,
 			rgb,
 			grid,
-			size/2,
+			Math.floor(size/2),
 			"MIDDLE_X" === mode ? "RIGHT" : "DOWN"
 		)
-		return arr
+		return update_arr
 	}
-	arr = paint_1_grid(arr, grid, rgb)
+	update_arr = paint_1_grid(update_arr, grid, rgb)
+	const height = Math.floor(update_arr.arr.length/width)
+	const [y, x] = get_yx(grid, width)
 	let i = 1 * (mode === "UP" ? -1 : 1)
 	let j = 1 * (mode === "LEFT" ? -1 : 1)
 	if (["UP", "DOWN"].includes(mode))
 		j = 0
 	else
 		i = 0
-	while (Math.abs(i) < size && valid_2d(
-		arr.length,
-		grid[0] + i,
-		arr[i].length,
-		grid[1] + j
+	while (Math.abs(i) < size && Math.abs(j) < size && valid_2d(
+		height,
+		y + i,
+		width,
+		x + j
 	))
 	{
-		arr = paint_1_grid(arr, [grid[0] + i, grid[1]], rgb)
+		update_arr = paint_1_grid(update_arr, access_yx([y + i, x + j], width), rgb)
 		if (i > 0)
 			i += 1 * (mode === "UP" ? -1 : 1)
 		if (j > 0)
 			j += 1 * (mode === "LEFT" ? -1 : 1)
 	}
-	return arr
+	return update_arr
 }
 
 export function paint_point(
-	arr:t_canvas_grid[][],
+	arr:t_canvas,
 	rgb:undefined|string|boolean,
-	grid:[number,number],
+	grid:number,
 	size:number,
 ){
+	const height = Math.floor(arr.arr.length/arr.width)
+	const [y, x] = get_yx(grid, arr.width)
 	let i = 0
-	while (i < size/2 && valid_2d(
-		arr.length,
-		grid[0] + i,
-		arr[i].length,
-		grid[1]
+	while (i < Math.floor(size/2) && valid_2d(
+		height,
+		y + i,
+		arr.width,
+		x
 	))
 	{
 		arr = paint_brush(
 			arr,
 			rgb,
-			[grid[0] + i, grid[1]],
+			access_yx([y + i, x], arr.width),
 			size,
 			"MIDDLE_X"
 		)
 		arr = paint_brush(
 			arr,
 			rgb,
-			[grid[0] - i, grid[1]],
+			access_yx([y - i, x], arr.width),
 			size,
 			"MIDDLE_X"
 		)
@@ -100,7 +123,7 @@ export function paint_point(
 		arr = paint_brush(
 			arr,
 			rgb,
-			[grid[0] - i, grid[1]],
+			access_yx([y - i, x], arr.width),
 			size,
 			"MIDDLE_X"
 		)
@@ -109,51 +132,58 @@ export function paint_point(
 }
 
 export function paint_rectangle_donut(
-	arr:t_canvas_grid[][],
+	arr:t_canvas,
 	rgb:undefined|string|boolean,
 	size:number,
-	rectangle:[number,number,number,number]
+	rectangle:[number,number]
 ){
-	let up    = rectangle[0] 
-	const down  = rectangle[1]
-	const right = rectangle[3]
-	while (up <= down)
+	let [up, left] = get_yx(rectangle[0], arr.width)
+	let [down, right] = get_yx(rectangle[1], arr.width)
+	left = swap_less_than(left, right)[0]
+	right = swap_less_than(left, right)[1]
+	up = swap_less_than(up, down)[0]
+	down = swap_less_than(up, down)[1]
+	let i = up
+	while (i <= down)
 	{
-		let left  = rectangle[2]
-		if (up < rectangle[0] + size || up > rectangle[1] - size)
+		let j = left
+		if (i < up + size || i > down - size)
 		{
-			while (left <= right)
+			while (j <= right)
 			{
-				arr = paint_brush(arr, rgb, [up, left], 1,"UP")
-				left += 1
+				arr = paint_brush(
+					arr, rgb, 
+					access_yx([i, j], arr.width), 1, "UP")
+				j += 1
 			}
 		}
 		else
 		{
-			arr = paint_brush(arr, rgb, [up, left], size, "RIGHT")
-			arr = paint_brush(arr, rgb, [up, right - left], size, "LEFT")
+			arr = paint_brush(arr, rgb, access_yx([i, j], arr.width), size, "RIGHT")
+			arr = paint_brush(arr, rgb, access_yx([i, right - j], arr.width), size, "LEFT")
 		}
-		up += 1
+		i += 1
 	}
-	return arr
 }
 
 export function paint_rectangle(
-	arr:t_canvas_grid[][],
+	arr:t_canvas,
 	rgb:undefined|boolean|string,
-	rectangle:[number,number,number,number]
+	rectangle:[number,number]
 ){
-	const up  = rectangle[0]
-	const down  = rectangle[1]
-	const left = rectangle[2]
-	const right = rectangle[3]
-	let i = 0
-	while (i <= down - up)
+	let [up, left] = get_yx(rectangle[0], arr.width)
+	let [down, right] = get_yx(rectangle[1], arr.width)
+	left = swap_less_than(left, right)[0]
+	right = swap_less_than(left, right)[1]
+	up = swap_less_than(up, down)[0]
+	down = swap_less_than(up, down)[1]
+	let i = up
+	while (i <= down)
 	{
-		let j = 0
-		while (j <= right - left)
+		let j = left
+		while (j <= right)
 		{
-			arr = paint_1_grid(arr, [up + i, left + j], rgb)
+			arr = paint_1_grid(arr, access_yx([i, j], arr.width), rgb)
 			j += 1
 		}
 		i += 1
@@ -162,23 +192,26 @@ export function paint_rectangle(
 }
 
 export function paint_outside_rectangle(
-	arr:t_canvas_grid[][],
+	arr:t_canvas,
 	rgb:undefined|boolean|string,
-	rectangle:[number,number,number,number]
+	rectangle:[number,number]
 ){
-	const up  = rectangle[0]
-	const down  = rectangle[1]
-	const left = rectangle[2]
-	const right = rectangle[3]
+	let [up, left] = get_yx(rectangle[0], arr.width)
+	let [down, right] = get_yx(rectangle[1], arr.width)
+	left = swap_less_than(left, right)[0]
+	right = swap_less_than(left, right)[1]
+	up = swap_less_than(up, down)[0]
+	down = swap_less_than(up, down)[1]
+	const height = Math.floor(arr.arr.length/arr.width)
 	let i = 0
-	while (i < arr.length)
+	while (i < height)
 	{
 		let j = 0
-		while (j < arr[i].length)
+		while (j < arr.width)
 		{
 			if ((i < up || i > down || j < left || j > right) 
-				&& valid_2d(arr.length, i, arr[i].length, j))
-				arr = paint_1_grid(arr, [i, j], rgb)
+				&& valid_2d(height, i, arr.width, j))
+				arr = paint_1_grid(arr, access_yx([i, j], arr.width), rgb)
 			j += 1
 		}
 		i += 1
@@ -187,42 +220,18 @@ export function paint_outside_rectangle(
 }
 
 export function paint_scale(
-	arr:t_canvas_grid[][],
+	arr:t_canvas,
 	rgb:undefined|boolean|string,
-	grid:[number,number],
+	grid:number,
 	width:number,
 	height:number
 ){
+	const [y,x] = get_yx(grid, arr.width)
 	let i = 0
 	while (i < height)
 	{
-		arr = paint_brush(arr, rgb, grid, width, "RIGHT")
+		arr = paint_brush(arr, rgb, access_yx([y + i, x], arr.width), width, "RIGHT")
 		i += 1
 	}
 	return arr
-}
-
-export function get_average_rgb(
-	arr:t_canvas_grid[][],
-	rectangle:[number,number,number,number]
-){
-	let output = [0,0,0] as number[]
-	let i = rectangle[0]
-	while (i <= rectangle[1] && valid_2d(
-		arr.length, i,
-		arr[i].length, 0))
-	{
-		let j = rectangle[2]
-		while (j <= rectangle[3] && valid_2d(
-			arr.length, i,
-			arr[i].length, j))
-		{
-			output = vector_addition(output, hex_to_rgb(arr[i][j].rgb))
-			j += 1
-		}
-		i += 1
-	}
-	output = scale_vector(
-		output, 1/(rectangle[1]-rectangle[0]+1)*(rectangle[3]-rectangle[2]+1))
-	return rgb_to_hex(output)
 }

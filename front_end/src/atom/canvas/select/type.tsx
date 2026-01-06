@@ -6,13 +6,13 @@ export const CANVAS_ACT_SELECT = [
 
 export type t_act_canvas_select = {
 	type:"SELECT_HOVER",			// OK
-	grid:[number,number],
+	grid:number,
 	size:number,
 	select:boolean
 } | {
 	type:"SELECT_RECTANGLE",		// OK
-	grid_1:[number,number],
-	grid_2:[number,number],
+	grid_1:number,
+	grid_2:number,
 	select:boolean
 } | {
 	type:"SELECT_CROP",				// OK
