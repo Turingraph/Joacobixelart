@@ -74,6 +74,30 @@ export function paint_brush(
 	return update_arr
 }
 
+export function paint_point(
+	arr:t_canvas,
+	rgb:undefined|string|boolean,
+	grid:number,
+	size:number,
+){
+	const width = arr.width
+	let update_arr = {
+	arr:[...arr.arr],
+	width:width
+	} as t_canvas
+	update_arr = paint_brush(update_arr, rgb, grid, size, "MIDDLE_Y")
+	let i = 1
+	while (i < (size)/2 && i < width)
+	{
+		update_arr = paint_brush(update_arr, rgb, grid+i, size, "MIDDLE_Y")
+		update_arr = paint_brush(update_arr, rgb, grid-i, size, "MIDDLE_Y")
+		i += 1
+	}
+	if ((size)%2 === 0)
+		update_arr = paint_brush(update_arr, rgb, grid-i, size, "MIDDLE_Y")
+	return update_arr
+}
+
 /*
 export function paint_brush(
 	arr:t_canvas,
