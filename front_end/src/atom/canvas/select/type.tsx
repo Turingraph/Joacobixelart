@@ -5,7 +5,7 @@ export const CANVAS_ACT_SELECT = [
 ]
 
 export type t_act_canvas_select = {
-	type:"SELECT_HOVER",			// XX
+	type:"SELECT_HOVER",			// OK
 	grid:number,
 	size:number,
 	select:boolean

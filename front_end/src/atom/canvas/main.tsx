@@ -4,7 +4,7 @@ import act_canvas_select from "./select/act";
 import { CANVAS_ACT_SELECT, t_act_canvas_select } from "./select/type";
 import act_canvas_slice from "./slice/act";
 import { CANVAS_ACT_SLICE, t_act_canvas_slice } from "./slice/type";
-import act_canvas_button from "./transform/act";
+import act_canvas_transform from "./transform/act";
 import { CANVAS_ACT_TRANSFORM, t_act_canvas_transform } from "./transform/type";
 import { t_canvas } from "./utils/utils";
 
@@ -18,7 +18,7 @@ export default function act_canvas(
 	action:t_act_canvas)
 {
 	if (CANVAS_ACT_TRANSFORM.includes(action.type)) {
-		return act_canvas_button(arr, action as t_act_canvas_transform)
+		return act_canvas_transform(arr, action as t_act_canvas_transform)
 	}
 	if (CANVAS_ACT_DRAW.includes(action.type)) {
 		return act_canvas_draw(arr, action as t_act_canvas_draw)

@@ -36,6 +36,22 @@ export default function CANVAS()
 			backgroundColor:item.rgb,
 			width: "25px",
 			height:"25px"}}
+		onMouseEnter={()=>{
+			setSS_Canvas({
+				type:"SELECT_HOVER", 
+				select:true,
+				grid:index,
+				size:1
+			})
+		}}
+		onMouseLeave={()=>{
+			setSS_Canvas({
+				type:"SELECT_HOVER", 
+				select:false,
+				grid:index,
+				size:1
+			})
+		}}
 		onClick={()=>{
 		if (SS_PushRGB === undefined
 			&& is_arr_has(SS_RGBArr, SS_NewRGB, "rgb") === false)
@@ -48,7 +64,11 @@ export default function CANVAS()
 			size:1,
 			grid:index
 		})
+		}}>
+		<div style={{width:"100%", height:"100%", 
+			backgroundColor:item.select ? "rgba(0,0,0,0.3)" : "rgba(0,0,0,0)"
 		}}></div>
+		</div>
 			})}</>}/>
 	</div>
 }
