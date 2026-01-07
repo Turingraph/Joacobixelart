@@ -7,16 +7,10 @@ export const CONTEXT_SS_LP_PAINT = createContext<{
 	select_rgb:{
 		SS_SelectRGB:number,
 		setSS_SelectRGB:a.t_setss<number>},
-	tool_mode:{
-		SS_ToolMode:number,
-		setSS_ToolMode:a.t_setss<number>},
 }>({
 	select_rgb:{
 		SS_SelectRGB:0,
 		setSS_SelectRGB:()=>{}},
-	tool_mode:{
-		SS_ToolMode:0,
-		setSS_ToolMode:()=>{}},
 });
 
 export const CONTEXT_SS_GLOBAL_STUDIO = createContext<{
@@ -29,6 +23,9 @@ export const CONTEXT_SS_GLOBAL_STUDIO = createContext<{
 	pixel_size:{
 		SS_PixelSize:number,
 		setSS_PixelSize:a.t_setss<number>},
+	tool_mode:{
+		SS_ToolMode:number,
+		setSS_ToolMode:a.t_setss<number>},
 }>({rgb_arr:{
 		SS_RGBArr:[],
 		setSS_RGBArr:()=>{}},
@@ -38,6 +35,9 @@ export const CONTEXT_SS_GLOBAL_STUDIO = createContext<{
 	pixel_size:{
 		SS_PixelSize:0,
 		setSS_PixelSize:()=>{}},
+	tool_mode:{
+		SS_ToolMode:0,
+		setSS_ToolMode:()=>{}},
 })
 /*
 Reference

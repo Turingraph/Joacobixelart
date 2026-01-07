@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import STR_HEADER from "../../atom/str/str_header";
 import * as a from "../../atom/type/alias";
 import B_LOGO from "../../molecule/button/b_logo";
-import { CONTEXT_SS_LP_PAINT, CONTEXT_SS_GLOBAL_STUDIO } from "../../molecule/hook/one_time_useContext";
+import { CONTEXT_SS_GLOBAL_STUDIO } from "../../molecule/hook/one_time_useContext";
 import SELECT_ONE_ITEM from "../../molecule/html/select_one_item";
 import STR_INPUT from "../../molecule/str/str_input";
 import { B_RGB_INPUT } from "../../organism/button/b_rgb_input";
@@ -11,7 +11,7 @@ import { GRID_COLUMN_DIV } from "../../molecule/html/grid_column_div";
 
 export function EDITOR_TOOLS()
 {
-	const {SS_ToolMode, setSS_ToolMode} = useContext(CONTEXT_SS_LP_PAINT).tool_mode;
+	const {SS_ToolMode, setSS_ToolMode} = useContext(CONTEXT_SS_GLOBAL_STUDIO).tool_mode;
 	const {SS_PixelSize, setSS_PixelSize} = useContext(CONTEXT_SS_GLOBAL_STUDIO).pixel_size;
 	const [SS_PixelStr, setSS_PixelStr] = useState<string>(SS_PixelSize.toString());
 	useEffect(()=>{

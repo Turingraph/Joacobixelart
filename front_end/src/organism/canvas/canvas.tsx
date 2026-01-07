@@ -7,9 +7,34 @@ import { useClickPushArr } from "../../molecule/hook/useClickArr";
 import { t_rgb_palettes } from "../../atom/arr/type";
 import { init_canvas } from "../../atom/canvas/utils/utils";
 import act_canvas from "../../atom/canvas/main";
+import { t_act_canvas_draw } from "../../atom/canvas/draw/type";
+import { ARR_DRAW_OPERATION } from "../../atom/canvas/utils/data";
+
+function update_canvas(
+	SS_ToolMode:number, 
+	rgb:undefined|string|boolean, 
+	grid:number,
+	size:number
+){
+	if (ARR_DRAW_OPERATION[SS_ToolMode] === "DRAW_PEN")
+		return {
+		type:"DRAW_PEN",
+		rgb:rgb,
+		grid:grid,
+		size:size
+	} as t_act_canvas_draw
+	if (ARR_DRAW_OPERATION[SS_ToolMode] === "DRAW_ERASER")
+		return {
+		type:"DRAW_ERASER",
+		grid:grid,
+		size:size
+	} as t_act_canvas_draw
+	return undefined
+}
 
 export default function CANVAS()
 {
+	const SS_ToolMode = useContext(CONTEXT_SS_GLOBAL_STUDIO).tool_mode.SS_ToolMode
 	const {SS_RGBArr, setSS_RGBArr} = useContext(CONTEXT_SS_GLOBAL_STUDIO).rgb_arr
 	const SS_PixelSize = useContext(CONTEXT_SS_GLOBAL_STUDIO).pixel_size.SS_PixelSize
 	const [SS_PushRGB, setSS_PushRGB] = useState<undefined|t_rgb_palettes>(undefined)
@@ -31,10 +56,15 @@ export default function CANVAS()
 			column={"25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px" as a.t_css}
 			jsx_array={<>
 {SS_Canvas.arr.map((item, index:number)=>{
+	let gray = "#333333"
+	if (index % 2 === 0 && Math.floor(index/SS_Canvas.width) % 2 === 1)
+		gray = "#555555"
+	if (index % 2 === 1 && Math.floor(index/SS_Canvas.width) % 2 === 0)
+		gray = "#555555"
 	return <div 
 		key={index}
 		style={{
-			backgroundColor:item.rgb,
+			backgroundColor:item.rgb ? item.rgb : gray,
 			width: "25px",
 			height:"25px"}}
 		onMouseEnter={()=>{
@@ -59,15 +89,12 @@ export default function CANVAS()
 			setSS_PushRGB({id:0, select:false, rgb:SS_NewRGB})
 		else
 			setSS_PushRGB(undefined)
-		setSS_Canvas({
-			type:"DRAW_PEN",
-			rgb:SS_NewRGB,
-			size:SS_PixelSize,
-			grid:index
-		})
+		const update_grid = update_canvas(SS_ToolMode, SS_NewRGB, index, SS_PixelSize)
+		if (update_grid !== undefined)
+			setSS_Canvas(update_grid)
 		}}>
 		<div style={{width:"100%", height:"100%", 
-			backgroundColor:item.select ? "rgba(0,0,0,0.3)" : "rgba(0,0,0,0)"
+			backgroundColor:item.select ? "rgba(255,255,255,0.3)" : "rgba(0,0,0,0)"
 		}}></div>
 		</div>
 			})}</>}/>

@@ -11,11 +11,11 @@ export default function act_canvas_draw(
 		arr:[...arr.arr],
 		width:arr.width
 	} as t_canvas
-	if (action.type === "DRAW_PEN")
+	if (action.type === "DRAW_PEN" || action.type === "DRAW_ERASER")
 	{
 		update_arr = paint_point(
 			update_arr,
-			action.rgb,
+			action.type === "DRAW_ERASER" ? undefined : action.rgb,
 			action.grid,
 			action.size
 		)
