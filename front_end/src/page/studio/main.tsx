@@ -38,6 +38,10 @@ export function STUDIO()
 			SS_NewRGB:SS_NewRGB,
 			setSS_NewRGB:setSS_NewRGB
 			},
+		pixel_size:{
+			SS_PixelSize:SS_PixelSize,
+			setSS_PixelSize:setSS_PixelSize,
+		},
 		}}>
 	<GRID_TEMPLATE_COLUMNS
 		grid_template_areas={"area_paint area_canvas" as a.t_css}
@@ -52,10 +56,6 @@ export function STUDIO()
 									select_rgb:{
 										SS_SelectRGB:SS_SelectRGB,
 										setSS_SelectRGB:setSS_SelectRGB,
-									},
-									pixel_size:{
-										SS_PixelSize:SS_PixelSize,
-										setSS_PixelSize:setSS_PixelSize,
 									},
 									tool_mode:{
 										SS_ToolMode:SS_ToolMode,

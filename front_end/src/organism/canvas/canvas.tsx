@@ -11,6 +11,7 @@ import act_canvas from "../../atom/canvas/main";
 export default function CANVAS()
 {
 	const {SS_RGBArr, setSS_RGBArr} = useContext(CONTEXT_SS_GLOBAL_STUDIO).rgb_arr
+	const SS_PixelSize = useContext(CONTEXT_SS_GLOBAL_STUDIO).pixel_size.SS_PixelSize
 	const [SS_PushRGB, setSS_PushRGB] = useState<undefined|t_rgb_palettes>(undefined)
 	const SS_NewRGB = useContext(CONTEXT_SS_GLOBAL_STUDIO).new_rgb.SS_NewRGB
 	const [SS_Canvas, setSS_Canvas] = useReducer(act_canvas, init_canvas(32, 32))
@@ -41,7 +42,7 @@ export default function CANVAS()
 				type:"SELECT_HOVER", 
 				select:true,
 				grid:index,
-				size:1
+				size:SS_PixelSize
 			})
 		}}
 		onMouseLeave={()=>{
@@ -49,7 +50,7 @@ export default function CANVAS()
 				type:"SELECT_HOVER", 
 				select:false,
 				grid:index,
-				size:1
+				size:SS_PixelSize
 			})
 		}}
 		onClick={()=>{
@@ -61,7 +62,7 @@ export default function CANVAS()
 		setSS_Canvas({
 			type:"DRAW_PEN",
 			rgb:SS_NewRGB,
-			size:1,
+			size:SS_PixelSize,
 			grid:index
 		})
 		}}>

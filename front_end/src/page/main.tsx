@@ -116,4 +116,15 @@ To Do List
 1.	design the UXUI for atom/canvas/slice/
 2.	implementing atom/canvas/
 3.	redesign UXUI (I might make paint tool on the right as verticle instead)
+
+To Do List
+1.	allow pen size adjustment
+2.	eraser and etc.
+3.	move color palletes
+4.	ctrl + z
+5.	hover
+6.	useMemo
+7.	save color palletes
+8.	user feedback (Tata, Ronnakrit P. Darunsart, ธรรศวริทธิ์ เครือคล้าย  (นท), 42 Bangkok, Aria Aria etc.)
+
 */
