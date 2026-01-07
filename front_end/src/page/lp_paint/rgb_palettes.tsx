@@ -2,6 +2,7 @@ import { useContext, useLayoutEffect, useRef } from "react";
 import STR_HEADER from "../../atom/str/str_header";
 import * as a from "../../atom/type/alias";
 import { CONTEXT_SS_GLOBAL_STUDIO, CONTEXT_SS_LP_PAINT } from "../../molecule/hook/one_time_useContext";
+import useDragArr, { child_drag_start, child_mouse_down, parent_drag_enter, parent_drag_over } from "../../molecule/hook/useDragArr";
 import { GRID_COLUMN_CX } from "../../molecule/html/grid_column_cx";
 import SELECT_ONE_ITEM from "../../molecule/html/select_one_item";
 import { B_RGB_GRID } from "../../organism/button/b_rgb_grid";
@@ -9,9 +10,14 @@ import { B_RGB_GRID } from "../../organism/button/b_rgb_grid";
 export function RGB_PALETTES()
 {
 	const {SS_SelectRGB, setSS_SelectRGB} = useContext(CONTEXT_SS_LP_PAINT).select_rgb
-	const SS_RGBArr = useContext(CONTEXT_SS_GLOBAL_STUDIO).rgb_arr.SS_RGBArr
+	const {SS_RGBArr, setSS_RGBArr} = useContext(CONTEXT_SS_GLOBAL_STUDIO).rgb_arr
 	const setSS_NewRGB = useContext(CONTEXT_SS_GLOBAL_STUDIO).new_rgb.setSS_NewRGB
 	const Ref_UpdateAfterRender = useRef<boolean>(false)
+	const {
+		Ref_DragOldIndex,
+		Ref_DragNewIndex,
+		SS_DragOldIndex, 
+		setSS_DragOldIndex} = useDragArr()
 	useLayoutEffect(()=>{
 		if (Ref_UpdateAfterRender.current === true)
 		{
@@ -32,14 +38,20 @@ export function RGB_PALETTES()
 					}}
 					jsx_select_array={SS_RGBArr.map((item, index:number)=>{
 						return <div 
+							style={{opacity:index === SS_DragOldIndex ? "0.5" : "1"}}
 							key={index}
 							onClick={()=>{
 								if (Ref_UpdateAfterRender.current === false)
-								{
 									Ref_UpdateAfterRender.current = true
-								}
 							}}
-						><B_RGB_GRID rgb={item.rgb}/></div>
+onDragOver={(e)=>{parent_drag_over(e, Ref_DragNewIndex, index)}}
+onMouseEnter={()=>{parent_drag_enter(setSS_RGBArr, Ref_DragOldIndex, Ref_DragNewIndex, setSS_DragOldIndex)}}
+						><div
+				onDragStart={()=>{child_drag_start(Ref_DragOldIndex, setSS_DragOldIndex, index)}}
+				onMouseDown={()=>{child_mouse_down(Ref_DragOldIndex, index)}}
+				onDragEnd={()=>{}}
+				draggable={true}
+						><B_RGB_GRID rgb={item.rgb}/></div></div>
 					})}
 					is_horizontal={false}
 					/>}
