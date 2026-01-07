@@ -61,10 +61,13 @@ export default function CANVAS()
 		gray = "#555555"
 	if (index % 2 === 1 && Math.floor(index/SS_Canvas.width) % 2 === 0)
 		gray = "#555555"
+	let color = item.plan_rgb
+	if (item.plan_rgb === undefined)
+		color = item.rgb
 	return <div 
 		key={index}
 		style={{
-			backgroundColor:item.rgb ? item.rgb : gray,
+			backgroundColor:color ? color : gray,
 			width: "25px",
 			height:"25px"}}
 		onMouseEnter={()=>{

@@ -1,16 +1,34 @@
-import { t_canvas, valid_height } from "./utils"
+import { t_canvas, t_canvas_grid, valid_height } from "./utils"
 
-export function paint_1_grid(
+export function paint_1_grid_default(
 	arr:t_canvas,
 	grid:number,
-	rgb:undefined|string|boolean
+	input:undefined|string|boolean
 ){
-	if (typeof rgb === "boolean")
+	if (typeof input === "boolean")
 	{
-		arr.arr[grid].select = rgb
+		arr.arr[grid].select = input
 		return arr
 	}
-	arr.arr[grid].rgb = rgb
+	arr.arr[grid].rgb = input
+	return arr
+}
+
+export function paint_1_grid<
+	k extends keyof t_canvas_grid, 
+	e extends t_canvas_grid[k]>(
+	arr:t_canvas,
+	grid:number,
+	input:e,
+	key:k|undefined = undefined
+){
+	if (key !== undefined)
+	{
+		arr.arr[grid][key] = input
+		return arr
+	}
+	if (["boolean", undefined, "string"].includes(typeof input))
+		return paint_1_grid_default(arr, grid, input)
 	return arr
 }
 

@@ -1,7 +1,18 @@
 export type t_canvas_grid = {
 	select:boolean,
-	rgb:string|undefined
+	rgb:string|undefined,
+	plan_rgb:string|undefined
 }
+
+/*
+plan_rgb is used when
+1.	Draw rectangle/circle/straight line, 
+	because user need to be able to change the shape of
+	rectangle/circle/straight line when holding mouse
+	based on its starting position (grid_1) and 
+	its current position (grid_2) before leave the mouse.
+2.	Transforming color (e.g. replace #AA77CC with #4466FF)
+*/
 
 export type t_canvas = {
 	width:number,
@@ -78,6 +89,7 @@ export function init_canvas(height:number, width:number){
 	{
 		output.push({
 				rgb:undefined,
+				plan_rgb:undefined,
 				select:false
 			})
 		i += 1
