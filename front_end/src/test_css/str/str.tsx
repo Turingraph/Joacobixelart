@@ -1,7 +1,7 @@
 import React from "react";
-import "./main.css"
+import style from "./str.module.css"
 
-export default function STR({text}:{text:string})
+export default function STR_CSS({text}:{text:string})
 {
-	return <h1 className="STR">{text}</h1>
+	return <h1 className={`${style.h1}`}>{text}</h1>
 }

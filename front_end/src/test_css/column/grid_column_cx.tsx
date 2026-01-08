@@ -1,7 +1,6 @@
 import { JSX } from "react";
 import { CONTEXT_CSS_SELECT_ONE_ITEM } from "../../atom/hook/useContext";
 import * as a from "../../atom/type/alias";
-import "./main.css";
 
 /*
 Please avoid using nested <GRID_COLUMN_CX jsx_array={<GRID_COLUMN_CX .../>}/>
@@ -20,15 +19,13 @@ export default function GRID_COLUMN_CX({
 	column,
 	gap = "0px" as a.t_css,
 	jsx_array,
-	margin = "0 auto" as a.t_css,
 }:{
 	column:a.t_css,
 	gap?:a.t_css,
 	jsx_array:JSX.Element,
-	margin?:a.t_css
 })
 {
-	return <div style={{margin:margin}}>
+	return <div style={{margin:"0 auto"}}>
 		<CONTEXT_CSS_SELECT_ONE_ITEM value={{
 			display:"grid",
 			gridTemplateColumns:column,

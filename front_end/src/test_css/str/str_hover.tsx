@@ -1,7 +1,7 @@
 import React from "react";
-import "./main.css"
+import style from "./str_hover.module.css"
 
-export default function STR_HOVER(
+export default function STR_HOVER_CSS(
 {
 	str_hover,
 	is_hover
@@ -15,7 +15,7 @@ export default function STR_HOVER(
 		return <></>
 	return <div>
 	<h1 
-		className="STR_HOVER"
+		className={`${style.h1}`}
 	>{str_hover}</h1>
 	</div>
 }

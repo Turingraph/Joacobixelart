@@ -13,7 +13,7 @@ export default function STR_HEADER(
 		style={{
 			paddingTop:Y_SPACE,
 			paddingBottom:Y_SPACE,
-			backgroundColor:"white"
+			backgroundColor:"#AAAAAA"
 		}}
 		>
 	<h1 style={{

@@ -1,7 +1,11 @@
 import React from "react";
-import "./main.css"
+import style from "./str_header.module.css"
 
-export default function STR_HEADER(
+/*
+https://www.youtube.com/watch?v=i63WQrzrKag
+*/
+
+export default function STR_HEADER_CSS(
 {
 	title,
 }:{
@@ -9,10 +13,10 @@ export default function STR_HEADER(
 })
 {
 	return <div 
-	className="STR_HEADER"
+	className={`${style.div}`}
 		>
 	<h1 
-	className="STR_HEADER"
+	className={`${style.h1}`}
 	>{title}</h1>
 	</div>
 }

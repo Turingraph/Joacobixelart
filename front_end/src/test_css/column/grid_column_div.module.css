@@ -1,4 +1,4 @@
-.GRID_COLUMN_DIV div {
+.div {
 	display:"grid";
 	gap:0px;
 	height:"100%";

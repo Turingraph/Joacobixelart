@@ -15,7 +15,12 @@ export default function STR_HOVER(
 	return <div>
 	<h1 
 		id="str_hover"
-		style={{fontSize:"15px", backgroundColor:"gray", position:"absolute", padding:"3px", borderRadius:"2px"}}
+		style={{
+			fontSize:"15px", 
+			backgroundColor:"gray", 
+			position:"absolute", 
+			padding:"3px", 
+			borderRadius:"2px"}}
 	>{str_hover}</h1>
 	</div>
 }

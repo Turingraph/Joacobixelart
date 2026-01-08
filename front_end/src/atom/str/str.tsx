@@ -6,7 +6,5 @@ export default function STR({text}:{text:string})
 		fontSize:"15px", 
 		marginLeft:"5px", 
 		marginRight:"5px", 
-		// marginTop:"0px", 
-		// marginBottom:"0px"
 	}}>{text}</h1>
 }

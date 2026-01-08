@@ -1,0 +1,14 @@
+.div {
+	padding-top:2px;
+	padding-bottom:2px;
+	background-color: #AAAAAA;
+}
+
+.h1 {
+	font-size:18px;
+	background-color: chocolate;
+	padding-top:2px;
+	padding-bottom:2px;
+	margin-left: 8px;
+	margin-right: 8px;
+}
