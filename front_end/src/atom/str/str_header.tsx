@@ -8,6 +8,6 @@ export default function STR_HEADER(
 })
 {
 	return <h1 
-	className={"header"}
+	className={"str_header"}
 	>{title}</h1>
 }
