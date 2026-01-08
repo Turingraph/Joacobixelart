@@ -1,0 +1,12 @@
+.div {
+	display:flex; 
+	flex-direction:row; 
+	background-color:gray;
+}
+
+.input {
+	width:90px;
+	height:100%;
+	margin:3px;
+	font-size:24px;
+}

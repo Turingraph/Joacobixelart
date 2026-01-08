@@ -15,8 +15,8 @@ export default function STR_HOVER_CSS(
 	if (is_hover === true)
 		return <></>
 	return <div>
-	<h2
+	<h1
 		className={`${style.h2}` as string + " str"}
-	>{str_hover}</h2>
+	>{str_hover}</h1>
 	</div>
 }

@@ -13,6 +13,6 @@ export default function STR_HEADER_CSS(
 })
 {
 	return <h1 
-	className={"h1"}
+	className={"header"}
 	>{title}</h1>
 }

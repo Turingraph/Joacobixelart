@@ -1,5 +1,6 @@
 import { useState } from "react";
 import * as a from "../../atom/type/alias";
+import style from "./b_logo.module.css";
 import STR_HOVER from "../../atom/str/str_hover";
 
 export type t_B_LOGO = {
@@ -8,13 +9,12 @@ export type t_B_LOGO = {
 	func:a.t_func
 }
 
-export default function B_LOGO(
+export default function B_LOGO_CSS(
 {
 	title = undefined,
 	logo,
 	func,
-	size = 45
-}:t_B_LOGO & {size?:45|number}
+}:t_B_LOGO
 )
 {
 	const [SS_OnMouseEnter, setSS_OnMouseEnter] = useState<boolean>(true);
@@ -24,11 +24,7 @@ export default function B_LOGO(
 		description=<STR_HOVER str_hover={title as string} is_hover={SS_OnMouseEnter}/>
 	}
 	return <>
-		<button onClick={func} 
-		style={{
-			width: String(size) + "px",
-			height:String(size) + "px",
-		}}
+		<button onClick={func} className={`${style.button}`}
 		onMouseEnter={()=>{
 			setSS_OnMouseEnter(false);
 		}}
@@ -36,12 +32,7 @@ export default function B_LOGO(
 			setSS_OnMouseEnter(true);
 		}}
 		>
-			<img src={logo} alt="" style={{
-				margin:"0 auto",
-				display:"inline",
-				width:"90%",
-				height:"90%"
-			}}/>
+			<img src={logo} alt="" className={`${style.img}`}/>
 		</button>
 		{description}
 	</>

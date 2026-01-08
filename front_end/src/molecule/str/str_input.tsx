@@ -1,5 +1,6 @@
 import STR from "../../atom/str/str";
 import * as a from "../../atom/type/alias";
+import style from "./str_input.module.css";
 
 export default function STR_INPUT({
 	text_input,
@@ -17,22 +18,10 @@ export default function STR_INPUT({
 	let jsx_unit = <></>
 	if (unit !== undefined)
 		jsx_unit = <STR text={unit}/>
-	return <div style={{
-		display:"flex", 
-		flexDirection:"row", 
-		marginLeft:"2px",
-		marginRight:"2px",
-		backgroundColor:"gray"}}>
+	return <div className={`${style.div}`}>
 	{jsx_title}
 	<input 
-	style={{
-		width:"90px",
-		// width:"100%",
-		height:"100%",
-		display:"inline",
-		margin:"2px",
-		fontSize:"30px"
-	}}
+	className={`${style.input}`}
 	type="number" 
 	onChange={e=>{
 		if (isNaN(Number(e.target.value)) === false && Number(e.target.value) >= 1 && Number(e.target.value) <= 256)

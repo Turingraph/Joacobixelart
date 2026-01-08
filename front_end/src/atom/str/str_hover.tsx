@@ -1,4 +1,5 @@
 import React from "react";
+import style from "./str_hover.module.css"
 
 export default function STR_HOVER(
 {
@@ -13,14 +14,8 @@ export default function STR_HOVER(
 	if (is_hover === true)
 		return <></>
 	return <div>
-	<h1 
-		id="str_hover"
-		style={{
-			fontSize:"15px", 
-			backgroundColor:"gray", 
-			position:"absolute", 
-			padding:"3px", 
-			borderRadius:"2px"}}
-	>{str_hover}</h1>
+	<h2
+		className={`${style.str_hover}` as string + " str"}
+	>{str_hover}</h2>
 	</div>
 }

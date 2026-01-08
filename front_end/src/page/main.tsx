@@ -3,6 +3,7 @@ import * as a from "../atom/type/alias";
 import GRID_TEMPLATE_ROWS from "../molecule/html/grid_template_rows";
 import { TOP_HEADER } from "./top_header/main";
 import { STUDIO } from "./studio/main";
+import "./main.css"
 
 export default function MAIN()
 {
