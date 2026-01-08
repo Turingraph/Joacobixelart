@@ -1,7 +1,7 @@
 import { useState } from "react";
 import * as a from "../../atom/type/alias";
-import STR_HOVER from "../str/str_hover";
 import style from "./b_logo.module.css";
+import STR_HOVER_CSS from "../str/str_hover";
 
 export type t_B_LOGO = {
 	title?:a.t_str_hover|undefined,
@@ -21,7 +21,7 @@ export default function B_LOGO_CSS(
 	let description = <></>
 	if (title !== undefined)
 	{
-		description=<STR_HOVER str_hover={title as string} is_hover={SS_OnMouseEnter}/>
+		description=<STR_HOVER_CSS str_hover={title as string} is_hover={SS_OnMouseEnter}/>
 	}
 	return <>
 		<button onClick={func} className={`${style.button}`}

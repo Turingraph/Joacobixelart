@@ -12,9 +12,9 @@ import STR from "../../atom/str/str"
 export function TEST_STR_HEADER()
 {
 	return <>
-	<STR_HEADER_CSS title="hello"/>
-	<hr/>
 	<STR_HEADER title="hello"/>
+	<hr/>
+	<STR_HEADER_CSS title="hello"/>
 	</>
 }
 

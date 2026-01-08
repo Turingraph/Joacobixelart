@@ -1,15 +1,12 @@
 .div {
 	display:flex; 
 	flex-direction:row; 
-	margin-left:2px;
-	margin-right:2px;
 	background-color:gray;
 }
 
 .input {
 	width:90px;
 	height:100%;
-	display:inline;
-	margin:2px;
-	font-size:30px;
+	margin:3px;
+	font-size:24px;
 }

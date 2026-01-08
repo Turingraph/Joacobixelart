@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./str_header.module.css"
+import "../main.css"
 
 /*
 https://www.youtube.com/watch?v=i63WQrzrKag
@@ -12,11 +12,7 @@ export default function STR_HEADER_CSS(
 	title:string
 })
 {
-	return <div 
-	className={`${style.div}`}
-		>
-	<h1 
-	className={`${style.h1}`}
+	return <h1 
+	className={"h1"}
 	>{title}</h1>
-	</div>
 }

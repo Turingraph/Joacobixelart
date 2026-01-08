@@ -1,6 +1,5 @@
 import * as a from "../../atom/type/alias";
-import STR from "../str/str";
-// import style from "./b_str.module.css";
+import STR_CSS from "../str/str";
 
 export type t_B_STR = {
 	title:string,
@@ -13,6 +12,6 @@ export default function B_STR_CSS({
 }:t_B_STR)
 {
 	return <button onClick={func} >
-		<STR text={title}/>
+		<STR_CSS text={title}/>
 	</button>
 }

@@ -5,8 +5,6 @@
 
 .img {
 	margin:0 auto;
-	display:inline;
 	width:90%;
 	height:90%;
-	object-fit : fill
 }
