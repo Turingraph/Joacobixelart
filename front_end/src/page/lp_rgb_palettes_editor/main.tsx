@@ -1,7 +1,7 @@
 import { useContext, useRef } from "react";
 import * as a from "../../atom/type/alias";
 import { CONTEXT_SS_GLOBAL_STUDIO } from "../../molecule/hook/one_time_useContext";
-import { GRID_COLUMN_CX } from "../../molecule/html/grid_column_cx";
+import GRID_COLUMN_CX from "../../molecule/html/grid_column_cx";
 import SELECT_MULTI_ITEMS from "../../molecule/html/select_multi_items";
 import { B_RGB_GRID } from "../../organism/button/b_rgb_grid";
 import STR_HEADER from "../../atom/str/str_header";

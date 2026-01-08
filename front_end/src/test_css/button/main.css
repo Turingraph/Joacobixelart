@@ -1,0 +1,11 @@
+.B_LOGO button {
+	width:45;
+	height:45
+}
+
+.B_LOGO img {
+	margin:"0 auto";
+	display:"inline";
+	width:"90%";
+	height:"90%";
+}

@@ -1,6 +1,7 @@
 import { JSX } from "react";
 import { CONTEXT_CSS_SELECT_ONE_ITEM } from "../../atom/hook/useContext";
 import * as a from "../../atom/type/alias";
+import "./main.css";
 
 /*
 Please avoid using nested <GRID_COLUMN_CX jsx_array={<GRID_COLUMN_CX .../>}/>

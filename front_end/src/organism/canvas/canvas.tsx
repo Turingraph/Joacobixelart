@@ -1,7 +1,7 @@
 import { useContext, useReducer, useState } from "react";
 import { is_arr_has } from "../../atom/arr/utils";
 import { CONTEXT_SS_GLOBAL_STUDIO } from "../../molecule/hook/one_time_useContext";
-import { GRID_COLUMN_DIV } from "../../molecule/html/grid_column_div";
+import GRID_COLUMN_DIV from "../../molecule/html/grid_column_div";
 import * as a from "../../atom/type/alias";
 import { useClickPushArr } from "../../molecule/hook/useClickArr";
 import { t_rgb_palettes } from "../../atom/arr/type";

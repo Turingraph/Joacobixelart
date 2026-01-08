@@ -1,6 +1,7 @@
 import { useState } from "react";
 import * as a from "../../atom/type/alias";
-import STR_HOVER from "../../atom/str/str_hover";
+import STR_HOVER from "../str/str_hover";
+import "./main.css";
 
 export type t_B_LOGO = {
 	title?:a.t_str_hover|undefined,
@@ -13,7 +14,6 @@ export default function B_LOGO(
 	title = undefined,
 	logo,
 	func,
-	size = 45
 }:t_B_LOGO & {size?:45|number}
 )
 {
@@ -24,11 +24,7 @@ export default function B_LOGO(
 		description=<STR_HOVER str_hover={title as string} is_hover={SS_OnMouseEnter}/>
 	}
 	return <>
-		<button onClick={func} 
-		style={{
-			width: String(size) + "px",
-			height:String(size) + "px",
-		}}
+		<button onClick={func} className="B_LOGO"
 		onMouseEnter={()=>{
 			setSS_OnMouseEnter(false);
 		}}
@@ -36,19 +32,8 @@ export default function B_LOGO(
 			setSS_OnMouseEnter(true);
 		}}
 		>
-			<img src={logo} alt="" style={{
-				margin:"0 auto",
-				display:"inline",
-				width:"90%",
-				height:"90%"
-			}}/>
+			<img src={logo} alt="" className="B_LOGO"/>
 		</button>
 		{description}
 	</>
 }
-
-/*
-Reference
-*	https://stackoverflow.com/questions/39999367/
-	how-do-i-reference-a-local-image-in-react
-*/

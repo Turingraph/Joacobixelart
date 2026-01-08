@@ -14,7 +14,8 @@ export default function STR_HEADER(
 			paddingTop:Y_SPACE,
 			paddingBottom:Y_SPACE,
 			backgroundColor:"white"
-		}}>
+		}}
+		>
 	<h1 style={{
 			fontSize:"18px", 
 			backgroundColor:"chocolate", 

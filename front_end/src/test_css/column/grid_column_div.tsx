@@ -1,5 +1,6 @@
 import { JSX } from "react";
 import * as a from "../../atom/type/alias";
+import "./main.css";
 
 export default function GRID_COLUMN_DIV({
 	column,
@@ -14,13 +15,7 @@ export default function GRID_COLUMN_DIV({
 })
 {
 	return <div style={{margin:margin}}>
-		<div style={{
-			display:"grid",
-			gridTemplateColumns:column,
-			gap:gap,
-			height:"100%",
-			minHeight:"100%",
-		}}>
+		<div className="GRID_COLUMN_DIV">
 			{jsx_array}
 		</div>
 	</div>

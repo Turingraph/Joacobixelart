@@ -7,7 +7,7 @@ import SELECT_ONE_ITEM from "../../molecule/html/select_one_item";
 import STR_INPUT from "../../molecule/str/str_input";
 import { B_RGB_INPUT } from "../../organism/button/b_rgb_input";
 import { ARR_DRAW, ARR_TRANSFORM } from "../utils/arr";
-import { GRID_COLUMN_DIV } from "../../molecule/html/grid_column_div";
+import GRID_COLUMN_DIV from "../../molecule/html/grid_column_div";
 
 export function EDITOR_TOOLS()
 {
