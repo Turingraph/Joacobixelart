@@ -129,3 +129,12 @@ To Do List
 8.	user feedback (Tata, Ronnakrit P. Darunsart, ธรรศวริทธิ์ เครือคล้าย  (นท), 42 Bangkok, Aria Aria etc.)
 
 */
+
+/*
+Refactoring Target (create reusable css)
+1.	molecule/select
+2.	molecule/template
+3.	molecule/column
+4.	page/top_header
+5.	creating molecule/verticle
+*/
