@@ -3,11 +3,11 @@ import STR_HEADER from "../../atom/str/str_header";
 import * as a from "../../atom/type/alias";
 import B_LOGO from "../../molecule/button/b_logo";
 import { CONTEXT_SS_GLOBAL_STUDIO } from "../../molecule/hook/one_time_useContext";
-import SELECT_ONE_ITEM from "../../molecule/html/select_one_item";
+import GRID_COLUMN_DIV from "../../molecule/html/grid_column_div";
+import SELECT_ONE_ITEM from "../../molecule/selection_taps/select_one_item";
 import STR_INPUT from "../../molecule/str/str_input";
 import { B_RGB_INPUT } from "../../organism/button/b_rgb_input";
 import { ARR_DRAW, ARR_TRANSFORM } from "../utils/arr";
-import GRID_COLUMN_DIV from "../../molecule/html/grid_column_div";
 
 export function EDITOR_TOOLS()
 {
