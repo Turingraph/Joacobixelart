@@ -2,9 +2,12 @@ import { CSSProperties, JSX, useContext } from "react";
 import { t_use_arr } from "../../atom/arr/act";
 import { CONTEXT_CSS_SELECT_ONE_ITEM } from "../../atom/hook/useContext";
 import useDragArr, { child_drag_start, child_mouse_down, parent_drag_enter, parent_drag_over } from "../hook/useDragArr";
-import { CSS_MARGIN_Y } from "./main_css";
 import "./multi_color_bs.css";
-// import * as a from "../../atom/type/alias"
+
+export const CSS_MARGIN_Y = {
+	marginTop:"2px",
+	marginBottom:"2px",
+}
 
 export default function SELECT_MULTI_ITEMS<t extends {id:number, select:boolean}, k extends keyof t>({
 	jsx_select_array,

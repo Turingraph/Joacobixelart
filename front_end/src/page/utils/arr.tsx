@@ -19,7 +19,6 @@ import rgb_picker from "../../asset/utils/rgb_picker.png"
 
 import { t_B_LOGO } from "../../molecule/button/b_logo";
 import { t_B_STR } from "../../molecule/button/b_str";
-import { CSS_TEST_DIV } from "../../molecule/html/main_css";
 import { ui_with_title } from "../../organism/html/multi_modes_page";
 
 export const ARR_DRAW:t_B_LOGO[] = [
@@ -115,6 +114,13 @@ export const ARR_SAVE:t_B_STR[] = [
 		func:(()=>{}) as a.t_func
 	},
 ]
+
+const CSS_TEST_DIV = {
+	height:"100px",
+	width:"100px",
+	borderColor:"black",
+	borderStyle:"solid",
+}
 
 export const ARR_EDITOR_MODES:ui_with_title[] = [	
 	{

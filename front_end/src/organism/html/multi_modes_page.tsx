@@ -1,7 +1,7 @@
 import { JSX } from "react";
 import * as a from "../../atom/type/alias";
 import B_STR from "../../molecule/button/b_str";
-import GRID_TEMPLATE_ROWS from "../../molecule/html/grid_template_rows";
+import GRID_TEMPLATE from "../../molecule/html/grid_template";
 import SELECT_ONE_ITEM from "../../molecule/html/select_one_item";
 
 export type ui_with_title = {
@@ -31,7 +31,7 @@ export function MULTI_MODES_PAGE({
 		/>,
 		<div style={{margin:"5px"}}>{ui_body[ui_state.ss].ui}</div>
 	]
-	return <GRID_TEMPLATE_ROWS
+	return <GRID_TEMPLATE
 	grid_template_rows={"50px 1fr" as a.t_css}
 	jsx_array={JSX_BODY}/>
 }

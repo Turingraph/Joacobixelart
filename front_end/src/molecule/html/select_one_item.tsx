@@ -1,8 +1,12 @@
 import { CSSProperties, JSX, useContext } from "react";
 import { CONTEXT_CSS_SELECT_ONE_ITEM } from "../../atom/hook/useContext";
 import * as a from "../../atom/type/alias";
-import { CSS_MARGIN_Y } from "./main_css";
 import "./multi_color_bs.css";
+
+export const CSS_MARGIN_Y = {
+	marginTop:"2px",
+	marginBottom:"2px",
+}
 
 // https://stackoverflow.com/questions/54706748/
 // change-color-of-a-element-inside-a-div-using-inline-css

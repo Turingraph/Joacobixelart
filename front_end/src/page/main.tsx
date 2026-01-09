@@ -1,6 +1,6 @@
 import { JSX } from "react";
 import * as a from "../atom/type/alias";
-import GRID_TEMPLATE_ROWS from "../molecule/html/grid_template_rows";
+import GRID_TEMPLATE from "../molecule/html/grid_template";
 import { TOP_HEADER } from "./top_header/main";
 import { STUDIO } from "./studio/main";
 import "./main.css"
@@ -14,8 +14,8 @@ export default function MAIN()
 		<STUDIO/>
 		</div>
 	]
-	return <GRID_TEMPLATE_ROWS
-	is_fill_app={true}
+	return <GRID_TEMPLATE
+	is_fill_height={true}
 	grid_template_rows={"45px 1fr" as a.t_css}
 	grid_template_areas={"area_head area_body" as a.t_css}
 	jsx_array={JSX_BODY}/>
