@@ -4,7 +4,7 @@ import * as a from "../../atom/type/alias";
 import { CONTEXT_SS_GLOBAL_STUDIO, CONTEXT_SS_LP_PAINT } from "../../molecule/hook/one_time_useContext";
 import useDragArr, { child_drag_start, child_mouse_down, parent_drag_enter, parent_drag_over } from "../../molecule/hook/useDragArr";
 import GRID_COLUMN_CX from "../../molecule/html/grid_column_cx";
-import SELECT_ONE_ITEM from "../../molecule/selection_taps/select_one_item";
+import {SELECT_ONE_TAP} from "../../molecule/selection_taps/select_taps";
 import { B_RGB_GRID } from "../../organism/button/b_rgb_grid";
 
 export function RGB_PALETTES()
@@ -31,8 +31,8 @@ export function RGB_PALETTES()
 			<GRID_COLUMN_CX
 				gap={"5px" as a.t_css}
 				column={"45px 45px 45px 45px" as a.t_css}
-				jsx_array={	<SELECT_ONE_ITEM
-					state_input={{
+				jsx_array={	<SELECT_ONE_TAP
+					use_select_item={{
 						ss:SS_SelectRGB,
 						setss:setSS_SelectRGB
 					}}

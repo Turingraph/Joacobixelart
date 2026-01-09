@@ -4,7 +4,7 @@ import * as a from "../../atom/type/alias";
 import B_LOGO from "../../molecule/button/b_logo";
 import { CONTEXT_SS_GLOBAL_STUDIO } from "../../molecule/hook/one_time_useContext";
 import GRID_COLUMN_DIV from "../../molecule/html/grid_column_div";
-import SELECT_ONE_ITEM from "../../molecule/selection_taps/select_one_item";
+import {SELECT_ONE_TAP} from "../../molecule/selection_taps/select_taps";
 import STR_INPUT from "../../molecule/str/str_input";
 import { B_RGB_INPUT } from "../../organism/button/b_rgb_input";
 import { ARR_DRAW, ARR_TRANSFORM } from "../utils/arr";
@@ -23,8 +23,7 @@ export function EDITOR_TOOLS()
 	<GRID_COLUMN_DIV
 		column={"45px 45px 45px 45px 45px 45px 45px 45px 45px 1fr" as a.t_css}
 		jsx_array={
-			<SELECT_ONE_ITEM 
-				horizontal_gap={"2px"}
+			<SELECT_ONE_TAP 
 				jsx_select_array={
 				ARR_DRAW.map((item, index:number)=>{
 					return <B_LOGO
@@ -32,15 +31,14 @@ export function EDITOR_TOOLS()
 					logo={item.logo}
 					func={item.func}
 					/>})}
-				state_input={{ss:SS_ToolMode, setss:setSS_ToolMode}}
+				use_select_item={{ss:SS_ToolMode, setss:setSS_ToolMode}}
 			/>
 		}/>
 	{/* <STR_HEADER title={"Transform"}/> */}
 	<GRID_COLUMN_DIV
 		column={"45px 45px 45px 45px 45px 45px 45px 45px 45px 1fr" as a.t_css}
 		jsx_array={<>
-			<SELECT_ONE_ITEM 
-				horizontal_gap={"2px"}
+			<SELECT_ONE_TAP 
 				jsx_select_array={
 					ARR_TRANSFORM.map((item, index:number)=>{
 					return <B_LOGO

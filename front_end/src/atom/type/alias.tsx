@@ -3,7 +3,9 @@ export type nominal<t> = t & { readonly '': unique symbol };
 // button/
 export type t_logo  = nominal<string | undefined>
 export type t_func  = nominal<()=>(void|Promise<void>)>
-export type t_rgb_function  = nominal<string>
+export type t_func_xy<x,y>  = nominal<(input:x)=>(y)>
+export type t_func_x<x>  = nominal<(input:x)=>(void|Promise<void>)>
+
 
 // str
 export type t_str_header  = nominal<string>

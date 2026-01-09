@@ -46,6 +46,13 @@ export function child_mouse_down(
 	Ref_DragOldIndex.current = index
 }
 
+export type t_use_drag_arr = {
+	Ref_DragOldIndex:RefObject<number|undefined>,
+	Ref_DragNewIndex:RefObject<number|undefined>,
+	SS_DragOldIndex:number,
+	setSS_DragOldIndex:a.t_setss<undefined|number>
+}
+
 export default function useDragArr()
 {
 	const Ref_DragOldIndex = useRef<undefined|number>(undefined)

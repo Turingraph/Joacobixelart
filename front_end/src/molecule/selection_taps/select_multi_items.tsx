@@ -32,9 +32,7 @@ export default function SELECT_MULTI_ITEMS<t extends {id:number, select:boolean}
 			justifyContent:"space-evenly",
 	}
 	if (is_horizontal === false)
-	{
 		display_flex = {}
-	}
 	return <div style={{
 		...CSS_MARGIN_Y,
 		...CX_CSS,
