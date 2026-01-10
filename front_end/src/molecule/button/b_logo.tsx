@@ -10,7 +10,7 @@ export type t_B_LOGO = {
 	size?:45|20
 }
 
-export default function B_LOGO_CSS(
+export default function B_LOGO(
 {
 	title = undefined,
 	logo,
