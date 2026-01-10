@@ -7,7 +7,6 @@ export function SELECT_MULTI_TAPS<
 t extends {id:number, select:boolean}, 
 k extends keyof t>({
 	jsx_select_array,
-	jsx_other_array = [],
 	arr,
 }:{
 	jsx_select_array:JSX.Element[],
@@ -16,7 +15,6 @@ k extends keyof t>({
 }){
 	return <SELECT_TAPS
 		jsx_select_array={jsx_select_array}
-		jsx_other_array={jsx_other_array}
 		f_click_select={((index:number)=>{arr.setss({
 					type:"EDIT", 
 					id:arr.ss[index].id,

@@ -8,6 +8,7 @@ import STR_INPUT from "../../molecule/str/str_input";
 import { B_RGB_INPUT } from "../../organism/button/b_rgb_input";
 import { ARR_DRAW, ARR_TRANSFORM } from "../utils/arr";
 import SELECT_ONE_TAP from "../../molecule/selection_taps/select_one_tap";
+import { CONTEXT_OTHER_JSX } from "../../atom/hook/useContext";
 
 export function EDITOR_TOOLS()
 {
@@ -37,7 +38,15 @@ export function EDITOR_TOOLS()
 	{/* <STR_HEADER title={"Transform"}/> */}
 	<GRID_COLUMN_DIV
 		column={"45px 45px 45px 45px 45px 45px 45px 45px 45px 1fr" as a.t_css}
-		jsx_array={<>
+		jsx_array={<CONTEXT_OTHER_JSX 
+			value={[
+				<STR_INPUT text_input={{
+					ss:SS_PixelStr,
+					setss:setSS_PixelStr
+					}}
+				unit="px"/>,
+				<B_RGB_INPUT/>,
+			]}>
 			<SELECT_ONE_TAP 
 				jsx_select_array={
 					ARR_TRANSFORM.map((item, index:number)=>{
@@ -46,16 +55,8 @@ export function EDITOR_TOOLS()
 					logo={item.logo}
 					func={item.func}
 				/>})}
-				jsx_other_array={[
-					<STR_INPUT text_input={{
-						ss:SS_PixelStr,
-						setss:setSS_PixelStr
-						}}
-					unit="px"/>,
-					<B_RGB_INPUT/>,
-				]}
 			/>
-		</>}
+		</CONTEXT_OTHER_JSX>}
 	/>
 		<hr style={{visibility:"hidden", margin:"0px", marginTop:"2px"}}/>
 			</>

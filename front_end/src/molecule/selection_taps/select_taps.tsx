@@ -1,6 +1,7 @@
-import { JSX } from "react";
+import { JSX, useContext } from "react";
 import * as a from "../../atom/type/alias";
 import TAP from "./tap";
+import { CONTEXT_OTHER_JSX } from "../../atom/hook/useContext";
 // import { t_use_arr } from "../../atom/arr/act";
 // import useDragArr from "../hook/useDragArr";
 
@@ -15,16 +16,15 @@ inherited from it's parent
 
 export default function SELECT_TAPS({
 	jsx_select_array,
-	jsx_other_array = [],
 	f_click_select = ((index:number)=>{}) as a.t_func_x<number>,
 	f_highlight = ((index:number)=>{return false}) as a.t_func_xy<number, boolean>,
 }:{
 	jsx_select_array:JSX.Element[],
-	jsx_other_array?:JSX.Element[],
 	f_click_select?:a.t_func_x<number>
 	f_highlight?:a.t_func_xy<number, boolean>
 })
 {
+	const CX_OtherJSX = useContext(CONTEXT_OTHER_JSX)
 	return <div
 	className="spore_taps_x"
 	>{jsx_select_array.map((item, index:number)=>{
@@ -34,7 +34,7 @@ export default function SELECT_TAPS({
 				key={index}
 				/>
 		})}
-		{jsx_other_array.map((item, index:number)=>{return <span key={index}>{item}</span>})}
+		{CX_OtherJSX.map((item, index:number)=>{return <span key={index}>{item}</span>})}
 	</div>
 }
 
