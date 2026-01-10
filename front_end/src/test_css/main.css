@@ -1,0 +1,43 @@
+.str_header {
+	font-size:18px;
+	padding-left:8px; 
+	padding-right:8px; 
+	margin:3px;
+	background-color: #AAAAAA;
+}
+
+.str {
+	font-size:15px; 
+	padding-left:5px; 
+	padding-right:5px; 
+}
+
+/*
+Reference
+1.	Learn CSS Flexbox in 20 Minutes (Course)
+*	https://youtu.be/wsTv9y931o8?si=PJFPBCFMedGr6jUz 
+2.	CSS Grid Course - The Only Grid Tutorial You'll Ever Need!
+*	https://youtu.be/JYfiaSKeYhE?si=U1j_JnOoU75q4g8O
+3.	CSS Flexbox vs Grid - Are you using them right?
+*	https://youtu.be/aEj6k-gi9-s?si=AGtQCVdd8LbsCr8g
+*/
+
+.center_box {
+	display:flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.spore_taps_x {
+	display:flex;
+	flex-direction:row;
+	justify-content:space-evenly;
+	width:100%;
+}
+
+.spore_taps_y {
+	display:flex;
+	flex-direction:column;
+	justify-content:space-evenly;
+	height:100%;
+}

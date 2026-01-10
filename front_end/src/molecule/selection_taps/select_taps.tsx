@@ -1,6 +1,5 @@
 import { JSX } from "react";
 import * as a from "../../atom/type/alias";
-import MULTI_TAPS from "./multi_taps";
 import TAP from "./tap";
 // import { t_use_arr } from "../../atom/arr/act";
 // import useDragArr from "../hook/useDragArr";
@@ -26,16 +25,17 @@ export default function SELECT_TAPS({
 	f_highlight?:a.t_func_xy<number, boolean>
 })
 {
-	return <MULTI_TAPS
-		jsx_array={<>{jsx_select_array.map((item, index:number)=>{
+	return <div
+	className="spore_taps_x"
+	>{jsx_select_array.map((item, index:number)=>{
 			return <TAP f_on_click={(()=>{f_click_select(index)}) as a.t_func}
 				select={f_highlight(index)}
 				item={item}
 				key={index}
 				/>
-		})}</>}
-		jsx_other_array={jsx_other_array.map((item, index:number)=>{return <span key={index}>{item}</span>})}
-	/>
+		})}
+		{jsx_other_array.map((item, index:number)=>{return <span key={index}>{item}</span>})}
+	</div>
 }
 
 /*

@@ -12,11 +12,8 @@ export default function TAP({
 })
 {
 	return <span
-		className={select ? "select_button" : "non_select_button"}
 		style={{
-			border:select ? "2px solid blueviolet" : "2px solid gray",
-			// margin:"2px"
-		}}
+		border:select ? "3px solid blueviolet" : "3px solid gray"}}
 		onClick={f_on_click}>
 			{item}
 	</span>

@@ -1,0 +1,11 @@
+.box_x {
+	width:90vh;
+	height: 100px;
+	border:2px solid #000000;
+}
+
+.box_y {
+	width:100px;
+	height: 90vh;
+	border:2px solid #000000;
+}

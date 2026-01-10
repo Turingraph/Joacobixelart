@@ -26,7 +26,8 @@ export default function B_LOGO_CSS(
 		description=<STR_HOVER str_hover={title as string} is_hover={SS_OnMouseEnter}/>
 	}
 	return <>
-		<button onClick={func} style={{
+		<button onClick={func} className={`${style.button}`}
+		style={{
 			width:size.toString()+"px",
 			height:size.toString()+"px",
 		}}
