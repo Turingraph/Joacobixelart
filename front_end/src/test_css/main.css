@@ -41,3 +41,7 @@ Reference
 	justify-content:space-evenly;
 	height:100%;
 }
+
+.tap {
+	border:0px solid gray
+}

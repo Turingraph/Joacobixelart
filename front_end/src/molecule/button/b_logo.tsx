@@ -26,7 +26,7 @@ export default function B_LOGO_CSS(
 		description=<STR_HOVER str_hover={title as string} is_hover={SS_OnMouseEnter}/>
 	}
 	return <>
-		<button onClick={func} className={`${style.button}`}
+		<button onClick={func} className={"tap"}
 		style={{
 			width:size.toString()+"px",
 			height:size.toString()+"px",
