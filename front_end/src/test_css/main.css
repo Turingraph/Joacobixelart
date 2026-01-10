@@ -28,18 +28,27 @@ Reference
 	align-items: center;
 }
 
-.spore_taps_x {
+.middle_taps_x {
 	display:flex;
 	flex-direction:row;
 	justify-content:space-evenly;
 	width:100%;
 }
 
-.spore_taps_y {
+.middle_taps_y {
 	display:flex;
 	flex-direction:column;
 	justify-content:space-evenly;
 	height:100%;
+}
+
+.left_table_taps {
+	display:flex;
+	flex-direction:row;
+	justify-content:left;
+	gap: 3px;
+	width:100%;
+	flex-wrap: wrap;
 }
 
 .tap {

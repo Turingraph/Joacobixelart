@@ -12,29 +12,36 @@
 	padding-right:5px; 
 }
 
-.str_taps {
-	margin:2px;
+/*
+Reference
+1.	Learn CSS Flexbox in 20 Minutes (Course)
+*	https://youtu.be/wsTv9y931o8?si=PJFPBCFMedGr6jUz 
+2.	CSS Grid Course - The Only Grid Tutorial You'll Ever Need!
+*	https://youtu.be/JYfiaSKeYhE?si=U1j_JnOoU75q4g8O
+3.	CSS Flexbox vs Grid - Are you using them right?
+*	https://youtu.be/aEj6k-gi9-s?si=AGtQCVdd8LbsCr8g
+*/
+
+.center_box {
 	display:flex;
+	justify-content: center;
 	align-items: center;
 }
 
-.str_taps .spore {
+.spore_taps_x {
+	display:flex;
+	flex-direction:row;
 	justify-content:space-evenly;
+	width:100%;
 }
 
-.str_taps .browser {
-	justify-content:flex-start;
+.spore_taps_y {
+	display:flex;
+	flex-direction:column;
+	justify-content:space-evenly;
+	height:100%;
 }
 
-.cell_taps {
-	margin:2px;
-	display:grid;
-}
-
-.cell_taps .rgb_palette {
-	gap:5px
-}
-
-.cell_taps .canvas {
-	gap:0px
+.tap {
+	border:0px solid gray
 }

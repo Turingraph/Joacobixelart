@@ -15,10 +15,12 @@ inherited from it's parent
 */
 
 export default function SELECT_TAPS({
+	class_name = "middle_taps_x",
 	jsx_select_array,
 	f_click_select = ((index:number)=>{}) as a.t_func_x<number>,
 	f_highlight = ((index:number)=>{return false}) as a.t_func_xy<number, boolean>,
 }:{
+	class_name?:"left_table_taps"|"middle_taps_x"|"middle_taps_y"
 	jsx_select_array:JSX.Element[],
 	f_click_select?:a.t_func_x<number>
 	f_highlight?:a.t_func_xy<number, boolean>
@@ -26,7 +28,8 @@ export default function SELECT_TAPS({
 {
 	const CX_OtherJSX = useContext(CONTEXT_OTHER_JSX)
 	return <div
-	className="spore_taps_x"
+	className={class_name}
+	// className="microsoft_taps"
 	>{jsx_select_array.map((item, index:number)=>{
 			return <TAP f_on_click={(()=>{f_click_select(index)}) as a.t_func}
 				select={f_highlight(index)}

@@ -1,5 +1,6 @@
 import React from 'react';
 import MAIN from './page/main';
+import TEST_CSS from './test_css/main';
 
 /*
 import logo from './logo.svg';
@@ -29,7 +30,8 @@ function App() {
 
 function App() {
   return <>
-  <MAIN/>
+  {/* <MAIN/> */}
+  <TEST_CSS/>
   </>
 }
 
