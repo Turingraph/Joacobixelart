@@ -20,7 +20,7 @@ export default function SELECT_TAPS({
 	f_click_select = ((index:number)=>{}) as a.t_func_x<number>,
 	f_highlight = ((index:number)=>{return false}) as a.t_func_xy<number, boolean>,
 }:{
-	class_name?:"left_table_taps"|"middle_taps_x"|"middle_taps_y"
+	class_name?:"left_table_taps"|"middle_taps_x"|"middle_taps_y"|"left_taps"
 	jsx_select_array:JSX.Element[],
 	f_click_select?:a.t_func_x<number>
 	f_highlight?:a.t_func_xy<number, boolean>
@@ -29,7 +29,6 @@ export default function SELECT_TAPS({
 	const CX_OtherJSX = useContext(CONTEXT_OTHER_JSX)
 	return <div
 	className={class_name}
-	// className="microsoft_taps"
 	>{jsx_select_array.map((item, index:number)=>{
 			return <TAP f_on_click={(()=>{f_click_select(index)}) as a.t_func}
 				select={f_highlight(index)}
@@ -37,7 +36,7 @@ export default function SELECT_TAPS({
 				key={index}
 				/>
 		})}
-		{CX_OtherJSX.map((item, index:number)=>{return <span key={index}>{item}</span>})}
+		{CX_OtherJSX?.map((item, index:number)=>{return <span key={index}>{item}</span>})}
 	</div>
 }
 

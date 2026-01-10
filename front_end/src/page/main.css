@@ -13,13 +13,8 @@
 }
 
 /*
-Reference
-1.	Learn CSS Flexbox in 20 Minutes (Course)
-*	https://youtu.be/wsTv9y931o8?si=PJFPBCFMedGr6jUz 
-2.	CSS Grid Course - The Only Grid Tutorial You'll Ever Need!
-*	https://youtu.be/JYfiaSKeYhE?si=U1j_JnOoU75q4g8O
-3.	CSS Flexbox vs Grid - Are you using them right?
-*	https://youtu.be/aEj6k-gi9-s?si=AGtQCVdd8LbsCr8g
+This class locate the child DOM in the center of
+parent DOM.
 */
 
 .center_box {
@@ -28,20 +23,101 @@ Reference
 	align-items: center;
 }
 
-.spore_taps_x {
+/*
++----------------+
+| []  []  []  [] |
++----------------+
+
+This class name the space between taps
+in x axis equal.
+*/
+
+.middle_taps_x {
 	display:flex;
 	flex-direction:row;
 	justify-content:space-evenly;
 	width:100%;
+	align-items: center;
 }
 
-.spore_taps_y {
+/*
++----+
+|    |
+| [] |
+|    |
+| [] |
+|    |
+| [] |
+|    |
++----+
+
+This class name the space between taps
+in y axis equal.
+*/
+
+.middle_taps_y {
 	display:flex;
 	flex-direction:column;
 	justify-content:space-evenly;
 	height:100%;
+	align-items: center;
 }
 
-.tap {
-	border:0px solid gray
+/*
++---------------+
+|[] [] [] ... []|
+|[] [] [] ... []|
+|[] [] 			|
++---------------+
+
+This class is useful for rgb color palettes.
+*/
+
+.left_table_taps {
+	display:flex;
+	flex-direction:row;
+	justify-content:left;
+	gap: 3px;
+	width:100%;
+	flex-wrap: wrap;
 }
+
+/*
+*** UNFINISHED ***
+This css class is not finished. 
+It is used to make the height of all header taps in 
+layout_header.tsx have equal height (which is not)
+and for handle when there are many header taps to the 
+point that it is not possible to fit in the parent div.
+
+We will also add scroll bar.
+*/
+
+.left_taps {
+	display:flex;
+	flex-direction:row;
+	justify-content:left;
+	align-items: center;
+	gap: 3px;
+	flex-wrap: nowrap;
+}
+
+/*
+This class is used for color the border 
+of taps properly.
+*/
+
+.tap {
+	border:0px solid gray;
+	/* height:50px; */
+}
+
+/*
+Reference
+1.	Learn CSS Flexbox in 20 Minutes (Course)
+*	https://youtu.be/wsTv9y931o8?si=PJFPBCFMedGr6jUz 
+2.	CSS Grid Course - The Only Grid Tutorial You'll Ever Need!
+*	https://youtu.be/JYfiaSKeYhE?si=U1j_JnOoU75q4g8O
+3.	CSS Flexbox vs Grid - Are you using them right?
+*	https://youtu.be/aEj6k-gi9-s?si=AGtQCVdd8LbsCr8g
+*/

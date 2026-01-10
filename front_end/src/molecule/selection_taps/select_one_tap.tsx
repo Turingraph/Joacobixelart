@@ -7,7 +7,7 @@ export default function SELECT_ONE_TAP({
 	jsx_select_array,
 	use_select_item = undefined,
 }:{
-	class_name?:"left_table_taps"|"middle_taps_x"|"middle_taps_y"
+	class_name?:"left_table_taps"|"middle_taps_x"|"middle_taps_y"|"left_taps"
 	jsx_select_array:JSX.Element[],
 	use_select_item?:a.t_use_state<number>|undefined
 }){

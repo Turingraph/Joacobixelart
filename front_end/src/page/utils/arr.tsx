@@ -14,12 +14,12 @@ import flip from "../../asset/transform/flip.png";
 import rotate from "../../asset/transform/rotate.png";
 import upside_down from "../../asset/transform/upside_down.png";
 
-import rectangle_select from "../../asset/utils/rectangle_select.png"
-import rgb_picker from "../../asset/utils/rgb_picker.png"
+import rectangle_select from "../../asset/utils/rectangle_select.png";
+import rgb_picker from "../../asset/utils/rgb_picker.png";
 
 import { t_B_LOGO } from "../../molecule/button/b_logo";
 import { t_B_STR } from "../../molecule/button/b_str";
-import { ui_with_title } from "../../organism/html/multi_modes_page";
+import { t_page_with_title } from "../../organism/layout/multi_modes_page";
 
 export const ARR_DRAW:t_B_LOGO[] = [
 	{
@@ -122,31 +122,15 @@ const CSS_TEST_DIV = {
 	borderStyle:"solid",
 }
 
-export const ARR_EDITOR_MODES:ui_with_title[] = [	
+export const ARR_EDITOR_MODES:t_page_with_title[] = [	
 	{
-		ui:<div style={{...CSS_TEST_DIV, ...{backgroundColor:"BlueViolet"}}}>Get Color from f(x, y) = z multiplied by Quaternion Field</div>,
+		body:<div style={{...CSS_TEST_DIV, ...{backgroundColor:"BlueViolet"}}}>Get Color from f(x, y) = z multiplied by Quaternion Field</div>,
 		title:"Image to Pixel"
 	},	{
-		ui:<div style={{...CSS_TEST_DIV, ...{backgroundColor:"Gray"}}}>Edit Canvas</div>,
+		body:<div style={{...CSS_TEST_DIV, ...{backgroundColor:"Gray"}}}>Edit Canvas</div>,
 		title:"Canvas Editor"
 	},	{
-		ui:<div style={{...CSS_TEST_DIV, ...{backgroundColor:"Orange"}}}>Finite Element Method</div>,
+		body:<div style={{...CSS_TEST_DIV, ...{backgroundColor:"Orange"}}}>Finite Element Method</div>,
 		title:"Simulation"
-	}
+	},
 ]
-
-// export function EMPTY_JSX_ARR(length:number, width:a.t_css, height:a.t_css)
-// {
-// 	let output = []
-// 	let i = 0
-// 	while (i < length)
-// 	{
-// 		output.push(<div style={{
-// 			visibility:"hidden",
-// 			width:width,
-// 			height:height
-// 		}}></div>)
-// 		i += 1
-// 	}
-// 	return output
-// }

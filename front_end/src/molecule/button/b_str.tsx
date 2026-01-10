@@ -11,7 +11,7 @@ export default function B_STR({
 	func
 }:t_B_STR)
 {
-	return <button onClick={func} className={"tap"}>
+	return <button onClick={func} className={`tap`}>
 		<STR text={title}/>
 	</button>
 }

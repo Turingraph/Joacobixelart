@@ -33,6 +33,8 @@ export default function GRID_TEMPLATE({
 	</div>
 }
 
+// DO IT
+
 /*
 ... is used for concat object literal.
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/

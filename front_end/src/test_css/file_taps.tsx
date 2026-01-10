@@ -5,6 +5,7 @@ import { ARR_SAVE } from "../page/utils/arr"
 export default function FILE_TAPS_CSS()
 {
 	return 	<SELECT_ONE_TAP 
+	class_name={"left_table_taps"}
 	jsx_select_array={ARR_SAVE.map((item, index:number)=>{
 		return <span key={index}>
 			<B_STR

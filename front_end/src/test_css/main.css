@@ -37,6 +37,7 @@ in x axis equal.
 	flex-direction:row;
 	justify-content:space-evenly;
 	width:100%;
+	align-items: center;
 }
 
 /*
@@ -59,6 +60,7 @@ in y axis equal.
 	flex-direction:column;
 	justify-content:space-evenly;
 	height:100%;
+	align-items: center;
 }
 
 /*
@@ -81,12 +83,33 @@ This class is useful for rgb color palettes.
 }
 
 /*
+*** UNFINISHED ***
+This css class is not finished. 
+It is used to make the height of all header taps in 
+layout_header.tsx have equal height (which is not)
+and for handle when there are many header taps to the 
+point that it is not possible to fit in the parent div.
+
+We will also add scroll bar.
+*/
+
+.left_taps {
+	display:flex;
+	flex-direction:row;
+	justify-content:left;
+	align-items: center;
+	gap: 3px;
+	flex-wrap: nowrap;
+}
+
+/*
 This class is used for color the border 
 of taps properly.
 */
 
 .tap {
-	border:0px solid gray
+	border:0px solid gray;
+	/* height:50px; */
 }
 
 /*
