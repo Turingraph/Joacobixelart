@@ -132,7 +132,7 @@ To Do List
 
 /*
 Refactoring Target (create reusable css)
-1.	molecule/select
+1.	molecule/select // MAKE SELECT_MULTI_DROP AND SELECT_ONE_DROP, refactor css.
 2.	molecule/template
 3.	molecule/column
 4.	page/top_header

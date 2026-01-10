@@ -1,6 +1,5 @@
 import { JSX } from "react";
 import * as a from "../../atom/type/alias";
-import "./multi_color_bs.css";
 
 export default function TAP({
 	f_on_click = (()=>{}) as a.t_func,

@@ -1,9 +1,9 @@
 import { JSX } from "react";
 import * as a from "../../atom/type/alias";
-import "./multi_color_bs.css";
 import MULTI_TAPS from "./multi_taps";
 import TAP from "./tap";
-import { t_use_arr } from "../../atom/arr/act";
+// import { t_use_arr } from "../../atom/arr/act";
+// import useDragArr from "../hook/useDragArr";
 
 // https://stackoverflow.com/questions/54706748/
 // change-color-of-a-element-inside-a-div-using-inline-css
@@ -19,17 +19,14 @@ export default function SELECT_TAPS({
 	jsx_other_array = [],
 	f_click_select = ((index:number)=>{}) as a.t_func_x<number>,
 	f_highlight = ((index:number)=>{return false}) as a.t_func_xy<number, boolean>,
-	is_horizontal = true,
 }:{
 	jsx_select_array:JSX.Element[],
 	jsx_other_array?:JSX.Element[],
 	f_click_select?:a.t_func_x<number>
 	f_highlight?:a.t_func_xy<number, boolean>
-	is_horizontal?:boolean
 })
 {
 	return <MULTI_TAPS
-		is_horizontal={is_horizontal}
 		jsx_array={<>{jsx_select_array.map((item, index:number)=>{
 			return <TAP f_on_click={(()=>{f_click_select(index)}) as a.t_func}
 				select={f_highlight(index)}
@@ -38,55 +35,6 @@ export default function SELECT_TAPS({
 				/>
 		})}</>}
 		jsx_other_array={jsx_other_array.map((item, index:number)=>{return <span key={index}>{item}</span>})}
-	/>
-}
-
-export function SELECT_ONE_TAP({
-	jsx_select_array,
-	jsx_other_array = [],
-	use_select_item = undefined,
-	is_horizontal = true,
-}:{
-	jsx_select_array:JSX.Element[],
-	jsx_other_array?:JSX.Element[],
-	use_select_item?:a.t_use_state<number>|undefined
-	is_horizontal?:boolean
-}){
-	return <SELECT_TAPS
-		jsx_select_array={jsx_select_array}
-		jsx_other_array={jsx_other_array}
-		is_horizontal={is_horizontal}
-		f_click_select={((index:number)=>{use_select_item?.setss(index)}) as a.t_func_x<number>}
-		f_highlight={((index:number)=>{return index === use_select_item?.ss}) as a.t_func_xy<number,boolean>}
-	/>
-}
-
-export function SELECT_MULTI_TAPS<
-t extends {id:number, select:boolean}, 
-k extends keyof t>({
-	jsx_select_array,
-	jsx_other_array = [],
-	arr,
-	is_horizontal = true,
-}:{
-	jsx_select_array:JSX.Element[],
-	jsx_other_array?:JSX.Element[],
-	arr:t_use_arr<t, k>
-	is_horizontal?:boolean
-}){
-	return <SELECT_TAPS
-		jsx_select_array={jsx_select_array}
-		jsx_other_array={jsx_other_array}
-		is_horizontal={is_horizontal}
-		f_click_select={((index:number)=>{arr.setss({
-					type:"EDIT", 
-					id:arr.ss[index].id,
-					input:{
-						...arr.ss[index],
-						select:arr.ss[index].select === true ? false : true
-					}
-				})}) as a.t_func_x<number>}
-		f_highlight={((index:number)=>{return arr.ss[index].select}) as a.t_func_xy<number,boolean>}
 	/>
 }
 

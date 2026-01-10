@@ -2,7 +2,7 @@ import { JSX } from "react";
 import * as a from "../../atom/type/alias";
 import B_STR from "../../molecule/button/b_str";
 import GRID_TEMPLATE from "../../molecule/html/grid_template";
-import {SELECT_ONE_TAP} from "../../molecule/selection_taps/select_taps";
+import SELECT_ONE_TAP from "../../molecule/selection_taps/select_one_tap";
 
 export type ui_with_title = {
 	ui:JSX.Element,
