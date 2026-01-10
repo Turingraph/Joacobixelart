@@ -1,7 +1,7 @@
 import { useState } from "react"
 import B_LOGO from "../molecule/button/b_logo"
 import SELECT_ONE_TAP from "../molecule/selection_taps/select_one_tap"
-import { ARR_DRAW } from "../page/utils/arr"
+import { ARR_DRAW } from "../page_outdate/utils/arr"
 
 export default function EDITOR_TOOL_CSS(){
 	const [SS_ToolMode, setSS_ToolMode] = useState<number>(0)

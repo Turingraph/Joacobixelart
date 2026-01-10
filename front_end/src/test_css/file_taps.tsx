@@ -1,6 +1,6 @@
 import B_STR from "../molecule/button/b_str"
 import SELECT_ONE_TAP from "../molecule/selection_taps/select_one_tap"
-import { ARR_SAVE } from "../page/utils/arr"
+import { ARR_SAVE } from "../page_outdate/utils/arr"
 
 export default function FILE_TAPS_CSS()
 {

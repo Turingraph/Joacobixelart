@@ -1,10 +1,10 @@
+import { useState } from "react"
 import { CONTEXT_OTHER_JSX } from "../atom/hook/useContext"
+import B_LOGO from "../molecule/button/b_logo"
 import SELECT_ONE_TAP from "../molecule/selection_taps/select_one_tap"
 import STR_INPUT from "../molecule/str/str_input"
 import { B_RGB_INPUT } from "../organism/button/b_rgb_input"
-import B_LOGO from "../molecule/button/b_logo"
-import { ARR_TRANSFORM } from "../page/utils/arr"
-import { useState } from "react"
+import { ARR_TRANSFORM } from "../page_outdate/utils/arr"
 
 export default function STR_INPUT_CSS(){
 	const [SS_PixelStr, setSS_PixelStr] = useState<string>("0")
