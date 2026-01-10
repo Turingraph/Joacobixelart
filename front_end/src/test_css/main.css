@@ -13,13 +13,8 @@
 }
 
 /*
-Reference
-1.	Learn CSS Flexbox in 20 Minutes (Course)
-*	https://youtu.be/wsTv9y931o8?si=PJFPBCFMedGr6jUz 
-2.	CSS Grid Course - The Only Grid Tutorial You'll Ever Need!
-*	https://youtu.be/JYfiaSKeYhE?si=U1j_JnOoU75q4g8O
-3.	CSS Flexbox vs Grid - Are you using them right?
-*	https://youtu.be/aEj6k-gi9-s?si=AGtQCVdd8LbsCr8g
+This class locate the child DOM in the center of
+parent DOM.
 */
 
 .center_box {
@@ -28,6 +23,15 @@ Reference
 	align-items: center;
 }
 
+/*
++----------------+
+| []  []  []  [] |
++----------------+
+
+This class name the space between taps
+in x axis equal.
+*/
+
 .middle_taps_x {
 	display:flex;
 	flex-direction:row;
@@ -35,12 +39,37 @@ Reference
 	width:100%;
 }
 
+/*
++----+
+|    |
+| [] |
+|    |
+| [] |
+|    |
+| [] |
+|    |
++----+
+
+This class name the space between taps
+in y axis equal.
+*/
+
 .middle_taps_y {
 	display:flex;
 	flex-direction:column;
 	justify-content:space-evenly;
 	height:100%;
 }
+
+/*
++---------------+
+|[] [] [] ... []|
+|[] [] [] ... []|
+|[] [] 			|
++---------------+
+
+This class is useful for rgb color palettes.
+*/
 
 .left_table_taps {
 	display:flex;
@@ -51,6 +80,21 @@ Reference
 	flex-wrap: wrap;
 }
 
+/*
+This class is used for color the border 
+of taps properly.
+*/
+
 .tap {
 	border:0px solid gray
 }
+
+/*
+Reference
+1.	Learn CSS Flexbox in 20 Minutes (Course)
+*	https://youtu.be/wsTv9y931o8?si=PJFPBCFMedGr6jUz 
+2.	CSS Grid Course - The Only Grid Tutorial You'll Ever Need!
+*	https://youtu.be/JYfiaSKeYhE?si=U1j_JnOoU75q4g8O
+3.	CSS Flexbox vs Grid - Are you using them right?
+*	https://youtu.be/aEj6k-gi9-s?si=AGtQCVdd8LbsCr8g
+*/

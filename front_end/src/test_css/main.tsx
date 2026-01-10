@@ -8,12 +8,12 @@ import style from "./test_css.module.css"
 
 export default function TEST_CSS(){
 	return <div 
-	className={`center_box ${style.box_sq}`}
+	className={`center_box ${style.box_x}`}
 	>
 	{/* <EDITOR_TOOL_CSS/> */}
-	{/* <FILE_TAPS_CSS/> */}
+	<FILE_TAPS_CSS/>
 	{/* <MULTI_MODES_PAGE_CSS/> */}
-	<RGB_PALETTES_CSS/>
+	{/* <RGB_PALETTES_CSS/> */}
 	{/* <STR_INPUT_CSS/> */}
 	</div>
 }

@@ -1,4 +1,4 @@
-import { useReducer, useState } from "react"
+import { useState } from "react"
 import { t_rgb_palettes } from "../atom/arr/type"
 // import act_arr from "../atom/arr/act"
 import SELECT_ONE_TAP from "../molecule/selection_taps/select_one_tap"
