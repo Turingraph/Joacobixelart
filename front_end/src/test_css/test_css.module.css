@@ -18,5 +18,6 @@
 
 .box_large {
 	width:100vh;
-	height:100vh
+	height:100vh;
+	/* background-color: yellowgreen; */
 }

@@ -1,10 +1,6 @@
-import { JSX, useState } from "react"
+import { useState } from "react"
 import LAYOUT_HEADER from "./layout_header"
-
-export type t_page_with_title = {
-	title:string,
-	body:JSX.Element
-}
+import { t_page_with_title } from "./type"
 
 export default function MULTI_MODES_PAGE({
 	header_class_name = "middle_taps_x",

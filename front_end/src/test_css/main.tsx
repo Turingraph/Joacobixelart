@@ -1,5 +1,7 @@
+import LAYOUT_SIDEBAR from "../organism/layout/layout_sidebar"
 import EDITOR_TOOL_CSS from "./editor_tool"
 import FILE_TAPS_CSS from "./file_taps"
+import LAYOUT_SIDEBAR_CSS from "./layout_sidebar"
 import "./main.css"
 import MULTI_MODES_PAGE_CSS from "./multi_ui_modes"
 import RGB_PALETTES_CSS from "./rgb_palettes"
@@ -12,8 +14,10 @@ export default function TEST_CSS(){
 	>
 	{/* <EDITOR_TOOL_CSS/> */}
 	{/* <FILE_TAPS_CSS/> */}
-	<MULTI_MODES_PAGE_CSS/>
+	{/* <MULTI_MODES_PAGE_CSS/> */}
 	{/* <RGB_PALETTES_CSS/> */}
 	{/* <STR_INPUT_CSS/> */}
+	<LAYOUT_SIDEBAR_CSS/>
+	{/* <LAYOUT_SIDEBAR/> */}
 	</div>
 }
