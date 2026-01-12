@@ -5,7 +5,10 @@ import { createContext, CSSProperties, JSX } from 'react';
 // export const CONTEXT_CSS_COLOR = createContext<{backgroundColor:string}|{}>({});
 
 export const CONTEXT_CSS_SELECT_ONE_ITEM = createContext<CSSProperties>({});
-export const CONTEXT_OTHER_JSX = createContext<JSX.Element[]|undefined>(undefined)
+export const CONTEXT_OTHER_JSX = createContext<{
+	front:JSX.Element[]|undefined,
+	back:JSX.Element[]|undefined
+}|undefined>(undefined)
 
 // export function useOptionalContext(input:React.Context<any|undefined>){
 //     const context = useContext(input);

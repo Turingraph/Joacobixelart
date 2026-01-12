@@ -7,17 +7,23 @@ import style from "./layout_header.module.css"
 export default function LAYOUT_HEADER({
 	use_select_item = undefined,
 	tap_lists,
+	header_height = "40px",
 	header_class_name = "middle_taps_x",
 	jsx_body
 }:{
+	header_height:"40px"|a.t_css
 	tap_lists:t_B_STR[]|string[]
 	header_class_name?:"middle_taps_x"|"left_taps"
 	jsx_body:JSX.Element
 	use_select_item?:a.t_use_state<number>|undefined
 }){
-	return <div className={`${style.layout_header}`}>
+	return <div className={`${style.layout_header}`}
+			style={{
+				gridTemplateRows:header_height + " 1fr"
+			}}
+		>
 		<div className={header_class_name === "middle_taps_x" ? "middle_taps_x"
-			: ""
+			: "left_taps"
 		}>{<SELECT_ONE_TAP
 			class_name={header_class_name}
 			use_select_item={use_select_item}

@@ -1,14 +1,14 @@
 import { useContext, useEffect, useState } from "react";
+import { CONTEXT_OTHER_JSX } from "../../atom/hook/useContext";
 import STR_HEADER from "../../atom/str/str_header";
 import * as a from "../../atom/type/alias";
 import B_LOGO from "../../molecule/button/b_logo";
 import { CONTEXT_SS_GLOBAL_STUDIO } from "../../molecule/hook/one_time_useContext";
 import GRID_COLUMN_DIV from "../../molecule/html/grid_column_div";
-import STR_INPUT from "../../molecule/str/str_input";
-import { B_RGB_INPUT } from "../../organism/button/b_rgb_input";
-import { ARR_DRAW, ARR_TRANSFORM } from "../utils/arr";
+import INPUT_NUMBER from "../../molecule/input/input_number";
+import { INPUT_RGB } from "../../molecule/input/input_rgb";
 import SELECT_ONE_TAP from "../../molecule/selection_taps/select_one_tap";
-import { CONTEXT_OTHER_JSX } from "../../atom/hook/useContext";
+import { ARR_DRAW, ARR_TRANSFORM } from "../utils/arr";
 
 export function EDITOR_TOOLS()
 {
@@ -40,12 +40,12 @@ export function EDITOR_TOOLS()
 		column={"45px 45px 45px 45px 45px 45px 45px 45px 45px 1fr" as a.t_css}
 		jsx_array={<CONTEXT_OTHER_JSX 
 			value={[
-				<STR_INPUT text_input={{
+				<INPUT_NUMBER use_state={{
 					ss:SS_PixelStr,
 					setss:setSS_PixelStr
 					}}
 				unit="px"/>,
-				<B_RGB_INPUT/>,
+				<INPUT_RGB/>,
 			]}>
 			<SELECT_ONE_TAP 
 				jsx_select_array={

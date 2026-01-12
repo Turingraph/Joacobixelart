@@ -27,16 +27,22 @@ export default function SELECT_TAPS({
 })
 {
 	const CX_OtherJSX = useContext(CONTEXT_OTHER_JSX)
-	return <div
-	className={class_name}
-	>{jsx_select_array.map((item, index:number)=>{
+	const current_key = CX_OtherJSX?.front?.length ? CX_OtherJSX?.front?.length : 0
+	return <div className={class_name}>
+		{CX_OtherJSX?.front?.map((item, index:number)=>{
+			return <span key={index} className="center_box">{item}</span>
+		})}
+		{jsx_select_array.map((item, i:number)=>{
+			let index = current_key + i
 			return <TAP f_on_click={(()=>{f_click_select(index)}) as a.t_func}
 				select={f_highlight(index)}
 				item={item}
 				key={index}
 				/>
 		})}
-		{CX_OtherJSX?.map((item, index:number)=>{return <span key={index}>{item}</span>})}
+		{CX_OtherJSX?.back?.map((item, i:number)=>{
+			let index = current_key + i + jsx_select_array.length
+			return <span key={index} className="center_box">{item}</span>})}
 	</div>
 }
 

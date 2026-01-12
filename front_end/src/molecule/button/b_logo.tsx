@@ -22,21 +22,15 @@ export default function B_LOGO(
 	const [SS_OnMouseEnter, setSS_OnMouseEnter] = useState<boolean>(true);
 	let description = <></>
 	if (title !== undefined)
-	{
 		description=<STR_HOVER str_hover={title as string} is_hover={SS_OnMouseEnter}/>
-	}
 	return <>
 		<button onClick={func} className={"tap"}
 		style={{
 			width:size.toString()+"px",
 			height:size.toString()+"px",
 		}}
-		onMouseEnter={()=>{
-			setSS_OnMouseEnter(false);
-		}}
-		onMouseLeave={()=>{
-			setSS_OnMouseEnter(true);
-		}}
+		onMouseEnter={()=>{setSS_OnMouseEnter(false)}}
+		onMouseLeave={()=>{setSS_OnMouseEnter(true)}}
 		>
 			<img src={logo} alt="" className={`${style.img}`}/>
 		</button>
