@@ -1,14 +1,14 @@
 import { useContext, useReducer, useState } from "react";
-import { is_arr_has } from "../../atom/arr/utils";
-import { CONTEXT_SS_GLOBAL_STUDIO } from "../../molecule/hook/one_time_useContext";
-import GRID_COLUMN_DIV from "../../molecule/html/grid_column_div";
-import * as a from "../../atom/type/alias";
-import { useClickPushArr } from "../../molecule/hook/useClickArr";
 import { t_rgb_palettes } from "../../atom/arr/type";
-import { init_canvas } from "../../atom/canvas/utils/utils";
-import act_canvas from "../../atom/canvas/main";
+import { is_arr_has } from "../../atom/arr/utils";
 import { t_act_canvas_draw } from "../../atom/canvas/draw/type";
+import act_canvas from "../../atom/canvas/main";
 import { ARR_DRAW_OPERATION } from "../../atom/canvas/utils/data";
+import { init_canvas } from "../../atom/canvas/utils/utils";
+import * as a from "../../atom/type/alias";
+import { CONTEXT_SS_GLOBAL_STUDIO } from "../../molecule/hook/one_time_useContext";
+import { useClickPushArr } from "../../molecule/hook/useClickArr";
+import GRID_COLUMN_DIV from "../../molecule/html/grid_column_div";
 
 function update_canvas(
 	SS_ToolMode:number, 

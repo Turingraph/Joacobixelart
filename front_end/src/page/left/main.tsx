@@ -1,7 +1,8 @@
-import { useState } from "react"
+import { useContext } from "react"
 import { CONTEXT_OTHER_JSX } from "../../atom/hook/useContext"
 import * as a from "../../atom/type/alias"
 import B_LOGO from "../../molecule/button/b_logo"
+import { GLOBAL_CONTEXT } from "../../molecule/hook/global_context"
 import INPUT_NUMBER from "../../molecule/input/input_number"
 import { INPUT_RGB } from "../../molecule/input/input_rgb"
 import SELECT_ONE_TAP from "../../molecule/selection_taps/select_one_tap"
@@ -13,18 +14,22 @@ import SIMULATION from "./simulation"
 
 export default function LEFT()
 {
-	const [SS_NewRGB, setSS_NewRGB] = useState<string>("#000000")
-	const [SS_ToolMode, setSS_ToolMode] = useState<number>(0)
-	const [SS_PixelSize, setSS_PixelSize] = useState<number>(1)
+	const {ss: SS_NewRGB	, setss: setSS_NewRGB} = useContext(GLOBAL_CONTEXT).new_rgb
+	const {ss: SS_ToolMode	, setss: setSS_ToolMode} = useContext(GLOBAL_CONTEXT).tool_mode
+	const {ss: SS_PixelSize	, setss: setSS_PixelSize} = useContext(GLOBAL_CONTEXT).pixel_size
 	return <div className="fill"><LAYOUT_SIDEBAR
 		axis_x={false}
 		grid_template_rows={"1fr 60px" as a.t_css}
 		jsx_array={[
+			// *********************************************************
+			/*** COLOR PALETTES / SIMULATION ***/
 			<MULTI_MODES_PAGE
 			jsx_array={[
 				{title:"Color Palettes", body:<RGB_PALETTES/>},
 				{title:"Simulation", body:<SIMULATION/>},
 			]}/>,
+			// *********************************************************
+			/*** DRAWING TOOL ***/
 			<div 
 			className="center_box"
 			style={{
@@ -56,6 +61,7 @@ export default function LEFT()
 				/>
 				</CONTEXT_OTHER_JSX>
 			</div>
+			// *********************************************************
 		]}
 	/></div>
 }

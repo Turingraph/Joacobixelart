@@ -34,8 +34,8 @@ export default function SELECT_TAPS({
 		})}
 		{jsx_select_array.map((item, i:number)=>{
 			let index = current_key + i
-			return <TAP f_on_click={(()=>{f_click_select(index)}) as a.t_func}
-				select={f_highlight(index)}
+			return <TAP f_on_click={(()=>{f_click_select(i)}) as a.t_func}
+				select={f_highlight(i)}
 				item={item}
 				key={index}
 				/>
