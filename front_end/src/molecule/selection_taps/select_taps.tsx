@@ -2,17 +2,6 @@ import { JSX, useContext } from "react";
 import * as a from "../../atom/type/alias";
 import TAP from "./tap";
 import { CONTEXT_OTHER_JSX } from "../../atom/hook/useContext";
-// import { t_use_arr } from "../../atom/arr/act";
-// import useDragArr from "../hook/useDragArr";
-
-// https://stackoverflow.com/questions/54706748/
-// change-color-of-a-element-inside-a-div-using-inline-css
-
-/*
-You can use `inherit` for color property, 
-which means that color property value will be 
-inherited from it's parent
-*/
 
 export default function SELECT_TAPS({
 	class_name = "middle_taps_x",
@@ -34,10 +23,12 @@ export default function SELECT_TAPS({
 		})}
 		{jsx_select_array.map((item, i:number)=>{
 			let index = current_key + i
-			return <TAP f_on_click={(()=>{f_click_select(i)}) as a.t_func}
+			return <TAP 
+				f_on_click={f_click_select as a.t_func_x<number>}
 				select={f_highlight(i)}
 				item={item}
 				key={index}
+				index={i}
 				/>
 		})}
 		{CX_OtherJSX?.back?.map((item, i:number)=>{

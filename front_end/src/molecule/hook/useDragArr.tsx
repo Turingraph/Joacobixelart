@@ -1,8 +1,8 @@
-import { RefObject, useRef, useState } from "react";
+import { createContext, RefObject, useRef, useState } from "react";
 import { t_setss_arr } from "../../atom/arr/act";
 import * as a from "../../atom/type/alias";
 
-export function parent_drag_over(
+export function parent_drag_enter(
 	e:any, 
 	Ref_DragNewIndex:RefObject<number|undefined>, 
 	index:number){
@@ -10,7 +10,7 @@ export function parent_drag_over(
 	Ref_DragNewIndex.current = index
 }
 
-export function parent_drag_enter<t extends {id:number}, k extends keyof t>(
+export function parent_drag_end<t extends {id:number}, k extends keyof t>(
 	// e:DragEvent, 
 	ssset_arr:t_setss_arr<t, k>,
 	Ref_DragOldIndex:RefObject<number|undefined>, 
@@ -49,7 +49,7 @@ export function child_mouse_down(
 export type t_use_drag_arr = {
 	Ref_DragOldIndex:RefObject<number|undefined>,
 	Ref_DragNewIndex:RefObject<number|undefined>,
-	SS_DragOldIndex:number,
+	SS_DragOldIndex:number|undefined,
 	setSS_DragOldIndex:a.t_setss<undefined|number>
 }
 
@@ -65,6 +65,9 @@ export default function useDragArr()
 		setSS_DragOldIndex:setSS_DragOldIndex
 	}
 }
+
+export const CONTEXT_DRAG = createContext<undefined
+|t_use_drag_arr & {setSS_Arr:t_setss_arr<any, any>}>(undefined)
 
 /*
 // setSS_DragOldIndex is used for indicating which item is dragged at a time.

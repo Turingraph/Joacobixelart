@@ -1,7 +1,6 @@
-import React from "react";
+import b_x from "../../asset/items/x.png";
 import * as a from "../../atom/type/alias";
 import B_LOGO from "../../molecule/button/b_logo";
-import b_x from "../../asset/items/x.png"
 
 export function B_RGB_GRID({
 	rgb,
@@ -13,23 +12,11 @@ export function B_RGB_GRID({
 {
 	let jsx_x = <></>
 	if (f_delete !== undefined)
-	{
 		jsx_x = <B_LOGO logo={b_x as a.t_logo} func={f_delete} size={20}/>
-	}
-	return <div style={{
-		width:"45px", 
-		height:"45px", 
-	}}
-	>
-		<div style={{
-			margin:"0px", 
-			padding:"0px",
-			width:"90%",
-			height:"100%",
-			backgroundColor:rgb,
-		}}
-		>
-		{jsx_x}
+	return <div 
+	style={{width:"45px", height:"45px"}}>
+		<div className="fill" style={{backgroundColor:rgb}}>
+			{jsx_x}
 		</div>
 	</div>
 }

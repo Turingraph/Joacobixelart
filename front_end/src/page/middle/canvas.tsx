@@ -4,6 +4,7 @@ import { init_canvas } from "../../atom/canvas/utils/utils"
 import * as a from "../../atom/type/alias"
 import { GLOBAL_CONTEXT_USE_STATE } from "../../molecule/hook/global_context"
 import style from "./canvas.module.css"
+import { is_arr_has } from "../../atom/arr/utils"
 
 function write_grid_width(grid_width:number|string)
 {
@@ -54,6 +55,7 @@ export default function CANVAS({
 	grid_height?:number|a.t_css
 })
 {
+	const {ss: SS_RGBArr, setss: setSS_RGBArr} = useContext(GLOBAL_CONTEXT_USE_STATE).rgb_arr
 	const SS_ToolMode = useContext(GLOBAL_CONTEXT_USE_STATE).tool_mode.ss
 	const SS_NewRGB = useContext(GLOBAL_CONTEXT_USE_STATE).new_rgb.ss
 	const PixelSize = useContext(GLOBAL_CONTEXT_USE_STATE).pixel_size.ss
@@ -87,6 +89,11 @@ if (SS_ToolMode === 1)
 	setSS_Canvas({...PENCIL, ...{type:"DRAW_ERASER", grid:index}})
 if (SS_ToolMode === 3)
 	setSS_Canvas({...PENCIL, ...{type:"DRAW_MIRROR", grid:index}})
+if ([0, 3].includes(SS_ToolMode))
+{
+	if (is_arr_has(SS_RGBArr, SS_NewRGB, "rgb") === false)
+		setSS_RGBArr({type:"PUSH", input:{id:0, rgb:SS_NewRGB, select:false}})
+}
 			}}
 			style={{
 				backgroundColor:write_color(

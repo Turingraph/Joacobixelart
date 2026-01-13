@@ -1,4 +1,5 @@
 import LAYOUT_SIDEBAR from "../organism/layout/layout_sidebar"
+import DRAG_CSS from "./drag"
 import EDITOR_TOOL_CSS from "./editor_tool"
 import FILE_TAPS_CSS from "./file_taps"
 import LAYOUT_SIDEBAR_CSS from "./layout_sidebar"
@@ -17,7 +18,8 @@ export default function TEST_CSS(){
 	{/* <MULTI_MODES_PAGE_CSS/> */}
 	{/* <RGB_PALETTES_CSS/> */}
 	{/* <STR_INPUT_CSS/> */}
-	<LAYOUT_SIDEBAR_CSS/>
+	{/* <LAYOUT_SIDEBAR_CSS/> */}
 	{/* <LAYOUT_SIDEBAR/> */}
+	<DRAG_CSS/>
 	</div>
 }
