@@ -33,6 +33,11 @@ export const ARR_DRAW:t_B_LOGO[] = [
 		func:(()=>{}) as a.t_func
 	},
 	{
+		title:"Draw straight Line" as a.t_str_hover,
+		logo:line as a.t_logo,
+		func:(()=>{}) as a.t_func
+	},
+	{
 		title:"Mittor Pen" as a.t_str_hover,
 		logo:mirror_pen as a.t_logo,
 		func:(()=>{}) as a.t_func
@@ -43,18 +48,13 @@ export const ARR_DRAW:t_B_LOGO[] = [
 		func:(()=>{}) as a.t_func
 	},
 	{
-		title:"Draw rectangle" as a.t_str_hover,
-		logo:rectangle as a.t_logo,
-		func:(()=>{}) as a.t_func
-	},
-	{
-		title:"Draw straight Line" as a.t_str_hover,
-		logo:line as a.t_logo,
-		func:(()=>{}) as a.t_func
-	},
-	{
 		title:"Replace selected color with new color" as a.t_str_hover,
 		logo:replace_rgb as a.t_logo,
+		func:(()=>{}) as a.t_func
+	},
+	{
+		title:"Draw rectangle" as a.t_str_hover,
+		logo:rectangle as a.t_logo,
 		func:(()=>{}) as a.t_func
 	},
 	{

@@ -9,7 +9,7 @@ function init_use_state<t>(init:t)
 	}
 }
 
-export const GLOBAL_CONTEXT = createContext<{
+export const GLOBAL_CONTEXT_USE_STATE = createContext<{
 	pixel_size:a.t_use_state<number>,
 	tool_mode:a.t_use_state<number>,
 	new_rgb:a.t_use_state<string>,

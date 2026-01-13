@@ -1,18 +1,18 @@
 import { useContext } from "react"
 import { CONTEXT_OTHER_JSX } from "../../atom/hook/useContext"
+import * as a from "../../atom/type/alias"
 import B_LOGO from "../../molecule/button/b_logo"
+import { GLOBAL_CONTEXT_USE_STATE } from "../../molecule/hook/global_context"
 import INPUT_NUMBER from "../../molecule/input/input_number"
 import { INPUT_RGB } from "../../molecule/input/input_rgb"
 import SELECT_ONE_TAP from "../../molecule/selection_taps/select_one_tap"
 import { ARR_DRAW } from "../utils/arr"
-import { GLOBAL_CONTEXT } from "../../molecule/hook/global_context"
-import * as a from "../../atom/type/alias"
 
 export default function PAINT_TOOLS()
 {
-	const {ss: SS_NewRGB	, setss: setSS_NewRGB} = useContext(GLOBAL_CONTEXT).new_rgb
-	const {ss: SS_ToolMode	, setss: setSS_ToolMode} = useContext(GLOBAL_CONTEXT).tool_mode
-	const {ss: SS_PixelSize	, setss: setSS_PixelSize} = useContext(GLOBAL_CONTEXT).pixel_size
+	const {ss: SS_NewRGB	, setss: setSS_NewRGB} = useContext(GLOBAL_CONTEXT_USE_STATE).new_rgb
+	const {ss: SS_ToolMode	, setss: setSS_ToolMode} = useContext(GLOBAL_CONTEXT_USE_STATE).tool_mode
+	const {ss: SS_PixelSize	, setss: setSS_PixelSize} = useContext(GLOBAL_CONTEXT_USE_STATE).pixel_size
 	return 	<div 
 className="center_box"
 style={{

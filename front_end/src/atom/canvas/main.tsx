@@ -6,7 +6,7 @@ import act_canvas_slice from "./slice/act";
 import { CANVAS_ACT_SLICE, t_act_canvas_slice } from "./slice/type";
 import act_canvas_transform from "./transform/act";
 import { CANVAS_ACT_TRANSFORM, t_act_canvas_transform } from "./transform/type";
-import { t_canvas } from "./utils/utils";
+import { t_canvas } from "./utils/type";
 
 export type t_act_canvas = t_act_canvas_transform 
 	| t_act_canvas_draw 

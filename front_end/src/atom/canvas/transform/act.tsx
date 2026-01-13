@@ -1,4 +1,4 @@
-import { t_canvas } from "../utils/utils";
+import { t_canvas } from "../utils/type";
 // import * as f from "./func";
 import { t_act_canvas_transform } from "./type";
 

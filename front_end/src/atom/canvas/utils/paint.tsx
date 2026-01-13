@@ -1,44 +1,23 @@
-import { t_canvas, t_canvas_grid, valid_height } from "./utils"
-
-export function paint_1_grid_default(
-	arr:t_canvas,
-	grid:number,
-	input:undefined|string|boolean
-){
-	if (typeof input === "boolean")
-	{
-		arr.arr[grid].select = input
-		return arr
-	}
-	arr.arr[grid].rgb = input
-	return arr
-}
+import { t_arg_1_grid, t_arg_grids, t_canvas, t_canvas_grid } from "./type"
+import { flip_index_x, valid_height } from "./utils"
 
 export function paint_1_grid<
-	k extends keyof t_canvas_grid, 
-	e extends t_canvas_grid[k]>(
+	k extends keyof t_canvas_grid>(
 	arr:t_canvas,
-	grid:number,
-	input:e,
-	key:k|undefined = undefined
+	input:t_arg_1_grid<k>
 ){
-	if (key !== undefined)
-	{
-		arr.arr[grid][key] = input
-		return arr
-	}
-	if (["boolean", undefined, "string"].includes(typeof input))
-		return paint_1_grid_default(arr, grid, input)
+	arr.arr[input.grid][input.key] = input.state
 	return arr
 }
 
-export function paint_brush(
+export function paint_brush<
+	k extends keyof t_canvas_grid>(
 	arr:t_canvas,
-	rgb:undefined|string|boolean,
-	grid:number,
-	size:number,
+	input:t_arg_grids<k>,
 	mode:"UP"|"DOWN"|"LEFT"|"RIGHT"|"MIDDLE_X"|"MIDDLE_Y"
 ){
+	const size = input.size
+	const grid = input.grid
 	const width = arr.width
 	const height= Math.floor(arr.arr.length/width)
 	let update_arr = {
@@ -47,23 +26,21 @@ export function paint_brush(
 	} as t_canvas
 	if (size < 1)
 		return update_arr
-	update_arr = paint_1_grid(update_arr, grid, rgb)
+	update_arr = paint_1_grid(
+		update_arr, input
+	)
 	if (["MIDDLE_X", "MIDDLE_Y"].includes(mode))
 	{
 		const right=Math.floor((size+1)/2)
 		const left = size % 2 === 0 ? right + 1 : right
 		update_arr = paint_brush(
 			update_arr,
-			rgb,
-			grid,
-			left,
+			{...input, size:left},
 			"MIDDLE_X" === mode ? "LEFT" : "UP"
 		)
 		update_arr = paint_brush(
 			update_arr,
-			rgb,
-			grid,
-			right,
+			{...input, size:right},
 			"MIDDLE_X" === mode ? "RIGHT" : "DOWN"
 		)
 		return update_arr
@@ -75,16 +52,14 @@ export function paint_brush(
 		if (["LEFT", "RIGHT"].includes(mode) && i < width)
 			update_arr = paint_1_grid(
 				update_arr, 
-				grid + i * dir, 
-				rgb)
+				{...input, grid:grid + i * dir})
 		else if (["LEFT", "RIGHT"].includes(mode) && i >= width)
 			i = size
 		if (["UP", "DOWN"].includes(mode) 
 			&& valid_height(grid + i * width * dir, height, width))
 			update_arr = paint_1_grid(
 				update_arr, 
-				grid + i * width * dir,
-				rgb)
+				{...input, grid:grid + i * width * dir})
 		else if (["UP", "DOWN"].includes(mode) && i >= height)
 			i = size
 		i += 1
@@ -92,28 +67,39 @@ export function paint_brush(
 	return update_arr
 }
 
-export function paint_point(
+export function paint_point<
+	k extends keyof t_canvas_grid>(
 	arr:t_canvas,
-	rgb:undefined|string|boolean,
-	grid:number,
-	size:number,
+	input:t_arg_grids<k>
 ){
+	const grid = input.grid
+	const size = input.size
 	const width = arr.width
 	let update_arr = {
 	arr:[...arr.arr],
 	width:width
 	} as t_canvas
-	update_arr = paint_brush(update_arr, rgb, grid, size, "MIDDLE_Y")
+	update_arr = paint_brush(update_arr, input, "MIDDLE_Y")
 	let i = 1
 	while (i < (size)/2 && i < width)
 	{
-		update_arr = paint_brush(update_arr, rgb, grid+i, size, "MIDDLE_Y")
-		update_arr = paint_brush(update_arr, rgb, grid-i, size, "MIDDLE_Y")
+		update_arr = paint_brush(update_arr, {...input, grid:grid+i}, "MIDDLE_Y")
+		update_arr = paint_brush(update_arr, {...input, grid:grid-i}, "MIDDLE_Y")
 		i += 1
 	}
 	if ((size)%2 === 0)
-		update_arr = paint_brush(update_arr, rgb, grid-i, size, "MIDDLE_Y")
+		update_arr = paint_brush(update_arr, {...input, grid:grid-i}, "MIDDLE_Y")
 	return update_arr
+}
+
+export function paint_point_mirror<
+	k extends keyof t_canvas_grid>(
+	arr:t_canvas,
+	input:t_arg_grids<k>
+){
+	arr = paint_point(arr, input)
+	arr = paint_point(arr, {...input, grid:flip_index_x(input.grid, arr.width)})
+	return arr
 }
 
 /*

@@ -1,24 +1,12 @@
+import { t_arg_grids, t_arg_shape } from "../utils/type"
+
 export const CANVAS_ACT_SELECT = [
-	"SELECT_HOVER",
-	"SELECT_RECTANGLE",
-	"SELECT_CROP"
+	"SELECT_HOVER",			// OK
+	"SELECT_HOVER_MIRROR",	// OK
+	"SELECT_RECTANGLE",		// XX UI
+	"SELECT_CROP"			// XX UI
 ]
 
-export type t_act_canvas_select = {
-	type:"SELECT_HOVER",			// OK
-	grid:number,
-	size:number,
-	select:boolean
-} | {
-	type:"SELECT_RECTANGLE",		// XX, UI
-	grid_1:number,
-	grid_2:number,
-	select:boolean
-} | {
-	type:"SELECT_CROP",				// XX
-	select:boolean,
-	up:number,
-	down:number,
-	left:number,
-	right:number,
-}
+export type t_act_canvas_select = (
+	t_arg_grids<"select"> & {type:"SELECT_HOVER"|"SELECT_HOVER_MIRROR"}
+) | (t_arg_shape<"select"> & {type:"SELECT_RECTANGLE"|"SELECT_CROP"})

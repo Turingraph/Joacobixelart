@@ -1,23 +1,4 @@
-export type t_canvas_grid = {
-	select:boolean,
-	rgb:string|undefined,
-	plan_rgb:string|undefined
-}
-
-/*
-plan_rgb is used when
-1.	Draw rectangle/circle/straight line, 
-	because user need to be able to change the shape of
-	rectangle/circle/straight line when holding mouse
-	based on its starting position (grid_1) and 
-	its current position (grid_2) before leave the mouse.
-2.	Transforming color (e.g. replace #AA77CC with #4466FF)
-*/
-
-export type t_canvas = {
-	width:number,
-	arr:t_canvas_grid[]
-}
+import { t_canvas, t_canvas_grid } from "./type"
 
 export function swap_less_than(a:number, b:number)
 {

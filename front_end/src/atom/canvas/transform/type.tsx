@@ -1,16 +1,15 @@
 export const CANVAS_ACT_TRANSFORM = [
-	"TRANS_FLIP",
-	"TRANS_UPSIDE_DOWN",
-	"TRANS_ROTATE",
-	"TRANS_GRAY"
+	"TRANS_FLIP",		// XX, UI
+	"TRANS_UPSIDE_DOWN",// XX, UI
+	"TRANS_ROTATE",		// XX, UI
 ]
 
 export type t_act_canvas_transform = {
-	type:"TRANS_FLIP"			// XX, UI
+	type:"TRANS_FLIP"
 } | {
-	type:"TRANS_UPSIDE_DOWN"	// XX, UI
+	type:"TRANS_UPSIDE_DOWN"
 } | {
-	type:"TRANS_ROTATE"			// XX, UI
+	type:"TRANS_ROTATE"
 }
 
 /*
