@@ -50,15 +50,6 @@ export function flip_index_y(index:number, height:number, width:number)
 	return width * (height - divide - 1) + remain
 }
 
-export function valid_2d(height:number, y:number, width:number,  x:number)
-{
-	if (0 <= y && y < height && 0 <= x && x < width)
-	{
-		return true
-	}
-	return false
-}
-
 export function init_canvas(height:number, width:number){
 	if (width <= 0 || height <= 0)
 	{
@@ -87,9 +78,17 @@ export function is_defined_grid<t extends object, k extends keyof t>(grid:t, key
 	return true
 }
 
-export function valid_height(grid:number, height:number, width:number)
+export function inside_box_x(grid:number, width:number, i:number)
 {
-	if (Math.floor(grid/width) < height && 0 <= grid)
+	const y = (grid+1) % width !== 0 ? Math.floor((grid + 1)/width) : Math.floor(grid/width)
+	if (y * width <= grid+i && grid+i < (y + 1) * width)
+		return true
+	return false
+}
+
+export function inside_box_y(grid:number, width:number, i:number, length:number)
+{
+	if (0 <= grid + i * width && grid + i * width < length)
 		return true
 	return false
 }

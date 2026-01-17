@@ -1,5 +1,5 @@
 import { t_arg_1_grid, t_arg_grids, t_canvas, t_canvas_grid } from "./type"
-import { flip_index_x, valid_height } from "./utils"
+import { flip_index_x, inside_box_x, inside_box_y } from "./utils"
 
 export function paint_1_grid<
 	k extends keyof t_canvas_grid>(
@@ -19,7 +19,6 @@ export function paint_brush<
 	const size = input.size
 	const grid = input.grid
 	const width = arr.width
-	const height= Math.floor(arr.arr.length/width)
 	let update_arr = {
 	arr:[...arr.arr],
 	width:arr.width
@@ -49,19 +48,15 @@ export function paint_brush<
 	let i = 1
 	while (i < size)
 	{
-		if (["LEFT", "RIGHT"].includes(mode) && i < width)
+		if (["LEFT", "RIGHT"].includes(mode) && inside_box_x(grid, width, i*dir))
 			update_arr = paint_1_grid(
 				update_arr, 
-				{...input, grid:grid + i * dir})
-		else if (["LEFT", "RIGHT"].includes(mode) && i >= width)
-			i = size
+				{...input, grid:grid + i*dir})
 		if (["UP", "DOWN"].includes(mode) 
-			&& valid_height(grid + i * width * dir, height, width))
+			&& inside_box_y(grid, width, i*dir, update_arr.arr.length))
 			update_arr = paint_1_grid(
 				update_arr, 
-				{...input, grid:grid + i * width * dir})
-		else if (["UP", "DOWN"].includes(mode) && i >= height)
-			i = size
+				{...input, grid:grid + i*width*dir})
 		i += 1
 	}
 	return update_arr
@@ -81,13 +76,15 @@ export function paint_point<
 	} as t_canvas
 	update_arr = paint_brush(update_arr, input, "MIDDLE_Y")
 	let i = 1
-	while (i < (size)/2 && i < width)
+	while (i < (size)/2)
 	{
-		update_arr = paint_brush(update_arr, {...input, grid:grid+i}, "MIDDLE_Y")
-		update_arr = paint_brush(update_arr, {...input, grid:grid-i}, "MIDDLE_Y")
+		if (inside_box_x(grid, width, i))
+			update_arr = paint_brush(update_arr, {...input, grid:grid+i}, "MIDDLE_Y")
+		if (inside_box_x(grid, width, -i))
+			update_arr = paint_brush(update_arr, {...input, grid:grid-i}, "MIDDLE_Y")
 		i += 1
 	}
-	if ((size)%2 === 0)
+	if ((size)%2 === 0 && inside_box_x(grid, width, -i))
 		update_arr = paint_brush(update_arr, {...input, grid:grid-i}, "MIDDLE_Y")
 	return update_arr
 }
