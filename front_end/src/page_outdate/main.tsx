@@ -1,9 +1,9 @@
 import { JSX } from "react";
 import * as a from "../atom/type/alias";
-import GRID_TEMPLATE from "../molecule/html/grid_template";
-import { TOP_HEADER } from "./top_header/main";
+import GRID_TEMPLATE from "../molecule/trash_html/grid_template";
+import "./main.css";
 import { STUDIO } from "./studio/main";
-import "./main.css"
+import { TOP_HEADER } from "./top_header/main";
 
 export default function MAIN()
 {

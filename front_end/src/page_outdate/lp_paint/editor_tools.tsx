@@ -4,10 +4,10 @@ import STR_HEADER from "../../atom/str/str_header";
 import * as a from "../../atom/type/alias";
 import B_LOGO from "../../molecule/button/b_logo";
 import { CONTEXT_SS_GLOBAL_STUDIO } from "../../molecule/hook/one_time_useContext";
-import GRID_COLUMN_DIV from "../../molecule/html/grid_column_div";
 import INPUT_NUMBER from "../../molecule/input/input_number";
 import { INPUT_RGB } from "../../molecule/input/input_rgb";
 import SELECT_ONE_TAP from "../../molecule/selection_taps/select_one_tap";
+import GRID_COLUMN_DIV from "../../molecule/trash_html/grid_column_div";
 import { ARR_DRAW, ARR_TRANSFORM } from "../utils/arr";
 
 export function EDITOR_TOOLS()

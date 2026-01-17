@@ -3,8 +3,8 @@ import STR_HEADER from "../../atom/str/str_header";
 import * as a from "../../atom/type/alias";
 import { CONTEXT_SS_GLOBAL_STUDIO, CONTEXT_SS_LP_PAINT } from "../../molecule/hook/one_time_useContext";
 import useDragArr, { child_drag_start, child_mouse_down, parent_drag_enter, parent_drag_over } from "../../molecule/hook/useDragArr";
-import GRID_COLUMN_CX from "../../molecule/html/grid_column_cx";
 import SELECT_ONE_TAP from "../../molecule/selection_taps/select_one_tap";
+import GRID_COLUMN_CX from "../../molecule/trash_html/grid_column_cx";
 import { B_RGB_GRID } from "../../organism/button/b_rgb_grid";
 
 export function RGB_PALETTES()
