@@ -57,7 +57,7 @@ export default function CANVAS({
 {
 	const {ss: SS_RGBArr, setss: setSS_RGBArr} = useContext(GLOBAL_CONTEXT_USE_STATE).rgb_arr
 	const SS_ToolMode = useContext(GLOBAL_CONTEXT_USE_STATE).tool_mode.ss
-	const SS_NewRGB = useContext(GLOBAL_CONTEXT_USE_STATE).new_rgb.ss
+	const {ss: SS_NewRGB, setss: setSS_NewRGB } = useContext(GLOBAL_CONTEXT_USE_STATE).new_rgb
 	const PixelSize = useContext(GLOBAL_CONTEXT_USE_STATE).pixel_size.ss
 	const [SS_PixelSize, setSS_PixelSize] = useState<number>(PixelSize)
 	const [SS_Canvas, setSS_Canvas] = useReducer(act_canvas, init_canvas(canvas_height, canvas_width))
@@ -89,6 +89,11 @@ if (SS_ToolMode === 1)
 	setSS_Canvas({...PENCIL, ...{type:"DRAW_ERASER", grid:index}})
 if (SS_ToolMode === 3)
 	setSS_Canvas({...PENCIL, ...{type:"DRAW_MIRROR", grid:index}})
+if (SS_ToolMode === 10)
+{
+	if (item.rgb !== undefined)
+		setSS_NewRGB(item.rgb)
+}
 if ([0, 3].includes(SS_ToolMode))
 {
 	if (is_arr_has(SS_RGBArr, SS_NewRGB, "rgb") === false)
