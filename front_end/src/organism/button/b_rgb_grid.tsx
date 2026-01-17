@@ -4,19 +4,17 @@ import B_LOGO from "../../molecule/button/b_logo";
 
 export function B_RGB_GRID({
 	rgb,
-	f_delete = undefined
+	f_delete = undefined,
 }:{
 	rgb:string
-	f_delete?:undefined|a.t_func
+	f_delete?:undefined|a.t_func,
 })
 {
 	let jsx_x = <></>
 	if (f_delete !== undefined)
 		jsx_x = <B_LOGO logo={b_x as a.t_logo} func={f_delete} size={20}/>
 	return <div 
-	style={{width:"45px", height:"45px"}}>
-		<div className="fill" style={{backgroundColor:rgb}}>
-			{jsx_x}
-		</div>
+	style={{width:"45px", height:"45px", backgroundColor:rgb}}>
+		{jsx_x}
 	</div>
 }
