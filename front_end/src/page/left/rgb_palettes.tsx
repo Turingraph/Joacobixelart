@@ -1,5 +1,5 @@
-import { useContext, useEffect, useState, useRef } from "react"
-import { GLOBAL_CONTEXT_USE_STATE } from "../../molecule/hook/global_context"
+import { useContext, useEffect, useRef, useState } from "react"
+import { CONTEXT_USE_STATE_GLOBAL } from "../../molecule/hook/context"
 import useDragArr, { CONTEXT_DRAG } from "../../molecule/hook/useDragArr"
 import SELECT_ONE_TAP from "../../molecule/selection_taps/select_one_tap"
 import { B_RGB_GRID } from "../../organism/button/b_rgb_grid"
@@ -7,8 +7,8 @@ import { B_RGB_GRID } from "../../organism/button/b_rgb_grid"
 export default function RGB_PALETTES()
 {
 	const [SS_SelectRGB, setSS_SelectRGB] = useState<number>(0)
-	const setSS_NewRGB = useContext(GLOBAL_CONTEXT_USE_STATE).new_rgb.setss
-	const {ss: SS_RGBArr, setss: setSS_RGBArr} = useContext(GLOBAL_CONTEXT_USE_STATE).rgb_arr
+	const setSS_NewRGB = useContext(CONTEXT_USE_STATE_GLOBAL).new_rgb.setss
+	const {ss: SS_RGBArr, setss: setSS_RGBArr} = useContext(CONTEXT_USE_STATE_GLOBAL).rgb_arr
 	const {
 		Ref_DragOldIndex	,
 		Ref_DragNewIndex	,

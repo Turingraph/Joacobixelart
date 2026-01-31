@@ -1,7 +1,7 @@
 import { useContext, useRef } from "react";
 import STR_HEADER from "../../atom/str/str_header";
 import * as a from "../../atom/type/alias";
-import { CONTEXT_SS_GLOBAL_STUDIO } from "../../molecule/hook/one_time_useContext";
+import { CONTEXT_SS_GLOBAL_STUDIO } from "../../molecule/hook/trash_one_time_useContext";
 import { useClickDeleteArr } from "../../molecule/hook/useClickArr";
 import { SELECT_MULTI_TAPS } from "../../molecule/selection_taps/select_multi_taps";
 import GRID_COLUMN_CX from "../../molecule/trash_html/grid_column_cx";

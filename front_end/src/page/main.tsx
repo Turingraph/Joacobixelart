@@ -1,6 +1,8 @@
 import { useReducer, useState } from "react";
+import act_arr, { t_setss_arr, t_use_arr } from "../atom/arr/act";
+import { t_rgb_palettes } from "../atom/arr/type";
 import * as a from "../atom/type/alias";
-import { GLOBAL_CONTEXT_USE_STATE } from "../molecule/hook/global_context";
+import { CONTEXT_USE_STATE_GLOBAL } from "../molecule/hook/context";
 import LAYOUT_HEADER from "../organism/layout/layout_header";
 import LAYOUT_SIDEBAR from "../organism/layout/layout_sidebar";
 import LEFT from "./left/main";
@@ -9,8 +11,6 @@ import style from "./main.module.css";
 import MIDDLE from "./middle/main";
 import RIGHT from "./right/main";
 import { ARR_SAVE } from "./utils/arr";
-import act_arr, { t_setss_arr, t_use_arr } from "../atom/arr/act";
-import { t_rgb_palettes } from "../atom/arr/type";
 
 function insert_use_state<t>(ss:t, setss:a.t_setss<t>)
 {
@@ -27,14 +27,14 @@ function insert_use_arr<
 export default function MAIN()
 {
 	const [SS_NewRGB, setSS_NewRGB] = useState<string>("#000000")
-	const [SS_ToolMode, setSS_ToolMode] = useState<number>(0)
+	const [SS_DrawMode, setSS_DrawMode] = useState<number>(0)
 	const [SS_PixelSize, setSS_PixelSize] = useState<number>(1)
 	const [SS_RGBArr, setSS_RGBArr] = useReducer(act_arr, [] as t_rgb_palettes[])
 	return <div className={`${style.main}`}>
-	<GLOBAL_CONTEXT_USE_STATE
+	<CONTEXT_USE_STATE_GLOBAL
 		value={{
 			pixel_size:insert_use_state(SS_PixelSize, setSS_PixelSize),
-			tool_mode:insert_use_state(SS_ToolMode, setSS_ToolMode),
+			draw_mode:insert_use_state(SS_DrawMode, setSS_DrawMode),
 			new_rgb:insert_use_state(SS_NewRGB, setSS_NewRGB),
 			rgb_arr:insert_use_arr(SS_RGBArr, setSS_RGBArr)
 		}}
@@ -47,5 +47,5 @@ export default function MAIN()
 		axis_x={false}
 		jsx_array={[<LEFT/>, <MIDDLE/>, <RIGHT/>]}
 		grid_template_rows={"500px 1fr 300px" as a.t_css}
-	/>}/></GLOBAL_CONTEXT_USE_STATE></div>
+	/>}/></CONTEXT_USE_STATE_GLOBAL></div>
 }

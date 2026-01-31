@@ -2,6 +2,8 @@ import act_canvas_draw from "./draw/act";
 import { CANVAS_ACT_DRAW, t_act_canvas_draw } from "./draw/type";
 import act_canvas_select from "./select/act";
 import { CANVAS_ACT_SELECT, t_act_canvas_select } from "./select/type";
+import act_canvas_sketch from "./sketch/act";
+import { CANVAS_ACT_SKETCH, t_act_canvas_sketch } from "./sketch/type";
 import act_canvas_slice from "./slice/act";
 import { CANVAS_ACT_SLICE, t_act_canvas_slice } from "./slice/type";
 import act_canvas_transform from "./transform/act";
@@ -11,6 +13,7 @@ import { t_canvas } from "./utils/type";
 export type t_act_canvas = t_act_canvas_transform 
 	| t_act_canvas_draw 
 	| t_act_canvas_select
+	| t_act_canvas_sketch
 	| t_act_canvas_slice
 
 export default function act_canvas(
@@ -25,6 +28,10 @@ export default function act_canvas(
 	}
 	if (CANVAS_ACT_SELECT.includes(action.type)) {
 		return act_canvas_select(arr, action as t_act_canvas_select)
+	}
+	if (CANVAS_ACT_SKETCH.includes(action.type))
+	{
+		return act_canvas_sketch(arr, action as t_act_canvas_sketch)
 	}
 	if (CANVAS_ACT_SLICE.includes(action.type)) {
 		return act_canvas_slice(arr, action as t_act_canvas_slice)

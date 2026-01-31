@@ -1,6 +1,5 @@
 import * as p from "../utils/paint";
 import { t_canvas } from "../utils/type";
-// import * as f from "./func";
 import { t_act_canvas_draw } from "./type";
 
 export default function act_canvas_draw(

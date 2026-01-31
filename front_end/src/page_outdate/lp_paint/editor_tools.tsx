@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from "react";
-import { CONTEXT_OTHER_JSX } from "../../atom/hook/useContext";
+import { CONTEXT_OTHER_JSX } from "../../atom/hook/context";
 import STR_HEADER from "../../atom/str/str_header";
 import * as a from "../../atom/type/alias";
 import B_LOGO from "../../molecule/button/b_logo";
-import { CONTEXT_SS_GLOBAL_STUDIO } from "../../molecule/hook/one_time_useContext";
+import { CONTEXT_SS_GLOBAL_STUDIO } from "../../molecule/hook/trash_one_time_useContext";
 import INPUT_NUMBER from "../../molecule/input/input_number";
 import { INPUT_RGB } from "../../molecule/input/input_rgb";
 import SELECT_ONE_TAP from "../../molecule/selection_taps/select_one_tap";

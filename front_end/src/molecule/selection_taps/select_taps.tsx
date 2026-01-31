@@ -1,7 +1,7 @@
 import { JSX, useContext } from "react";
+import { CONTEXT_OTHER_JSX } from "../../atom/hook/context";
 import * as a from "../../atom/type/alias";
 import TAP from "./tap";
-import { CONTEXT_OTHER_JSX } from "../../atom/hook/useContext";
 
 export default function SELECT_TAPS({
 	class_name = "middle_taps_x",

@@ -3,6 +3,7 @@ import { t_paint_shape } from "../utils/type"
 export const CANVAS_ACT_SKETCH = [
 	"SKETCH_RECTANGLE",
 	"SKETCH_CIRCLE",
+	"SKETCH_LINE"
 ]
 
 export type t_act_canvas_sketch = (

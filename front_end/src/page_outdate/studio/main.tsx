@@ -2,7 +2,7 @@ import { useReducer, useState } from "react";
 import act_arr_key from "../../atom/arr/act";
 import { t_rgb_palettes } from "../../atom/arr/type";
 import * as a from "../../atom/type/alias";
-import { CONTEXT_SS_GLOBAL_STUDIO, CONTEXT_SS_LP_PAINT } from "../../molecule/hook/one_time_useContext";
+import { CONTEXT_SS_GLOBAL_STUDIO, CONTEXT_SS_LP_PAINT } from "../../molecule/hook/trash_one_time_useContext";
 import GRID_TEMPLATE from "../../molecule/trash_html/grid_template";
 import { MULTI_MODES_PAGE } from "../../organism/html/multi_modes_page";
 import CANVAS from "../../organism/trash_canvas/canvas";
