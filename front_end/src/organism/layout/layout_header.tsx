@@ -11,7 +11,7 @@ export default function LAYOUT_HEADER({
 	header_class_name = "middle_taps_x",
 	jsx_body
 }:{
-	header_height:"40px"|a.t_css
+	header_height?:"40px"|a.t_css
 	tap_lists:t_B_STR[]|string[]
 	header_class_name?:"middle_taps_x"|"left_taps"
 	jsx_body:JSX.Element

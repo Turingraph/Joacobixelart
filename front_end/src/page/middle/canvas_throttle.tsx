@@ -16,7 +16,7 @@ export default function	CANVAS_THROTTLE({
 	const Ref_GridStateArr = useRef<Set<number>>(new Set([]))
 	useEffect(()=>{
 		const id = setInterval(() => {
-			f_mouse_down([...Ref_GridStateArr.current])
+			f_mouse_down(Array.from(Ref_GridStateArr.current))
 			Ref_GridStateArr.current = new Set([])
 		}, 100)
 		return () => clearInterval(id)

@@ -11,7 +11,7 @@ export default function	CANVAS_MONO_USER(){
 	return <CANVAS_MONO
 		f_on_click={((input:number)=>{
 			if (SS_DrawMode === ENUM_DRAW_MODE.UTILS_PICK_RGB && SS_Canvas.arr[input].rgb)
-				setSS_NewRGB(SS_Canvas.arr[input].rgb)
+				setSS_NewRGB(SS_Canvas.arr[input].rgb as string)
 		}) as a.t_func_x<number>}
 	/>
 }
