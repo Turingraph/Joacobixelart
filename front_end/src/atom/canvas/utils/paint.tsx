@@ -10,6 +10,20 @@ export function paint_1_grid<
 	return arr
 }
 
+export function paint_all<
+	k extends keyof t_canvas_grid>(
+	arr:t_canvas,
+	input:Omit<t_paint_area<k>, "grid">
+){
+	let i = 0
+	while (i < arr.arr.length)
+	{
+		arr = paint_1_grid(arr, {...input,...{grid:i}})
+		i += 1;
+	}
+	return arr
+}
+
 export function paint_brush<
 	k extends keyof t_canvas_grid>(
 	arr:t_canvas,

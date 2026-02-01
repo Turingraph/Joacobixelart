@@ -1,12 +1,11 @@
 import { useContext, useReducer } from "react";
-import { ENUM_DRAW_MODE } from "../../atom/canvas/utils/data"
+import act_canvas from "../../atom/canvas/main";
+import { ENUM_DRAW_MODE } from "../../atom/canvas/utils/data";
+import { init_canvas } from "../../atom/canvas/utils/utils";
 import { CONTEXT_CANVAS, CONTEXT_USE_STATE_GLOBAL } from "../../molecule/hook/context";
-import CANVAS_THROTTLE_USER from "./canvas_throttle_user";
 import CANVAS_MONO_USER from "./canvas_mono_user";
 import CANVAS_SHAPE_USER from "./canvas_shape_user";
-import { init_canvas } from "../../atom/canvas/utils/utils";
-import act_canvas from "../../atom/canvas/main";
-import * as a from "../../atom/type/alias"
+import CANVAS_THROTTLE_USER from "./canvas_throttle_user";
 
 export default function	CANVAS_MAIN()
 {
@@ -20,8 +19,10 @@ export default function	CANVAS_MAIN()
 	return <CONTEXT_CANVAS value={{
 		canvas:{ss:SS_Canvas,
 		setss:setSS_Canvas,},
-		grid_height:"25px" as a.t_css,
-		grid_width:"25px" as a.t_css,
+		grid_h:25,
+		grid_w:25,
+		canvas_h:900,
+		canvas_w:900
 	}}>
 		{jsx_body}
 	</CONTEXT_CANVAS>

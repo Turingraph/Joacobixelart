@@ -12,6 +12,7 @@ export default function act_canvas_select(
 		width:arr.width
 	} as t_canvas
 	if (action.type === "SELECT_HOVER")
+		// update_arr = p.paint_all(update_arr, {key:"select", state:false})
 		update_arr = p.paint_point(
 			update_arr,
 			action

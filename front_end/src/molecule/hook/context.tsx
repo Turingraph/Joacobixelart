@@ -35,13 +35,17 @@ export const CONTEXT_USE_STATE_GLOBAL = createContext<{
 
 export const CONTEXT_CANVAS = createContext<{
 	canvas:t_use_canvas
-	grid_width:a.t_css
-	grid_height:a.t_css
+	grid_w:number
+	grid_h:number
+	canvas_w:number
+	canvas_h:number
 }>({
 	canvas:{
 		ss:init_canvas(32, 32),
 		setss:(()=>{})
 	},
-	grid_height:"25px" as a.t_css,
-	grid_width:"25px" as a.t_css,
+	grid_h:25,
+	grid_w:25,
+	canvas_w:900,
+	canvas_h:900
 })

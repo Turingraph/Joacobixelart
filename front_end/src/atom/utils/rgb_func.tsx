@@ -117,6 +117,15 @@ export function hex_to_rgb(input:undefined|string)
 		return [0, 0, 0] as [number, number, number]
 	}
 	let up_input = input.toUpperCase();
+	if (input.length === 9)
+	{
+		return [
+		Number(translate_hex_char(up_input[1])) * 16 + Number(translate_hex_char(up_input[2])),
+		Number(translate_hex_char(up_input[3])) * 16 + Number(translate_hex_char(up_input[4])),
+		Number(translate_hex_char(up_input[5])) * 16 + Number(translate_hex_char(up_input[6])),
+		Number(translate_hex_char(up_input[7])) * 16 + Number(translate_hex_char(up_input[8])),
+	] as [number, number, number, number]
+	}
 	return [
 		Number(translate_hex_char(up_input[1])) * 16 + Number(translate_hex_char(up_input[2])),
 		Number(translate_hex_char(up_input[3])) * 16 + Number(translate_hex_char(up_input[4])),
