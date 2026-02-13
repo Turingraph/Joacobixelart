@@ -64,7 +64,11 @@ export default function CANVAS_BASIC({
 			{
 				width:  canvas.h,
 				height: canvas.w,
-				cssOnly: true
+				cssOnly: true,
+				defaultCursor:"default",
+				// https://stackoverflow.com/questions/50470313/
+				// removing-highlighting-blue-rectangle-for-selection-in-fabric-js
+				selection:false
 			})
 			init_canvas.backgroundColor = "#f66"
 			init_canvas.backgroundColor = "#f66"
@@ -89,12 +93,27 @@ export default function CANVAS_BASIC({
 				],{
 					fill:color,
 					strokeWidth:0,
+					selectable: false,
+					cursor:'crosshair',
 				})
 				group.push(square)
 				i += 1
 			}
-			init_canvas.add(new fc.Group(group, {subTargetCheck: true}))
+			// https://www.geeksforgeeks.org/javascript/
+			// fabric-js-polygon-lockmovementx-property/
+			init_canvas.add(new fc.Group(group, {
+				subTargetCheck: true,
+				selectable: false,
+				lockMovementX: true,
+				lockMovementY: true,
+			}))
 			init_canvas.on({
+				// https://stackoverflow.com/questions/41848370/
+				// fabricjs-change-cursor-for-every-object
+				"mouse:over":(e:any)=>{
+					if (e.target)
+						e.target.hoverCursor = init_canvas.defaultCursor;
+				},
 				"mouse:out":()=>{
 					if (Ref_Hover.current !== undefined){
 						update_not_hover(
@@ -119,7 +138,12 @@ export default function CANVAS_BASIC({
 						h:Math.floor((mouse_position.h - border.h)/grid.h)
 					} as t_dim
 					const hover = grid_position.h*width + grid_position.w
-					if (hover !== Ref_Hover.current)
+					if (hover !== Ref_Hover.current && 
+						mouse_position.w >= 0 && 
+						mouse_position.h >= 0 && 
+						mouse_position.w <= canvas.w && 
+						mouse_position.h <= canvas.h 
+					)
 					{
 						if (Ref_Hover.current)
 							update_not_hover(
