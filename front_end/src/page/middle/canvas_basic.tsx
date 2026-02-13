@@ -2,8 +2,6 @@ import * as fc from "fabric"
 import { useContext, useEffect, useRef } from "react"
 import { get_point_grids } from "../../atom/canvas/utils/paint"
 import { t_dim } from "../../atom/canvas/utils/type"
-import { scale_vector, vector_addition } from "../../atom/utils/linear_algebra"
-import { hex_to_rgb, rgb_to_hex } from "../../atom/utils/rgb_func"
 import { CONTEXT_USE_STATE_GLOBAL } from "../../molecule/hook/context"
 import * as a from "../../atom/type/alias"
 import { f_throttle } from "../../molecule/hook/Throttle"
@@ -24,9 +22,7 @@ function update_not_hover(grids:number[], group:fc.Polyline[], width:number) {
 	let i = 0
 	while (i < grids.length)
     {
-	    group[grids[i]].set({
-	        fill: default_grid_color(undefined, grids[i], width)
-	    });
+	    group[grids[i]].set({fill: "#FFFFFF00"});
 		i += 1
 	}
 }
@@ -35,12 +31,7 @@ function update_hover(grids:number[], group:fc.Polyline[], width:number) {
 	let i = 0
 	while (i < grids.length)
     {
-	    group[grids[i]].set({
-	        fill: rgb_to_hex(vector_addition(
-	            hex_to_rgb(default_grid_color(undefined, grids[i], width)),
-	            scale_vector(hex_to_rgb("#ffffff"), 0.2)
-	        ))
-	    });
+	    group[grids[i]].set({fill: "#FFFFFF55"});
 		i += 1
 	}
 }
@@ -79,34 +70,39 @@ export default function CANVAS_BASIC({
 				w:Math.floor((canvas.w - grid.w * all_grids.w)/2)
 			} as t_dim
 			let group = [] as fc.Polyline[]
+			let hgroup = [] as fc.Polyline[]
 			let i = 0
 			while (i < width*height)
 			{
-				let color = default_grid_color(undefined, i, width)
+				const color = default_grid_color(undefined, i, width)
 				const left = i % width
 				const up = Math.floor(i / width)
-				let square = new fc.Polyline([
+				const position = [
 					{ x: grid.w * (left + 0) + border.w, y: grid.h * (up + 0) + border.h},
 					{ x: grid.w * (left + 1) + border.w, y: grid.h * (up + 0) + border.h},
 					{ x: grid.w * (left + 1) + border.w, y: grid.h * (up + 1) + border.h},
 					{ x: grid.w * (left + 0) + border.w, y: grid.h * (up + 1) + border.h},
-				],{
-					fill:color,
+				]
+				const square_config = {
+					fill:"#FFFFFF00",
 					strokeWidth:0,
 					selectable: false,
 					cursor:'crosshair',
-				})
-				group.push(square)
+				}
+				group.push(new fc.Polyline(position,{...square_config, ...{fill:color}}))
+				hgroup.push(new fc.Polyline(position,square_config))
 				i += 1
 			}
 			// https://www.geeksforgeeks.org/javascript/
 			// fabric-js-polygon-lockmovementx-property/
-			init_canvas.add(new fc.Group(group, {
+			const group_config = {
 				subTargetCheck: true,
 				selectable: false,
 				lockMovementX: true,
 				lockMovementY: true,
-			}))
+			}
+			init_canvas.add(new fc.Group(group, group_config))
+			init_canvas.add(new fc.Group(hgroup, group_config))
 			init_canvas.on({
 				// https://stackoverflow.com/questions/41848370/
 				// fabricjs-change-cursor-for-every-object
@@ -118,7 +114,7 @@ export default function CANVAS_BASIC({
 					if (Ref_Hover.current !== undefined){
 						update_not_hover(
 							get_point_grids(all_grids, {grid:Ref_Hover.current, size:SS_PixelSize}),
-							group,
+							hgroup,
 							width
 						)
 						Ref_Hover.current = undefined
@@ -148,10 +144,10 @@ export default function CANVAS_BASIC({
 						if (Ref_Hover.current)
 							update_not_hover(
 								get_point_grids(all_grids, {grid:Ref_Hover.current, size:SS_PixelSize}),
-								group, width)
+								hgroup, width)
 						update_hover(
 							get_point_grids(all_grids, {grid:hover, size:SS_PixelSize}),
-							group, width)
+							hgroup, width)
 						Ref_Hover.current = hover
 						init_canvas.requestRenderAll()
 					}
