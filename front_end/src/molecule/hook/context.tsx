@@ -1,9 +1,10 @@
 import { createContext } from "react";
 import { t_setss_arr, t_use_arr } from "../../atom/arr/act";
 import { t_rgb_palettes } from "../../atom/arr/type";
-import { t_use_canvas } from "../../atom/canvas/main";
-import { init_canvas } from "../../atom/canvas/utils/utils";
+// import { t_use_canvas } from "../../atom/canvas/main";
+// import { init_canvas } from "../../atom/canvas/utils/utils";
 import * as a from "../../atom/type/alias";
+import { t_dim } from "../../atom/canvas/utils/type";
 
 function init_use_state<t>(init:t)
 {
@@ -34,18 +35,11 @@ export const CONTEXT_USE_STATE_GLOBAL = createContext<{
 })
 
 export const CONTEXT_CANVAS = createContext<{
-	canvas:t_use_canvas
-	grid_w:number
-	grid_h:number
-	canvas_w:number
-	canvas_h:number
+	grid:t_dim
+	all_grids:t_dim
+	canvas:t_dim
 }>({
-	canvas:{
-		ss:init_canvas(32, 32),
-		setss:(()=>{})
-	},
-	grid_h:25,
-	grid_w:25,
-	canvas_w:900,
-	canvas_h:900
+	grid:{w:25, h:25},
+	all_grids:{w:32,h:32},
+	canvas:{w:800,h:800}
 })

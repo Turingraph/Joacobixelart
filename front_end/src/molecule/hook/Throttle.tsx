@@ -18,18 +18,16 @@ export function RefThrottle<t>(
 	}
 }
 
-export function Throttle<t>(
+export function f_throttle(
 	Ref_Time:RefObject<number>, 
-	input:t, 
 	delay:number,
-	func:a.t_func_x<t>
+	func:a.t_func
 )
 {
 	const now = Date.now();
 	if (now - Ref_Time.current >= delay)
 	{
 		Ref_Time.current = now
-		func(input)
+		func()
 	}
 }
-

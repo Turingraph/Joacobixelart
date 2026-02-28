@@ -1,7 +1,7 @@
 import * as fc from "fabric"
 import { useContext, useEffect, useRef } from "react"
 import { get_point_grids, update_grids } from "./paint"
-import { t_canvas_on_click, t_dim, t_rgb_point } from "./type"
+import { t_canvas_mouse_down, t_canvas_on_click, t_dim, t_practical_shape } from "./type"
 import * as a from "../../atom/type/alias"
 import { f_throttle } from "../../molecule/hook/Throttle"
 import { CONTEXT_CANVAS } from "../../molecule/hook/context"
@@ -45,20 +45,22 @@ export default function CANVAS_BASIC({
 	pixel_rgb,
 	f_on_click,
 	f_mouse_down = {
-		func:((input)=>{}) as a.t_func_x<t_rgb_point & {target:fc.Polyline[]}>,
-		target:"NORMAL"
+		scale:"LOCAL",
+		func:((input)=>{}) as a.t_func_x<t_practical_shape>
 	},
 }:{
 	pixel_size?:number,
 	pixel_rgb:string|undefined,
 	f_on_click:t_canvas_on_click,
-	f_mouse_down?:t_canvas_on_click,
+	f_mouse_down?:t_canvas_mouse_down,
 })
 {
 	const {grid, all_grids, canvas} = useContext(CONTEXT_CANVAS)
 	const Ref_Time = useRef<number>(0)
 	const Ref_Canvas = useRef<null|any>(null)
-	const Ref_Hover = useRef<undefined|number>(undefined)
+	const Ref_CurrentGrid = useRef<undefined|number>(undefined)
+	const Ref_PrevGrid = useRef<undefined|number>(undefined)
+	const Ref_FirstGrid = useRef<undefined|number>(undefined)
 	const Ref_MouseDown = useRef<boolean>(false)
 	// const pixel_size = useContext(CONTEXT_USE_STATE_GLOBAL).pixel_size.ss
 	useEffect(()=>{
@@ -116,16 +118,18 @@ export default function CANVAS_BASIC({
 				)
 				{
 					func(hover)
-					Ref_Hover.current = hover
+					Ref_CurrentGrid.current = hover
 					init_canvas.requestRenderAll()
 				}
 			}
 			function do_not_hover()
 			{
-				if (Ref_Hover.current)
-					update_grids(
-						get_point_grids(all_grids, {grid:Ref_Hover.current, size:pixel_size}),
-						group_hover, "#FFFFFF00")
+				let grid = 0
+				if (Ref_CurrentGrid.current)
+					grid = Ref_CurrentGrid.current
+				update_grids(
+					get_point_grids(all_grids, {grid:grid, size:pixel_size}),
+					group_hover, "#FFFFFF00")
 			}
 			init_canvas.on({
 				// https://stackoverflow.com/questions/41848370/
@@ -135,12 +139,12 @@ export default function CANVAS_BASIC({
 						e.target.hoverCursor = init_canvas.defaultCursor;
 				},
 				"mouse:out":()=>{
-					if (Ref_Hover.current !== undefined){
-						do_not_hover()
-						if (Ref_MouseDown.current === true && f_mouse_down.target === "HOVER")
-							f_mouse_down.func({grid:Ref_Hover.current, rgb:undefined, size:pixel_size, target:group_hover})		
-						Ref_MouseDown.current = false
-						Ref_Hover.current = undefined
+					if (Ref_CurrentGrid.current !== undefined){
+						do_not_hover()		
+						// Ref_MouseDown.current = false
+						// Ref_CurrentGrid.current = undefined
+						// Ref_PrevGrid.current = undefined
+						// Ref_FirstGrid.current = undefined
 						init_canvas.requestRenderAll()
 					}
 				},
@@ -148,16 +152,25 @@ export default function CANVAS_BASIC({
 					Ref_MouseDown.current = true
 					do_not_hover()
 					mouse_update_grid(e, ((input:number)=>{
-						f_on_click.func({grid:input, size:pixel_size, rgb:pixel_rgb,
-							target:f_on_click.target === "HOVER" ? group_hover : group})
+						f_on_click({grid:input, size:pixel_size, rgb:pixel_rgb,
+							target:group})
+						Ref_PrevGrid.current = input
+						Ref_FirstGrid.current = input
 					}) as a.t_func_x<number>)
 				},
 				"mouse:up":()=>{
-					if (Ref_MouseDown.current === true && Ref_Hover.current && f_mouse_down.target === "HOVER")
+					if (f_mouse_down.scale === "GLOBAL" && Ref_FirstGrid.current && Ref_PrevGrid.current)
+						f_mouse_down.func({size:pixel_size, rgb:undefined, target:group_hover,
+							grid_1:Ref_FirstGrid.current, grid_2:Ref_PrevGrid.current})
+					if (f_mouse_down.scale === "GLOBAL" && Ref_FirstGrid.current && Ref_CurrentGrid.current)
 					{
-						f_mouse_down.func({grid:Ref_Hover.current, rgb:pixel_rgb, size:pixel_size, target:group})
-						f_mouse_down.func({grid:Ref_Hover.current, rgb:undefined, size:pixel_size, target:group_hover})
+						f_mouse_down.func({size:pixel_size, rgb:undefined, target:group_hover,
+							grid_1:Ref_FirstGrid.current, grid_2:Ref_CurrentGrid.current})
+						f_mouse_down.func({size:pixel_size, rgb:pixel_rgb, target:group,
+							grid_1:Ref_FirstGrid.current, grid_2:Ref_CurrentGrid.current})
 					}
+					Ref_PrevGrid.current = undefined
+					Ref_FirstGrid.current = undefined
 					Ref_MouseDown.current = false
 				},
 				"mouse:move":(e:any)=>{
@@ -170,15 +183,19 @@ export default function CANVAS_BASIC({
 								group_hover, "#FFFFFF55")
 						else
 						{
-							let target = group
-							if (Ref_Hover.current && f_mouse_down.target === "HOVER")
-							{
-								target = group_hover
-								f_mouse_down.func({grid:Ref_Hover.current, size:pixel_size, 
-									rgb:undefined, target:target})
-							}
-							f_mouse_down.func({grid:input, size:pixel_size, 
-								rgb:pixel_rgb, target:target})
+							// console.log("-----------------------------------------------------------")
+							// console.log("Ref_CurrentGrid.current", Ref_CurrentGrid.current)
+							// console.log("Ref_PrevGrid.current", Ref_PrevGrid.current)
+							if (f_mouse_down.scale === "GLOBAL" && Ref_FirstGrid.current && Ref_PrevGrid.current)
+								f_mouse_down.func({size:pixel_size, rgb:undefined, target:group_hover,
+									grid_1:Ref_FirstGrid.current, grid_2:Ref_PrevGrid.current})
+							if (f_mouse_down.scale === "GLOBAL" && Ref_FirstGrid.current && Ref_CurrentGrid.current)
+								f_mouse_down.func({size:pixel_size, rgb:pixel_rgb, target:group_hover,
+									grid_1:Ref_FirstGrid.current, grid_2:Ref_CurrentGrid.current})
+							else if (f_mouse_down.scale === "LOCAL" && Ref_PrevGrid.current && Ref_CurrentGrid.current)
+								f_mouse_down.func({size:pixel_size, rgb:pixel_rgb, target:group,
+									grid_1:Ref_PrevGrid.current, grid_2:Ref_CurrentGrid.current})
+							Ref_PrevGrid.current = Ref_CurrentGrid.current
 						}
 					}) as a.t_func_x<number>)
 					}) as a.t_func)

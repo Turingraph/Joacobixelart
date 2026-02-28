@@ -103,6 +103,8 @@ function translate_hex_char(char:string|number)
 		}
 		return output[0].value
 	}
+	if (char > 15)
+		return "F"
 	let output = HEX_CHAR_DICT.filter((item)=> item.value === char)
 	if (output.length === 0)
 	{

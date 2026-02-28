@@ -1,34 +1,30 @@
-import { t_dim } from "../../atom/canvas/utils/type";
-import CANVAS_BASIC from "./canvas_basic";
-import MOUSE from "./mouse";
-import MY_TIME from "./my_time";
+import { CONTEXT_CANVAS } from "../../molecule/hook/context";
+// import CANVAS_BASIC from "./canvas_basic";
+import CANVAS_CLICK_USER from "./canvas_click_user";
+// import MOUSE from "./mouse";
+// import MY_TIME from "./my_time";
 
 export default function MIDDLE()
 {
 	return <div 
 	className="fill center_box" 
 	style={{backgroundColor:"#00FF00"}}>
+		<CONTEXT_CANVAS value={{
+			grid:{w:25, h:25},
+			all_grids:{w:32,h:32},
+			canvas:{w:800,h:800}
+		}}>
 		{/* <MY_TIME/> */}
-		<CANVAS_BASIC
-			grid={{
-				w:25,
-				h:25
-			} as t_dim}
-			all_grids={{
-				w:32,
-				h:32
-			} as t_dim}
-			canvas={{
-				w:800,
-				h:800
-			} as t_dim}/>
+		{/* <CANVAS_BASIC/> */}
+		<CANVAS_CLICK_USER/>
 		{/* <MOUSE/> */}
 		{/* <FABRIK/> */}
+		</CONTEXT_CANVAS>
 	</div>
 }
 
 /*
 To Do Now
-1.	Optimizing canvas_throttle (if it possible to do so)
+1.	Handle mouse-out event when draw straight line (GLOBAL mode and mouse_update_grid)
 2.	Add more functionality.
 */
