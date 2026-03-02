@@ -1,6 +1,6 @@
 import { CONTEXT_CANVAS } from "../../molecule/hook/context";
 // import CANVAS_BASIC from "./canvas_basic";
-import CANVAS_CLICK_USER from "./canvas_click_user";
+import CANVAS_CLICK_USER from "./canvas_object/canvas_click_user";
 // import MOUSE from "./mouse";
 // import MY_TIME from "./my_time";
 

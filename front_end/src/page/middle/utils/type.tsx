@@ -1,5 +1,5 @@
 import * as fc from "fabric"
-import * as a from "../../atom/type/alias"
+import * as a from "../../../atom/type/alias"
 
 export type t_dim = {
 	w:number,
@@ -8,6 +8,7 @@ export type t_dim = {
 
 export type t_rgb = {rgb:string|undefined}
 export type t_practical = t_rgb & {target:fc.Polyline[]}
+export type t_practical_config = t_practical & {size:number}
 
 //----------------------------------------------------------------------
 

@@ -1,10 +1,11 @@
 import * as fc from "fabric";
 import { useContext } from "react";
-import * as a from "../../atom/type/alias";
-import { CONTEXT_CANVAS, CONTEXT_USE_STATE_GLOBAL } from "../../molecule/hook/context";
+import * as a from "../../../atom/type/alias";
+import { CONTEXT_CANVAS, CONTEXT_USE_STATE_GLOBAL } from "../../../molecule/hook/context";
+import { draw_thicker_straight_line, update_grids } from "../draw/draw_fc_canvas";
+import { get_point_grids } from "../draw/draw_point";
+import { t_practical_shape, t_rgb_point } from "../utils/type";
 import CANVAS_BASIC from "./canvas_basic";
-import { draw_thicker_straight_line, get_point_grids, update_grids } from "./paint";
-import { t_practical_shape, t_rgb_point } from "./type";
 
 /*
 export function CANVAS_CLICK({

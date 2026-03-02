@@ -23,42 +23,42 @@ import { t_page_with_title } from "../../organism/layout/type";
 
 export const ARR_DRAW:t_B_LOGO[] = [
 	{
-		title:"Pen" as a.t_str_hover,
+		title:"Pen" as a.t_str_hover,		// 3
 		logo:pen as a.t_logo,
 		func:(()=>{}) as a.t_func
 	},
 	{
-		title:"Eraser" as a.t_str_hover,
+		title:"Eraser" as a.t_str_hover,	// 3
 		logo:eraser as a.t_logo,
 		func:(()=>{}) as a.t_func
 	},
 	{
-		title:"Draw straight Line" as a.t_str_hover,
+		title:"Draw straight Line" as a.t_str_hover, // 2
 		logo:line as a.t_logo,
 		func:(()=>{}) as a.t_func
 	},
 	{
-		title:"Mittor Pen" as a.t_str_hover,
+		title:"Mittor Pen" as a.t_str_hover,	// 3
 		logo:mirror_pen as a.t_logo,
 		func:(()=>{}) as a.t_func
 	},
 	{
-		title:"Bucket" as a.t_str_hover,
+		title:"Bucket" as a.t_str_hover,	// 1
 		logo:bucket as a.t_logo,
 		func:(()=>{}) as a.t_func
 	},
 	{
-		title:"Replace selected color with new color" as a.t_str_hover,
+		title:"Replace selected color with new color" as a.t_str_hover, // 1
 		logo:replace_rgb as a.t_logo,
 		func:(()=>{}) as a.t_func
 	},
 	{
-		title:"Draw rectangle" as a.t_str_hover,
+		title:"Draw rectangle" as a.t_str_hover,	// 2
 		logo:rectangle as a.t_logo,
 		func:(()=>{}) as a.t_func
 	},
 	{
-		title:"Draw Circle" as a.t_str_hover,
+		title:"Draw Circle" as a.t_str_hover,	// 2
 		logo:circle as a.t_logo,
 		func:(()=>{}) as a.t_func
 	},
@@ -73,7 +73,7 @@ export const ARR_DRAW:t_B_LOGO[] = [
 		func:(()=>{}) as a.t_func
 	},
 	{
-		title:"Pick rgb color" as a.t_str_hover,
+		title:"Pick rgb color" as a.t_str_hover,	// 0
 		logo:rgb_picker as a.t_logo,
 		func:(()=>{}) as a.t_func
 	}]
