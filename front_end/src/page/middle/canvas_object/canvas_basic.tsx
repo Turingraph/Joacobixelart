@@ -4,9 +4,9 @@ import * as a from "../../../atom/type/alias"
 import { CONTEXT_CANVAS, CONTEXT_USE_STATE_GLOBAL } from "../../../molecule/hook/context"
 import { create_border, create_canvas, create_grids } from "../canvas_action/create_canvas"
 import { do_hover, event_hover, event_mouse_down } from "../canvas_action/hover_event"
+import { event_draw_throttle_local, event_on_click_grid } from "../canvas_action/paint_event_local"
 import { get_edge_index, is_mouse_in_canvas, mouse_to_ith_grid } from "../utils/calculate_hover_position"
 import { t_canvas_on_click, t_practical_shape } from "../utils/type"
-import { event_mouse_paint_local } from "../canvas_action/paint_event_local"
 
 // https://www.geeksforgeeks.org/javascript/
 // fabric-js-polygon-lockmovementx-property/
@@ -63,7 +63,21 @@ export default function CANVAS_BASIC({
 				do_hover(all_grids, group_hover, pixel_size), Ref_TimeHover
 			)
 			event_mouse_down(main_canvas, Ref_MouseDown)
-			event_mouse_paint_local(
+			event_on_click_grid(
+				main_canvas,
+				((input:number)=>{
+					f_on_click({
+						grid:input,
+						rgb:pixel_rgb,
+						size:pixel_size,
+						target:group
+					})
+				}) as a.t_func_x<number>,
+				((input:any)=>{
+					return get_grid_index_inout_canvas(input, undefined)
+				}) as a.t_func_xy<any, number|undefined>,
+			)				
+			event_draw_throttle_local(
 				// main_canvas
 				main_canvas,
 				// f_get_grid_index

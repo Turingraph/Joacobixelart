@@ -11,7 +11,7 @@ export function event_on_click_grid(
 	main_canvas.on({
 		"mouse:down":(e)=>{
 			const index = f_get_grid_index(e)
-			if (index)
+			if (index !== undefined)
 			{
 				func(index)
 				main_canvas.requestRenderAll()
@@ -20,7 +20,7 @@ export function event_on_click_grid(
 	})
 }
 
-export function event_draw_fast(
+export function event_draw_throttle(
 	main_canvas:fc.Canvas,
 	func:a.t_func_x<number>,
 	f_get_grid_index:a.t_func_xy<any, number|undefined>,
@@ -41,7 +41,7 @@ export function event_draw_fast(
 	})
 }
 
-export function event_mouse_paint_local(
+export function event_draw_throttle_local(
 	main_canvas:fc.Canvas,
 	f_get_grid_index:a.t_func_xy<{
 		e:any, prev_grid:(number|undefined)
@@ -57,7 +57,7 @@ export function event_mouse_paint_local(
 		main_canvas, 
 		// func
 		((input:number)=>{
-			f_on_click(input)
+			// f_on_click(input)
 			Ref_PrevGrid.current = input
 		}) as a.t_func_x<number>, 
 		// f_get_grid_index
@@ -66,7 +66,7 @@ export function event_mouse_paint_local(
 			e:input, 
 			prev_grid:Ref_PrevGrid.current}))
 		}) as a.t_func_xy<any, number|undefined>)
-	event_draw_fast(
+	event_draw_throttle(
 		// main_canvas
 		main_canvas,
 		// func
