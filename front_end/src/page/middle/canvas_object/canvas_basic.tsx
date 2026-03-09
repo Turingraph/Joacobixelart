@@ -42,7 +42,10 @@ export default function CANVAS_BASIC({
 		if (is_mouse_in_canvas(mouse_position, canvas))
 			return hover
 		if (prev_grid !== undefined)
-			return get_edge_index(prev_grid, width, all_grids, grid, mouse_position)
+		{
+			let output = get_edge_index(prev_grid, width, all_grids, grid, mouse_position)
+			return output !== undefined ? output * -1 : undefined
+		}
 		return undefined
 	}
 	useEffect(()=>{
