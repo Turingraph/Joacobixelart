@@ -1,4 +1,4 @@
-import * as a from "../../atom/type/alias"
+import * as a from "../../../atom/type/alias"
 import RGB_TABLE from "./rgb_table"
 
 export default function RGB_EDITOR({

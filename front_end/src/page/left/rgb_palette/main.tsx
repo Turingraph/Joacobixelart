@@ -1,9 +1,9 @@
 import { useContext, useState } from "react"
-import * as a from "../../atom/type/alias"
-import useDragArr, { CONTEXT_DRAG } from "../../molecule/hook/useDragArr"
-import RGB_PICKER from "./rgb_picker"
+import * as a from "../../../atom/type/alias"
+import useDragArr, { CONTEXT_DRAG } from "../../../molecule/hook/useDragArr"
+import { CX_SS_PALETTE } from "./context"
 import RGB_EDITOR from "./rgb_editor"
-import { CX_SS_PALETTE } from "./main"
+import RGB_PICKER from "./rgb_picker"
 
 export default function RGB_PALETTE()
 {

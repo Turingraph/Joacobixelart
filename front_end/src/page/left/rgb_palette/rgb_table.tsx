@@ -1,13 +1,13 @@
 import { JSX, useContext, useState } from "react"
-import * as a from "../../atom/type/alias"
-import B_STR, { t_B_STR } from "../../molecule/button/b_str"
-import INPUT_STRING from "../../molecule/input/input_string"
-import SELECT_ONE_TAP from "../../molecule/selection_taps/select_one_tap"
-import { B_RGB_GRID } from "../../organism/button/b_rgb_grid"
-import { SELECT_MULTI_TAPS } from "../../molecule/selection_taps/select_multi_taps"
-import B_LOGO from "../../molecule/button/b_logo"
-import add_logo from "../../asset/items/add.png"
-import { CX_SS_PALETTE } from "./main"
+import * as a from "../../../atom/type/alias"
+import B_LOGO from "../../../molecule/button/b_logo"
+import B_STR, { t_B_STR } from "../../../molecule/button/b_str"
+import INPUT_STRING from "../../../molecule/input/input_string"
+import { SELECT_MULTI_TAPS } from "../../../molecule/selection_taps/select_multi_taps"
+import SELECT_ONE_TAP from "../../../molecule/selection_taps/select_one_tap"
+import { B_RGB_GRID } from "../../../organism/button/b_rgb_grid"
+import add_logo from "../../../asset/items/add.png"
+import { CX_SS_PALETTE } from "./context"
 
 export default function RGB_TABLE({
 	editor_or_picker,
