@@ -1,5 +1,5 @@
-import { CONTEXT_OTHER_JSX } from "../../atom/hook/context"
 import * as a from "../../atom/type/alias"
+import { CONTEXT_OTHER_JSX } from "../../atom/utils/context"
 import B_LOGO from "../../molecule/button/b_logo"
 import INPUT_NUMBER from "../../molecule/input/input_number"
 import { INPUT_RGB } from "../../molecule/input/input_rgb"

@@ -1,6 +1,6 @@
 import { useContext, useState } from "react"
 import * as a from "../../../atom/type/alias"
-import useDragArr, { CONTEXT_DRAG } from "../../../molecule/hook/useDragArr"
+import useDragArr, { CONTEXT_DRAG } from "../../../molecule/selection_taps/useDragArr"
 import { CX_SS_PALETTE } from "./context"
 import RGB_EDITOR from "./rgb_editor"
 import RGB_PICKER from "./rgb_picker"

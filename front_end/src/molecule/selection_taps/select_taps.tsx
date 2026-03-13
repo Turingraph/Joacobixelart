@@ -1,6 +1,6 @@
 import { JSX, useContext } from "react";
-import { CONTEXT_OTHER_JSX } from "../../atom/hook/context";
 import * as a from "../../atom/type/alias";
+import { CONTEXT_OTHER_JSX } from "../../atom/utils/context";
 import TAP from "./tap";
 
 export default function SELECT_TAPS({
