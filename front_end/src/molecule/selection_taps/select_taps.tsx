@@ -1,7 +1,7 @@
 import { JSX, useContext } from "react";
 import * as a from "../../atom/type/alias";
 import { CONTEXT_OTHER_JSX } from "../../atom/utils/context";
-import TAP from "./tap";
+import DRAG_TAP from "./drag_tap";
 
 export default function SELECT_TAPS({
 	class_name = "middle_taps_x",
@@ -23,7 +23,7 @@ export default function SELECT_TAPS({
 		})}
 		{jsx_select_array.map((item, i:number)=>{
 			let index = current_key + i
-			return <TAP 
+			return <DRAG_TAP 
 				f_on_click={f_click_select as a.t_func_x<number>}
 				select={f_highlight(i)}
 				item={item}

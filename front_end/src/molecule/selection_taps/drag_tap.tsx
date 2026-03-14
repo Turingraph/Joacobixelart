@@ -2,7 +2,7 @@ import { JSX, useContext } from "react";
 import * as a from "../../atom/type/alias";
 import { child_drag_start, child_mouse_down, CONTEXT_DRAG, parent_drag_end, parent_drag_enter } from "./useDragArr";
 
-export default function TAP({
+export default function DRAG_TAP({
 	f_on_click = ((index:number)=>{}) as a.t_func_x<number>,
 	select = false,
 	item = <></>,
