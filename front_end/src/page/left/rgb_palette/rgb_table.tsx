@@ -1,4 +1,4 @@
-import { JSX, useContext, useState } from "react"
+import { JSX, useContext, useEffect, useState } from "react"
 import * as a from "../../../atom/type/alias"
 import B_LOGO from "../../../molecule/button/b_logo"
 import B_STR, { t_B_STR } from "../../../molecule/button/b_str"
@@ -18,8 +18,12 @@ export default function RGB_TABLE({
 })
 {
 	const {ss: SS_RGBArr, setss: setSS_RGBArr} = useContext(CX_SS_PALETTE).rgb_arr
-	const SS_NewRGB = useContext(CX_SS_PALETTE).new_rgb.ss
+	const {ss:SS_NewRGB, setss:setSS_NewRGB} = useContext(CX_SS_PALETTE).new_rgb
 	const [SS_SelectRGB, setSS_SelectRGB] = useState<number>(0)
+	useEffect(()=>{
+		if (editor_or_picker !== undefined)
+			setSS_NewRGB(SS_RGBArr[SS_SelectRGB].rgb)
+	}, [SS_SelectRGB, SS_RGBArr, setSS_NewRGB, editor_or_picker])
 	const rgb_palettes_grids = SS_RGBArr.map((item, index)=>{
 		return <B_RGB_GRID rgb={item.rgb} key={index}/>
 	})
