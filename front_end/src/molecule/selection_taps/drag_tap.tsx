@@ -24,7 +24,7 @@ export default function DRAG_TAP({
 		onDragEnd={()=>{
 			if (drag !== undefined)
 			{
-				if (drag?.Ref_DragNewIndex.current !== undefined)
+				if (drag?.Ref_DragNewIndex.current !== undefined && drag?.high_light === true)
 					f_on_click(drag?.Ref_DragNewIndex.current)
 				parent_drag_end(drag?.setSS_Arr, drag?.Ref_DragOldIndex, drag?.Ref_DragNewIndex, drag?.setSS_DragOldIndex)
 			}}}

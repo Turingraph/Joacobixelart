@@ -67,7 +67,7 @@ export default function useDragArr()
 }
 
 export const CONTEXT_DRAG = createContext<undefined
-|t_use_drag_arr & {setSS_Arr:t_setss_arr<any, any>}>(undefined)
+|t_use_drag_arr & {setSS_Arr:t_setss_arr<any, any>, high_light:boolean}>(undefined)
 
 /*
 // setSS_DragOldIndex is used for indicating which item is dragged at a time.

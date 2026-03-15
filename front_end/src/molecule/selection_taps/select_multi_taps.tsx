@@ -10,7 +10,7 @@ k extends keyof t>({
 	jsx_select_array,
 	arr,
 }:{
-	class_name?:"middle_taps_x"|"middle_taps_y"|"left_taps"
+	class_name?:"middle_taps_x"|"middle_taps_y"|"left_taps"|"left_table_taps"
 	jsx_select_array:JSX.Element[],
 	arr:t_use_arr<t, k>
 }){

@@ -10,6 +10,7 @@ import { B_RGB_PALETTE } from "../../../organism/button/b_rgb_palette"
 import { CX_SS_PALETTE } from "./context"
 import { t_use_arr } from "../../../atom/arr/act"
 import { t_rgb_palettes } from "../../../atom/arr/type"
+import useDragArr, { CONTEXT_DRAG } from "../../../molecule/selection_taps/useDragArr"
 
 export default function RGB_TABLE({
 	editor_or_picker,
@@ -23,6 +24,11 @@ export default function RGB_TABLE({
 {
 	const {ss:SS_NewRGB, setss:setSS_NewRGB} = useContext(CX_SS_PALETTE).new_rgb
 	const [SS_SelectRGB, setSS_SelectRGB] = useState<number>(0)
+	const {
+		Ref_DragOldIndex	,
+		Ref_DragNewIndex	,
+		SS_DragOldIndex		,
+		setSS_DragOldIndex } = useDragArr()
 	useEffect(()=>{
 		if (editor_or_picker !== undefined && rgb_arr.ss.length > 0 && SS_SelectRGB < rgb_arr.ss.length)
 			setSS_NewRGB(rgb_arr.ss[SS_SelectRGB].rgb)
@@ -53,7 +59,15 @@ export default function RGB_TABLE({
 			})
 		}) as a.t_func}
 	/>
-	return <>
+	return <CONTEXT_DRAG 
+		value={{
+			Ref_DragOldIndex:Ref_DragOldIndex,
+			Ref_DragNewIndex:Ref_DragNewIndex,
+			SS_DragOldIndex	:SS_DragOldIndex,
+			setSS_DragOldIndex:setSS_DragOldIndex,
+			setSS_Arr:rgb_arr.setss,
+			high_light:editor_or_picker === undefined ? false : true
+		}}>
 	<SELECT_ONE_TAP
 	class_name={"middle_taps_x"}
 	jsx_select_array={buttons}
@@ -63,12 +77,12 @@ export default function RGB_TABLE({
 	{/*** RGB_PICKER ***/}
 	{editor_or_picker !== undefined ? 
 	<SELECT_ONE_TAP
-		class_name={"left_taps"}
+		class_name={"left_table_taps"}
 		jsx_select_array={rgb_palettes_grids}
 		use_select_item={{ss:SS_SelectRGB, setss:setSS_SelectRGB}}
 	/*** RGB_EDITOR ***/
 	/> : <SELECT_MULTI_TAPS
-		class_name={"left_taps"}
+		class_name={"left_table_taps"}
 		jsx_select_array={[
 			...rgb_palettes_grids, 
 			b_add_new_rgb
@@ -76,5 +90,5 @@ export default function RGB_TABLE({
 		arr={rgb_arr}
 	/>
 	}
-	</>
+	</CONTEXT_DRAG>
 }
